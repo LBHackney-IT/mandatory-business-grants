@@ -76,7 +76,7 @@ jobs:
       - *attach_workspace
       - run:
           name: deploy
-          command: yarn build && yarn --production=true && sudo npm i -g serverless && sls deploy -s production
+          command: yarn build && yarn --production=true && sudo npm i -g serverless && sls deploy --stage production
 
   assume-role-staging:
     executor: docker-python
