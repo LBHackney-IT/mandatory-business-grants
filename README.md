@@ -1,6 +1,8 @@
-# Discretionary Business Grants
+# COVID Business Grants
 
-This application was developed, for [Hackney Council](https://hackney.gov.uk/), to allow small businesses to apply for discretionary support grants during the 2020 coronavirus (COVID-19) pandemic.
+**NOTE: This application is based on the work in https://github.com/LBHackney-IT/discretionary-business-grants - which provides all the groundwork for this application. The clone of the work is to enable this and the discretionary business grants to be running at the same time while beoing able to rapidly change each application without affecting the other. **
+
+This application was developed, for [Hackney Council](https://hackney.gov.uk/), to allow small businesses to apply for covid support grants during the second government mandated lockdown during the 2020 coronavirus (COVID-19) pandemic.
 
 It consists of a, publicly available, front end for applicants and a restricted back end for Grant Administrators to process claims.
 
@@ -23,7 +25,7 @@ Application submissions were closed at 2020-06-26T23:00:00.000Z. The front end r
 
 ### Mimetypes on s3 files
 
-If the application is re-enabled - when users upload supporting documents they will be stored in S3 with the wrong mime type set. See [here](https://github.com/LBHackney-IT/discretionary-business-grants/blob/master/docs/S3-METADATA.md) for a complete description and fix.
+If the application is re-enabled - when users upload supporting documents they will be stored in S3 with the wrong mime type set. See [here](https://github.com/LBHackney-IT/mandatory-business-grants/blob/master/docs/S3-METADATA.md) for a complete description and fix.
 
 ## Technology
 
@@ -41,7 +43,7 @@ Create your `.env` file from `.env.sample`. You will need to grab some secrets f
 
 So that the auth token from using Staging/Production can work with your local dev environment and you will be able to access the admin section etc., add the following to your `/etc/hosts` file...
 
-    127.0.0.1       dev.discretionarybusinessgrants.hackney.gov.uk
+    127.0.0.1       dev.covidbusinessgrants.hackney.gov.uk
 
 Run the development server:
 
@@ -125,10 +127,10 @@ To run database migrations against the RDS databases on AWS you need to run the 
 4. Click 'Start Session'
 5. Select an instance (there should only be 1)
 6. Click 'Start Session' - This should open up a terminal like window in your browser
-7. Run `cd ~/discretionary-business-grants/ && git pull && npm run dbmigrate up`
+7. Run `cd ~/mandatory-business-grants/ && git pull && npm run dbmigrate up`
 
 To seed the AWS database start as session as above and then run:
-`cd ~/discretionary-business-grants/ && source ./.env && cat db/seeds.sql | psql $DATABASE_URL`
+`cd ~/mandatory-business-grants/ && source ./.env && cat db/seeds.sql | psql $DATABASE_URL`
 
 ## Staging/Production PostgresSQL command line access
 
@@ -149,7 +151,7 @@ Currently this is created manually, which is not ideal. We could perhaps look at
   - The poorly named “bastion_profile“ role which has the correct Systems manager policy etc. and will come out the other end as "instance_role"
   - "Access to Postgres" security group
   - SessionManagerKey
-  - Name “RDS Jump Box - Discretionary Business Grants"
+  - Name “RDS Jump Box - Covid Business Grants"
 - Then you probably need to add it to Systems Manager
   - Go to AWS Systems Manager Quick Setup
   - Client "Edit all"
@@ -176,15 +178,15 @@ Currently this is created manually, which is not ideal. We could perhaps look at
   ```
   - Clone the repository
   ```bash
-  cd ~ && git clone git@github.com:LBHackney-IT/discretionary-business-grants.git
+  cd ~ && git clone git@github.com:LBHackney-IT/mandatory-business-grants.git
   ```
   - Install dependencies
   ```bash
-  cd ~/discretionary-business-grants && npm install
+  cd ~/mandatory-business-grants && npm install
   ```
   - Add the DATABASE_URL environment variable (you can get the database details from the Lambda environment variables)
   ```bash
-  echo "export DATABASE_URL=postgres://<username>:<password>@<endpoint>:<port>/discretionaryBusinessGrantsDb" >> ~/.bashrc
+  echo "export DATABASE_URL=postgres://<username>:<password>@<endpoint>:<port>/covidBusinessGrantsDb" >> ~/.bashrc
   source ~/.bashrc
   ```
   - Install PostgreSQL so we can use the client
