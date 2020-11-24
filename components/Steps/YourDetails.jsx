@@ -33,7 +33,7 @@ const Step1 = (props) => {
         {...getInputProps('contact', 'address', { register }, errors)}
       />
       <DateInput
-        {...getInputProps('declaration', 'dateOfBirth', { control }, errors)}
+        {...getInputProps('contact', 'dateOfBirth', { control }, errors)}
       />
       <Button className="govuk-button" text="Next" type="submit" />
     </form>

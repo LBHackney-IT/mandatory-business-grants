@@ -159,8 +159,9 @@ export const inputLabels = {
       validation: {
         validate: {
           valid: (value) =>
-            isValid(new Date(value)) || 'Must be a is valid Date',
-          past: (value) => isPast(new Date(value)) || 'Must be a past Date',
+            value && (isValid(new Date(value)) || 'Must be a valid Date'),
+          past: (value) =>
+            value && (isPast(new Date(value)) || 'Must be a past Date'),
         },
       },
     },
