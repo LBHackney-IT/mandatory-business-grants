@@ -7,14 +7,14 @@ import * as HttpStatus from 'http-status-codes';
 import { steps, stepPath, stepKeys } from 'components/Steps';
 import { isExpired } from 'utils/date';
 
-const getAdjacentSteps = step => {
-  const currentStep = stepKeys.findIndex(s => s === step);
+const getAdjacentSteps = (step) => {
+  const currentStep = stepKeys.findIndex((s) => s === step);
   return {
     previousStep: currentStep > 0 ? `/step/${stepKeys[currentStep - 1]}` : null,
     nextStep:
       currentStep < stepKeys.length
         ? `/step/${stepKeys[currentStep + 1]}`
-        : null
+        : null,
   };
 };
 
@@ -52,7 +52,7 @@ const FormWizard = () => {
       <main className="govuk-main-wrapper">
         <Step
           formData={formData}
-          saveData={data => setFormData({ ...formData, ...data })}
+          saveData={(data) => setFormData({ ...formData, ...data })}
           nextStep={nextStep}
           clearFormData={() => {
             setIsSubmitted(true);
@@ -72,11 +72,11 @@ export async function getServerSideProps({ res }) {
     isExpired(new Date(process.env.EXPIRATION_DATE), new Date())
   ) {
     res.writeHead(HttpStatus.MOVED_TEMPORARILY, {
-      Location: '/'
+      Location: '/',
     });
     res.end();
   }
   return {
-    props: {}
+    props: {},
   };
 }

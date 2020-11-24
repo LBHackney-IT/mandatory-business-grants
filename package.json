@@ -60,7 +60,7 @@
     "husky": ">=4",
     "jest": "^25.5.4",
     "lint-staged": ">=10",
-    "prettier": "^1.18.2",
+    "prettier": "^2.2.0",
     "prop-types": "^15.7.2",
     "sass": "^1.26.8",
     "start-server-and-test": "^1.11.0"
@@ -71,7 +71,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn unit-test"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

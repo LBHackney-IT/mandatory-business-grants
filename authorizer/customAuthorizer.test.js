@@ -4,7 +4,7 @@ describe('customAuthorizer', () => {
   it('allows an unauthenticated request to exactly a whitelisted endpoint and method', () => {
     const authorizeEvent = {
       path: '/api/urls',
-      requestContext: { httpMethod: 'POST' }
+      requestContext: { httpMethod: 'POST' },
     };
     const isAllowed = customAuthorize('')(undefined, authorizeEvent);
     expect(isAllowed).toBeTruthy();
@@ -13,7 +13,7 @@ describe('customAuthorizer', () => {
   it('allows an unauthenticated request to a child of a whitelisted endpoint and method', () => {
     const authorizeEvent = {
       path: '/api/postcode/e82ns',
-      requestContext: { httpMethod: 'GET' }
+      requestContext: { httpMethod: 'GET' },
     };
     const isAllowed = customAuthorize('')(undefined, authorizeEvent);
     expect(isAllowed).toBeTruthy();
@@ -22,7 +22,7 @@ describe('customAuthorizer', () => {
   it('reject an unauthenticated request to a whitelisted endpoint with an incorrect method', () => {
     const authorizeEvent = {
       path: '/api/applications',
-      requestContext: { httpMethod: 'GET' }
+      requestContext: { httpMethod: 'GET' },
     };
     const isAllowed = customAuthorize('')(undefined, authorizeEvent);
     expect(isAllowed).not.toBeTruthy();
@@ -31,7 +31,7 @@ describe('customAuthorizer', () => {
   it('rejects an unauthenticated request to a non-whitelisted endpoint', () => {
     const authorizeEvent = {
       path: '/api/secret/admin',
-      requestContext: { httpMethod: 'GET' }
+      requestContext: { httpMethod: 'GET' },
     };
     const isAllowed = customAuthorize('')(undefined, authorizeEvent);
     expect(isAllowed).not.toBeTruthy();
@@ -40,7 +40,7 @@ describe('customAuthorizer', () => {
   it('allows authenticated requests from users in the correct group', () => {
     const authorizeEvent = {
       path: '/api/secret/admin',
-      requestContext: { httpMethod: 'GET' }
+      requestContext: { httpMethod: 'GET' },
     };
     const decodedToken = { groups: ['ALLOWED'] };
     const allowedGroups = 'ALLOWED';
@@ -54,7 +54,7 @@ describe('customAuthorizer', () => {
   it('rejects authenticated requests from users not in the correct group', () => {
     const authorizeEvent = {
       path: '/api/secret/admin',
-      requestContext: { httpMethod: 'GET' }
+      requestContext: { httpMethod: 'GET' },
     };
     const decodedToken = { groups: ['NOT_ALLOWED'] };
     const allowedGroups = 'ALLOWED';

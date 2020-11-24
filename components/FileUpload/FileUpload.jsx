@@ -15,13 +15,13 @@ const FileUpload = ({
   uploadPrefix = 'test',
   defaultValue = [],
   error: { message: errorMessage } = {},
-  onChange
+  onChange,
 }) => {
   const [value, setValue] = useState();
   const [fileList, setFileList] = useState(defaultValue);
   const [error, setError] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const uploadFile = async file => {
+  const uploadFile = async (file) => {
     try {
       setUploading(true);
       setError(false);
@@ -42,7 +42,7 @@ const FileUpload = ({
   return (
     <div
       className={cx('govuk-form-group', {
-        'govuk-form-group--error': error
+        'govuk-form-group--error': error,
       })}
     >
       <label className="govuk-label govuk-label--m" htmlFor={name}>
@@ -58,12 +58,12 @@ const FileUpload = ({
       </label>
       <input
         className={cx('govuk-file-upload', {
-          'govuk-input--error': error
+          'govuk-input--error': error,
         })}
         id={name}
         name={name}
         type="file"
-        onChange={e => e.target.files[0] && uploadFile(e.target.files[0])}
+        onChange={(e) => e.target.files[0] && uploadFile(e.target.files[0])}
         aria-describedby={hint && `${name}-hint`}
         ref={inputRef}
         disabled={uploading}
@@ -73,12 +73,12 @@ const FileUpload = ({
       />
       {fileList && fileList.length > 0 && (
         <ul className="govuk-list govuk-body govuk-!-margin-bottom-9">
-          {fileList.map(file => (
+          {fileList.map((file) => (
             <li key={file}>
               {file.split('/').pop()}{' '}
               <span
                 role="button"
-                onClick={() => setFileList(fileList.filter(f => f !== file))}
+                onClick={() => setFileList(fileList.filter((f) => f !== file))}
               >
                 <DeleteIcon />
               </span>

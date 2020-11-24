@@ -16,29 +16,29 @@ const ApplicationsList = ({
   status,
   businessType,
   grantOfficer,
-  applicationId
+  applicationId,
 }) => {
   const columns = useMemo(
     () => [
       {
         Header: 'Business Name',
-        accessor: 'businessName'
+        accessor: 'businessName',
       },
       {
         Header: 'Application Id',
         accessor: 'clientGeneratedId',
-        disableSortBy: true
+        disableSortBy: true,
       },
       {
         Header: 'Submission',
         accessor: 'applicationDate',
-        Cell: ({ value }) => new Date(value).toLocaleString()
+        Cell: ({ value }) => new Date(value).toLocaleString(),
       },
       {
         Header: 'Status',
         accessor: 'status',
-        disableSortBy: true
-      }
+        disableSortBy: true,
+      },
     ],
     []
   );
@@ -46,7 +46,7 @@ const ApplicationsList = ({
     status,
     businessType,
     grantOfficer,
-    applicationId
+    applicationId,
   });
   const [error, setError] = useState();
   const [data, setData] = useState([]);
@@ -70,7 +70,9 @@ const ApplicationsList = ({
   useEffect(() => {
     fetchData(filters);
   }, [checkFilter]);
-  const setValues = useCallback(state => setFilters({ ...filters, ...state }));
+  const setValues = useCallback((state) =>
+    setFilters({ ...filters, ...state })
+  );
   const fetchData = useCallback(
     async ({ pageSize, pageIndex, sortBy, ...otherFilters }) => {
       if (isNaN(pageSize)) {
@@ -81,13 +83,13 @@ const ApplicationsList = ({
         page: pageIndex + 1,
         pageSize,
         sort: sortBy && `${sortBy.desc ? '-' : '+'}${sortBy.id}`,
-        ...otherFilters
+        ...otherFilters,
       };
       Router.push(
         '/admin',
         {
           pathname: '/admin',
-          query
+          query,
         },
         { shallow: true }
       );
@@ -120,26 +122,26 @@ const ApplicationsList = ({
         options={APPLICATION_STATE}
         label="Filter by Status:"
         value={filters.status}
-        onChange={status => setValues({ status })}
+        onChange={(status) => setValues({ status })}
       />
       <BasicSelect
         options={TYPE_OF_BUSINESS}
         label="Filter by Type of Business:"
         value={filters.businessType}
-        onChange={businessType => setValues({ businessType })}
+        onChange={(businessType) => setValues({ businessType })}
       />
       {officers && (
         <BasicSelect
           options={officers}
           label="Filter by Grant Officer:"
           value={filters.grantOfficer}
-          onChange={grantOfficer => setValues({ grantOfficer })}
+          onChange={(grantOfficer) => setValues({ grantOfficer })}
         />
       )}
       <TextInput
         label="Search by Application ID"
         value={filters.applicationId}
-        onChange={applicationIdEvent => {
+        onChange={(applicationIdEvent) => {
           setValues({ applicationId: applicationIdEvent.target.value });
         }}
       />

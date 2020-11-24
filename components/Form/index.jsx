@@ -15,5 +15,5 @@ export {
   Select,
   BasicSelect,
   TextInput,
-  TextArea
+  TextArea,
 };

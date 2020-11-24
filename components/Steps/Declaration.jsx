@@ -7,18 +7,18 @@ import {
   Radios,
   Checkbox,
   DateInput,
-  TextInput
+  TextInput,
 } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 
 import { STATE_AID_OPTION_WITH_MORE_Q } from 'lib/dbMapping';
 
-const Declaration = props => {
+const Declaration = (props) => {
   const [showOtherQuestions, setShowOtherQuestions] = useState(false);
   const { register, errors, control, watch, handleSubmit } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
   };
@@ -49,7 +49,7 @@ const Declaration = props => {
               'declaration',
               'organisationProvidingAid',
               {
-                register
+                register,
               },
               errors
             )}
@@ -108,7 +108,7 @@ const Declaration = props => {
           'declaration',
           'readUnderstoodDeclaration',
           {
-            register
+            register,
           },
           errors
         )}

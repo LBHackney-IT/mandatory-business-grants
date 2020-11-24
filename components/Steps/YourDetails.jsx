@@ -5,11 +5,11 @@ import { Button, TextInput, Select } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import AddressLookup from 'components/AddressLookup/AddressLookup';
 
-const Step1 = props => {
+const Step1 = (props) => {
   const { register, control, errors, handleSubmit } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
   };

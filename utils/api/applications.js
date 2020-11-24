@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const fetchApplications = async params => {
+export const fetchApplications = async (params) => {
   const { data } = await axios.get('/api/applications', {
-    params
+    params,
   });
   return data;
 };
@@ -12,12 +12,12 @@ export const patchApplications = async () => {
   return data;
 };
 
-export const fetchApplication = async applicationId => {
+export const fetchApplication = async (applicationId) => {
   const { data } = await axios.get(`/api/applications/${applicationId}`);
   return data;
 };
 
-export const postApplication = async applicationData => {
+export const postApplication = async (applicationData) => {
   const { data } = await axios.post('/api/applications', applicationData);
   return data;
 };

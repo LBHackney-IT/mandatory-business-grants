@@ -18,8 +18,8 @@ export default async (req, res) => {
           key: fileKey,
           ...fields,
           'X-Amz-Server-Side-Encryption': 'AES256',
-          'X-Amz-Meta-Description': clientGeneratedId
-        }
+          'X-Amz-Meta-Description': clientGeneratedId,
+        },
       })
     );
   } catch (error) {

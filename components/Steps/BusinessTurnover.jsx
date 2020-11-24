@@ -4,11 +4,11 @@ import Router from 'next/router';
 import { Button, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 
-const BusinessTurnover = props => {
+const BusinessTurnover = (props) => {
   const { register, errors, handleSubmit } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
   };

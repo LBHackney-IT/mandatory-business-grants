@@ -5,20 +5,20 @@ import { Button } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import ControlledFileUpload from 'components/FileUpload/FileUpload';
 
-const SupplementaryInformation = props => {
+const SupplementaryInformation = (props) => {
   const { handleSubmit, errors, control } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
-  const onSubmit = formData => {
+  const onSubmit = (formData) => {
     props.saveData(formData);
     Router.push(stepPath, props.nextStep);
   };
-  const sharedProps = name => ({
+  const sharedProps = (name) => ({
     ...getInputProps('supplementaryInformation', name, { control }, errors),
     uploadPrefix: props.formData.contact && props.formData.contact.emailAddress,
     defaultValue:
       props.formData.supplementaryInformation &&
-      props.formData.supplementaryInformation[name]
+      props.formData.supplementaryInformation[name],
   });
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

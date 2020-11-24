@@ -6,7 +6,7 @@ import SummaryList from 'components/SummaryList/SummaryList';
 import ExpandableDetails from 'components/ExpandableDetails/ExpandableDetails';
 import { getInputProps, hasAdminValidation, stepPath } from 'components/Steps';
 
-const MultiValue = value => (
+const MultiValue = (value) => (
   <div key={value}>
     <span>{value}</span>
     <br />
@@ -21,7 +21,7 @@ export const SummarySection = ({
   title,
   slug,
   register,
-  isExpandable
+  isExpandable,
 }) => {
   const Summary = (
     <SummaryList
@@ -34,14 +34,12 @@ export const SummarySection = ({
           adminValidation: hasAdminValidation(name, key),
           title: getInputProps(name, key).label,
           value: Array.isArray(value)
-            ? value.filter(Boolean).map(v => MultiValue(v.split('/').pop()))
+            ? value.filter(Boolean).map((v) => MultiValue(v.split('/').pop()))
             : typeof value === 'object'
-            ? Object.values(value)
-                .filter(Boolean)
-                .map(MultiValue)
+            ? Object.values(value).filter(Boolean).map(MultiValue)
             : typeof value === 'boolean'
             ? JSON.stringify(value)
-            : value
+            : value,
         }))}
     />
   );
@@ -49,7 +47,7 @@ export const SummarySection = ({
     <div
       className={cx({
         'govuk-!-margin-bottom-9': !isExpandable,
-        'govuk-!-margin-bottom-7': isExpandable
+        'govuk-!-margin-bottom-7': isExpandable,
       })}
     >
       <h2>
@@ -80,49 +78,49 @@ const sections = [
   {
     name: 'eligibilityCriteria',
     title: 'Eligibility Criteria',
-    slug: 'eligibility-criteria'
+    slug: 'eligibility-criteria',
   },
   {
     name: 'contact',
     title: 'Your details',
-    slug: 'your-details'
+    slug: 'your-details',
   },
   {
     name: 'business',
     title: 'Business details',
-    slug: 'business-details'
+    slug: 'business-details',
   },
   {
     name: 'turnover',
     title: 'Business Turnover',
-    slug: 'business-turnover'
+    slug: 'business-turnover',
   },
   {
     name: 'fixedPropertyCosts',
     title: 'Fixed property related costs',
-    slug: 'property-costs'
+    slug: 'property-costs',
   },
   {
     name: 'supplementaryInformation',
     title: 'Supplementary Information',
-    slug: 'supplementary-information'
+    slug: 'supplementary-information',
   },
   {
     name: 'businessBankAccount',
     title: 'Bank details',
-    slug: 'bank-details'
+    slug: 'bank-details',
   },
   {
     name: 'declaration',
     title: 'State Aid Declaration',
-    slug: 'declaration'
-  }
+    slug: 'declaration',
+  },
 ];
 
 const Summary = ({ filterOut, validationRecap, ...props }) =>
   sections
-    .filter(section => !filterOut || filterOut.indexOf(section.name) === -1)
-    .map(section => (
+    .filter((section) => !filterOut || filterOut.indexOf(section.name) === -1)
+    .map((section) => (
       <SummarySection
         key={section.slug}
         validationRecap={validationRecap}
@@ -135,7 +133,7 @@ Summary.propTypes = {
   formData: PropTypes.shape({}).isRequired,
   filterOut: PropTypes.arrayOf(PropTypes.string),
   isExpandable: PropTypes.bool,
-  hasChangeLink: PropTypes.bool
+  hasChangeLink: PropTypes.bool,
 };
 
 export default Summary;

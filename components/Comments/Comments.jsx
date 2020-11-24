@@ -27,7 +27,7 @@ const Comments = ({ applicationId, status, grantAmountAwarded }) => {
     setError(false);
     try {
       await axios.post(`/api/applications/${applicationId}/comments`, {
-        notes
+        notes,
       });
       fetchData();
       reset();
@@ -46,7 +46,7 @@ const Comments = ({ applicationId, status, grantAmountAwarded }) => {
       <h2 className="govuk-heading-l">Comments</h2>
       {data &&
         data.length > 0 &&
-        data.map(comment => (
+        data.map((comment) => (
           <div key={comment.dateTimeRecorded}>
             <div className="govuk-heading-s">
               {comment.userRecorded}
@@ -74,7 +74,7 @@ const Comments = ({ applicationId, status, grantAmountAwarded }) => {
 Comments.propTypes = {
   applicationId: PropTypes.string.isRequired,
   status: PropTypes.string,
-  grantAmountAwarded: PropTypes.string
+  grantAmountAwarded: PropTypes.string,
 };
 
 export default Comments;
