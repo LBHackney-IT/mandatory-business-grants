@@ -7,10 +7,10 @@ import WarningText from 'components/WarningText/WarningText';
 export default function Home({ date, expirationDate }) {
   return (
     <div>
-      <h1>Apply for the COVID-19 Local Authority Discretionary Grants Fund</h1>
+      <h1>Apply for the COVID-19 Local Authority Business Grants Fund</h1>
       <p className="govuk-body">
-        The Discretionary Grant Fund supports small and micro businesses that
-        are not eligible for other grant schemes.
+        The Business Grant Fund supports small and micro businesses that are not
+        eligible for other grant schemes.
       </p>
       <p className="govuk-body">
         For further information please go to{' '}
@@ -46,9 +46,9 @@ export default function Home({ date, expirationDate }) {
         </button>
       )}
       <WarningText>
-        Please note that applications for the Discretionary Business Grant close
-        at 23:59 on Friday 28th August 2020. Any applications submitted after
-        this time will be invalid.
+        Please note that applications for the Business Grants close at 23:59 on
+        Friday 28th August 2020. Any applications submitted after this time will
+        be invalid.
       </WarningText>
     </div>
   );
