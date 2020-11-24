@@ -109,9 +109,9 @@ Below is a short guide to get started with configuring the database for your loc
 2.  Add the database URL as an environment variable in `.env`. On Linux, you may need to provide a username
     and password.
 
-        ```sh
-        $ echo DATABASE_URL=postgresql://localhost/dbg >> .env
-        ```
+    ```sh
+    $ echo DATABASE_URL=postgresql://localhost/dbg >> .env
+    ```
 
 3.  Run all migrations
 
