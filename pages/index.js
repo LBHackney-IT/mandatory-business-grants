@@ -8,10 +8,10 @@ import dateFormat from 'dateformat';
 export default function Home({ date, expirationDate }) {
   return (
     <div>
-      <h1>Apply for the COVID-19 Local Authority Discretionary Grants Fund</h1>
+      <h1>Apply for the COVID-19 Local Authority Business Grants Fund</h1>
       <p className="govuk-body">
-        The Discretionary Grant Fund supports small and micro businesses that
-        are not eligible for other grant schemes.
+        The Business Grant Fund supports small and micro businesses that are not
+        eligible for other grant schemes.
       </p>
       <p className="govuk-body">
         For further information please go to{' '}
@@ -47,8 +47,8 @@ export default function Home({ date, expirationDate }) {
         </button>
       )}
       <WarningText>
-        Please note that applications for the Discretionary Business Grant close
-        at {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
+        Please note that applications for the Business Grants close at
+        {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
         {dateFormat(new Date(expirationDate), 'dddd, mmmm dS yyyy')}. Any
         applications submitted after this time will be invalid.
       </WarningText>
@@ -60,7 +60,7 @@ export const getServerSideProps = () => {
   return {
     props: {
       date: new Date().getTime(),
-      expirationDate: process.env.EXPIRATION_DATE || null
-    }
+      expirationDate: process.env.EXPIRATION_DATE || null,
+    },
   };
 };

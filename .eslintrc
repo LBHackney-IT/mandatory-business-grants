@@ -4,10 +4,9 @@
     "commonjs": true,
     "es6": true,
     "node": true,
-    "jest": true,
-    "cypress/globals": true
+    "jest": true
   },
-  "plugins": ["react", "cypress", "jest"],
+  "plugins": ["react", "jest"],
   "parser": "babel-eslint",
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "parserOptions": {

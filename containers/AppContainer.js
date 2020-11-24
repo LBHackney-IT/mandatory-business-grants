@@ -51,6 +51,6 @@ export default (() => {
         delete instance.constructor;
       }
       return instance;
-    }
+    },
   };
 })();

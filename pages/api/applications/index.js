@@ -4,7 +4,7 @@ import AppContainer from '../../../containers/AppContainer';
 import { getUserStringFromCookie } from 'utils/auth';
 import {
   PAGE_MUST_BE_AT_LEAST_ONE,
-  PAGINATED_PAST_END
+  PAGINATED_PAST_END,
 } from '../../../lib/usecases/listApplications';
 import uploadApplication from '../../../lib/usecases/uploadApplication';
 import isValidApplication from '../../../lib/usecases/validators';
@@ -50,7 +50,7 @@ export default async (req, res) => {
           status,
           businessType,
           grantOfficer,
-          clientGeneratedId
+          clientGeneratedId,
         });
         if (
           [PAGE_MUST_BE_AT_LEAST_ONE, PAGINATED_PAST_END].includes(
@@ -104,7 +104,7 @@ export default async (req, res) => {
         res.setHeader('Content-Type', 'text/csv; charset=utf-8');
         res.setHeader('Content-Disposition', 'filename=export.csv');
         const patchResponse = await patchApplications({
-          author: getUserStringFromCookie(req.headers.cookie)
+          author: getUserStringFromCookie(req.headers.cookie),
         });
         res.end(patchResponse.csvString);
       } catch (error) {

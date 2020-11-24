@@ -4,11 +4,11 @@ import Router from 'next/router';
 import { Button, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 
-const PropertyCost = props => {
+const PropertyCost = (props) => {
   const { register, errors, handleSubmit } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
   };
@@ -38,7 +38,7 @@ const PropertyCost = props => {
               'fixedPropertyCosts',
               'year2018To2019',
               {
-                register
+                register,
               },
               errors
             )}
@@ -48,7 +48,7 @@ const PropertyCost = props => {
               'fixedPropertyCosts',
               'year2019To2020',
               {
-                register
+                register,
               },
               errors
             )}
@@ -58,7 +58,7 @@ const PropertyCost = props => {
               'fixedPropertyCosts',
               'itemsIncluded',
               {
-                register
+                register,
               },
               errors
             )}

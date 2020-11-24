@@ -20,7 +20,7 @@ const Result = ({ formData, clearFormData }) => {
       clearFormData();
       return Router.push({
         pathname: '/confirmation',
-        query: { ref }
+        query: { ref },
       });
     } catch (e) {
       setSubmitting(false);

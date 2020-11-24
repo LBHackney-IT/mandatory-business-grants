@@ -7,11 +7,11 @@ import { patchApplication } from 'utils/api/applications';
 const ApplicationGrantAmountSelector = ({
   grantAmountAwarded,
   onChange,
-  applicationId
+  applicationId,
 }) => {
   const [error, setError] = useState();
   const [value, setValue] = useState(grantAmountAwarded);
-  const handleOnChange = useCallback(async grantAmountAwarded => {
+  const handleOnChange = useCallback(async (grantAmountAwarded) => {
     setError(false);
     try {
       await patchApplication(applicationId, { grantAmountAwarded });

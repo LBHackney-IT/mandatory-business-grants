@@ -5,11 +5,11 @@ import fileUploader from 'utils/fileUpload';
 import { Button } from 'components/Form';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
-const Uploader = props => {
+const Uploader = (props) => {
   const [fileUploaded, setFileUploaded] = useState();
   const [error, setError] = useState();
   const { register, handleSubmit } = useForm({ defaultValues: props.formData });
-  const onSubmit = async formData => {
+  const onSubmit = async (formData) => {
     try {
       setError(false);
       setFileUploaded(false);

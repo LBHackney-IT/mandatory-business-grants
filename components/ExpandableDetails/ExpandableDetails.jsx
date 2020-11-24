@@ -14,7 +14,7 @@ const ExpandableDetails = ({ summary = 'show more', children }) => (
 
 ExpandableDetails.propTypes = {
   summary: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default ExpandableDetails;

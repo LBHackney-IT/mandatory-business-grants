@@ -8,7 +8,7 @@ import { patchApplication } from 'utils/api/applications';
 const ApplicationStateSelector = ({ status, onChange, applicationId }) => {
   const [error, setError] = useState();
   const [value, setValue] = useState(status);
-  const handleOnChange = useCallback(async status => {
+  const handleOnChange = useCallback(async (status) => {
     if (!value) {
       return null;
     }
@@ -37,7 +37,7 @@ const ApplicationStateSelector = ({ status, onChange, applicationId }) => {
 };
 
 ApplicationStateSelector.propTypes = {
-  status: PropTypes.string.isRequired
+  status: PropTypes.string.isRequired,
 };
 
 export default ApplicationStateSelector;

@@ -8,7 +8,7 @@ export default async (req, res) => {
       const s3Path = req.query.s3Path;
       try {
         res.writeHead(HttpStatus.MOVED_TEMPORARILY, {
-          Location: await signedUrl({ s3Path })
+          Location: await signedUrl({ s3Path }),
         });
         res.end();
       } catch (error) {

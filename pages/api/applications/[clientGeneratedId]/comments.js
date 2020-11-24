@@ -14,7 +14,7 @@ export default async (req, res) => {
         const listApplicationComments = container.getListApplicationComments();
         res.setHeader('Content-Type', 'application/json');
         let commentsResponse = await listApplicationComments({
-          clientGeneratedId
+          clientGeneratedId,
         });
         if (commentsResponse.error === APPLICATION_NOT_FOUND) {
           res.statusCode = HttpStatus.NOT_FOUND;
@@ -36,7 +36,7 @@ export default async (req, res) => {
         let addCommentResult = await addApplicationComment({
           clientGeneratedId,
           author: getUserStringFromCookie(req.headers.cookie),
-          notes: req.body.notes
+          notes: req.body.notes,
         });
         switch (addCommentResult.error) {
           case APPLICATION_NOT_FOUND:

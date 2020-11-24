@@ -26,14 +26,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: CYPRESS_CACHE_FOLDER=~/repo/cypress_cache yarn
-
-      #      - aws-cli/install
-      #
-      #      - aws-cli/setup:
-      #          aws-access-key-id: CYPRESS_AWS_ACCESS_KEY_ID
-      #          aws-secret-access-key: CYPRESS_AWS_SECRET_ACCESS_KEY
-      #          aws-region: CYPRESS_AWS_REGION
+          command: yarn
 
       - run:
           name: Build the application
@@ -46,16 +39,6 @@ jobs:
       - run:
           name: Run linting
           command: yarn lint
-
-      - run:
-          name: Run integration tests
-          command: CYPRESS_CACHE_FOLDER=~/repo/cypress_cache yarn run int-test
-
-      - store_artifacts:
-          path: ~/repo/cypress/screenshots
-
-      - store_artifacts:
-          path: ~/repo/cypress/videos
 
       - persist_to_workspace:
           root: *workspace_root

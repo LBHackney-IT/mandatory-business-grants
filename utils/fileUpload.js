@@ -8,7 +8,7 @@ const fileUploader = async (file, clientGeneratedId) => {
 
   const { data } = await axios.post('/api/urls', {
     clientGeneratedId: clientGeneratedId,
-    fileName: file.name
+    fileName: file.name,
   });
   const formData = new FormData();
   Object.entries(data.fields).forEach(([key, value]) =>
@@ -17,8 +17,8 @@ const fileUploader = async (file, clientGeneratedId) => {
   formData.append('file', file);
   await axios.post(data.url, formData, {
     headers: {
-      'Content-Type': 'multipart/form-data'
-    }
+      'Content-Type': 'multipart/form-data',
+    },
   });
   return data.fileKey;
 };

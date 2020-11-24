@@ -11,7 +11,7 @@ describe('postcodeAPI', () => {
           line4: 'foo',
           town: 'LONDON',
           postcode: 'E8 3AS',
-          uprn: 100021068079
+          uprn: 100021068079,
         })
       ).toEqual({
         address: {
@@ -20,9 +20,9 @@ describe('postcodeAPI', () => {
           thirdLine: '',
           ward: 'LONDON',
           postcode: 'E8 3AS',
-          uprn: 100021068079
+          uprn: 100021068079,
         },
-        addressText: '407 QUEENSBRIDGE ROAD, HACKNEY, LONDON'
+        addressText: '407 QUEENSBRIDGE ROAD, HACKNEY, LONDON',
       });
     });
   });
