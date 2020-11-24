@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 const fileUploader = async (file, clientGeneratedId) => {
-  //Pretends to upload the file if the relevant flag is set, this is used for local testing
-  if (process.env.FAKE_OUT_FILE_UPLOAD === 'true') {
-    return 'faked_it_out_for_local_testing.ext';
-  }
+  //Pretends to upload the file, this is used for local testing
+  //return 'faked_it_out_for_local_testing.ext';
 
   const { data } = await axios.post('/api/urls', {
     clientGeneratedId: clientGeneratedId,
