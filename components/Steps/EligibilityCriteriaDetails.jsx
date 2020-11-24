@@ -5,7 +5,6 @@ import Router from 'next/router';
 import { Button, Radios, Select, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import ErrorSummary from 'components/ErrorSummary/ErrorSummary';
-// import { VALID_BUSINESS_SIZE } from 'lib/dbMapping';
 
 const Step1 = (props) => {
   const { register, errors, handleSubmit } = useForm({
@@ -13,20 +12,8 @@ const Step1 = (props) => {
   });
   const [showError, setShowError] = useState(false);
   const onSubmit = (data) => {
-    // const hasSomeDeclines = Object.entries(data.eligibilityCriteria).some(
-    //   ([key, value]) =>
-    //     (value === 'Yes' &&
-    //       (key === 'servedLegalNotices' || key === 'receivedOtherGrants')) ||
-    //     (value === 'No' &&
-    //       key !== 'servedLegalNotices' &&
-    //       key !== 'receivedOtherGrants') ||
-    //     (key === 'businessSizeId' && VALID_BUSINESS_SIZE.indexOf(value) === -1)
-    // );
-    // setShowError(hasSomeDeclines);
-    // if (!hasSomeDeclines) {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
-    // }
   };
 
   return (
