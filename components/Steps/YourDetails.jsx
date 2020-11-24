@@ -3,7 +3,7 @@ import Router from 'next/router';
 
 import { Button, TextInput, DateInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
-import AddressLookup from 'components/AddressLookup/AddressLookup';
+import AddressLookup from 'components/Form/AddressLookup/AddressLookup';
 
 const Step1 = (props) => {
   const { register, control, errors, handleSubmit } = useForm({
@@ -30,8 +30,7 @@ const Step1 = (props) => {
         {...getInputProps('contact', 'telephoneNumber', { register }, errors)}
       />
       <AddressLookup
-        {...getInputProps('contact', 'address', { register, control }, errors)}
-        defaultValue={props.formData.contact && props.formData.contact.address}
+        {...getInputProps('contact', 'address', { register }, errors)}
       />
       <DateInput
         {...getInputProps('declaration', 'dateOfBirth', { control }, errors)}

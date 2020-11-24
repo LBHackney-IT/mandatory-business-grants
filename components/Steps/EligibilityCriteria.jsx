@@ -25,54 +25,52 @@ const Step1 = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="govuk-form-group">
-        <fieldset
-          className="govuk-fieldset"
-          role="group"
-          aria-describedby="step-hint"
-        >
-          <legend className="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 className="govuk-fieldset__heading">Eligibility Criteria</h1>
-          </legend>
-          <span id="step-hint" className="govuk-hint">
-            Applicants must meet all the eligibility questions to proceed to the
-            next section
-          </span>
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'tradingInHackney',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'liableForRates',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'isBusinessClosed',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-        </fieldset>
-      </div>
+      <fieldset
+        className="govuk-fieldset"
+        role="group"
+        aria-describedby="step-hint"
+      >
+        <legend className="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 className="govuk-fieldset__heading">Eligibility Criteria</h1>
+        </legend>
+        <span id="step-hint" className="govuk-hint">
+          Applicants must meet all the eligibility questions to proceed to the
+          next section
+        </span>
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'tradingInHackney',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'liableForRates',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'isBusinessClosed',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+      </fieldset>
       {showError && (
         <ErrorSummary
           title="Unfortunately you are not eligible for this grant."

@@ -1,3 +1,4 @@
+import AddressLookup from './AddressLookup/AddressLookup';
 import Button from './Button/Button';
 import Checkbox from './Checkbox/Checkbox';
 import DateInput from './DateInput/DateInput';
@@ -8,6 +9,7 @@ import Select from './Select/Select';
 import BasicSelect from './Select/BasicSelect';
 
 export {
+  AddressLookup,
   Button,
   Checkbox,
   DateInput,

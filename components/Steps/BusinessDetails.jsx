@@ -3,10 +3,10 @@ import Router from 'next/router';
 
 import { Button, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
-import AddressLookup from 'components/AddressLookup/AddressLookup';
+import AddressLookup from 'components/Form/AddressLookup/AddressLookup';
 
 const Step1 = (props) => {
-  const { register, handleSubmit, errors, control } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     defaultValues: props.formData,
   });
   const onSubmit = (data) => {
@@ -43,24 +43,12 @@ const Step1 = (props) => {
         {...getInputProps(
           'business',
           'businessTradingAddress',
-          { register, control },
+          { register },
           errors
         )}
-        defaultValue={
-          props.formData.business &&
-          props.formData.business.businessTradingAddress
-        }
       />
       <AddressLookup
-        {...getInputProps(
-          'business',
-          'businessAddress',
-          { register, control },
-          errors
-        )}
-        defaultValue={
-          props.formData.business && props.formData.business.businessAddress
-        }
+        {...getInputProps('business', 'businessAddress', { register }, errors)}
       />
       <TextInput
         {...getInputProps(

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
@@ -10,6 +11,7 @@ const TextInput = ({
   error,
   type = 'text',
   inputClassName,
+  labelSize = 'm',
   ...otherProps
 }) => (
   <div
@@ -17,7 +19,7 @@ const TextInput = ({
       'govuk-form-group--error': error,
     })}
   >
-    <label className="govuk-label govuk-label--m" htmlFor={name}>
+    <label className={`govuk-label govuk-label--${labelSize}`} htmlFor={name}>
       {label}
     </label>
     {hint && (
@@ -40,5 +42,18 @@ const TextInput = ({
     />
   </div>
 );
+
+TextInput.propTypes = {
+  label: PropTypes.string,
+  labelSize: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
+  hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  name: PropTypes.string.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+  }),
+  inputClassName: PropTypes.string,
+  type: PropTypes.string,
+  register: PropTypes.func,
+};
 
 export default TextInput;
