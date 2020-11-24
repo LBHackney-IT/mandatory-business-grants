@@ -1,11 +1,11 @@
-service: discretionary-business-grants
+service: covid-business-grants
 
 provider:
   name: aws
   runtime: nodejs12.x
   region: eu-west-2
   stage: ${opt:stage}
-  dbname: discretionaryBusinessGrantsDb
+  dbname: covidBusinessGrantsDb
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -20,7 +20,7 @@ package:
     - ./**
 
 functions:
-  discretionary-business-grants:
+  covid-business-grants:
     name: ${self:service}-${self:provider.stage}
     handler: lambda.handler
     package:
@@ -45,14 +45,14 @@ functions:
     vpc:
       securityGroupIds:
         - Fn::GetAtt:
-          - discretionaryBusinessGrantsDbSecurityGroup
+          - covidBusinessGrantsDbSecurityGroup
           - GroupId
       subnetIds: ${self:custom.subnets.${self:provider.stage}}
     environment:
       ENV: ${self:provider.stage}
       HOST:
         Fn::GetAtt:
-          - discretionaryBusinessGrantsDb
+          - covidBusinessGrantsDb
           - Endpoint.Address
       USERNAME: ${env:MASTER_USERNAME}
       PASSWORD: ${env:MASTER_USER_PASSWORD}
@@ -79,7 +79,7 @@ functions:
 
 resources:
   Resources:
-    discretionaryBusinessGrantsSupportingDocumentsBucket:
+    covidBusinessGrantsSupportingDocumentsBucket:
         Type: AWS::S3::Bucket
         Properties:
           BucketName: ${self:custom.bucket}
@@ -103,7 +103,7 @@ resources:
                   - PUT
                   - POST
                 MaxAge: 3000
-    discretionaryBusinessGrantsDbSecurityGroup:
+    covidBusinessGrantsDbSecurityGroup:
       Type: AWS::EC2::SecurityGroup
       Properties:
         GroupDescription: Access to Postgres
@@ -113,10 +113,10 @@ resources:
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
 
-    discretionaryBusinessGrantsDb:
+    covidBusinessGrantsDb:
       Type: "AWS::RDS::DBInstance"
       Properties:
-        DBInstanceIdentifier: "discretionary-business-grants-db-${self:provider.stage}"
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
         DBName: ${self:provider.dbname}
         AllocatedStorage: 5
         DBInstanceClass: "db.t2.micro"
@@ -126,12 +126,12 @@ resources:
         MasterUserPassword: ${env:MASTER_USER_PASSWORD}
         VPCSecurityGroups:
         - Fn::GetAtt:
-          - discretionaryBusinessGrantsDbSecurityGroup
+          - covidBusinessGrantsDbSecurityGroup
           - GroupId
         Tags:
           -
             Key: "Name"
-            Value: "discretionaryBusinessGrantsDb"
+            Value: "covidBusinessGrantsDb"
       DeletionPolicy: "Snapshot"
 
     CloudFrontDistribution:
@@ -183,8 +183,8 @@ custom:
         - eu-west-2
         - amazonaws.com
   aliases:
-    staging: staging-discretionarybusinessgrants.hackney.gov.uk
-    production: discretionarybusinessgrants.hackney.gov.uk
+    staging: staging-covidbusinessgrants.hackney.gov.uk
+    production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
     staging: arn:aws:acm:us-east-1:715003523189:certificate/8f7fa30c-a4e5-4775-b827-ade824a33c9a
     production: arn:aws:acm:us-east-1:153306643385:certificate/71728a39-cd3e-4570-a440-e87f84ef9a0d
@@ -198,5 +198,5 @@ custom:
       - subnet-03431a6c898502c99
       - subnet-0f02c86bab1d62956
   allowed-groups:
-    staging: 'DBG - Admin Staging'
-    production: 'DBG - Admins'
+    staging: 'Covid Business Grants (Mandatory) - Staging'
+    production: 'Covid Business Grants (Mandatory)'
