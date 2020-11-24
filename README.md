@@ -1,10 +1,17 @@
-# COVID Business Grants
+# COVID-19 Business Grants
 
-**NOTE: This application is based on the work in https://github.com/LBHackney-IT/discretionary-business-grants - which provides all the groundwork for this application. The clone of the work is to enable this and the discretionary business grants to be running at the same time while beoing able to rapidly change each application without affecting the other. **
+**NOTE: This application is based on the work in
+[Discretionary Business Grants](https://github.com/LBHackney-IT/discretionary-business-grants) - which
+provides all the groundwork for this application. The clone of the work is to enable this application, and
+the Discretionary Business Grants application to be running at the same time while being able to rapidly
+change each application without affecting the other.**
 
-This application was developed, for [Hackney Council](https://hackney.gov.uk/), to allow small businesses to apply for covid support grants during the second government mandated lockdown during the 2020 coronavirus (COVID-19) pandemic.
+This application was developed, for [Hackney Council](https://hackney.gov.uk/), to allow small businesses to
+apply for COVID-19 support grants during the second government mandated lockdown during the 2020 Coronavirus
+(COVID-19) pandemic.
 
-It consists of a, publicly available, front end for applicants and a restricted back end for Grant Administrators to process claims.
+It consists of a publicly available front end for applicants, and a restricted back end for Grant
+Administrators to process claims.
 
 ## AWS Architecture
 
@@ -13,7 +20,8 @@ It consists of a, publicly available, front end for applicants and a restricted 
 
 ## Database
 
-The database engine is [PostgreSQL](https://www.postgresql.org/), version 11 in AWS RDS.
+The database engine is [PostgreSQL](https://www.postgresql.org/), version 11 in
+[AWS RDS](https://aws.amazon.com/rds/).
 
 ![db-schema](dbg-schema.png)
 
