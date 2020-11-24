@@ -6,14 +6,11 @@ import EligibilityCriteriaDetails from 'components/Steps/EligibilityCriteriaDeta
 import SupplementaryInformation from 'components/Steps/SupplementaryInformation';
 import YourDetails from 'components/Steps/YourDetails';
 import BusinessDetails from 'components/Steps/BusinessDetails';
-import BusinessTurnover from 'components/Steps/BusinessTurnover';
-import PropertyCost from 'components/Steps/PropertyCost';
 import BankDetails from 'components/Steps/BankDetails';
 import Declaration from 'components/Steps/Declaration';
 import Summary from 'components/Steps/Summary';
 
 import BusinessClassificationSummary from 'components/Steps/Summaries/BusinessClassification';
-import DeclarationSummary from 'components/Steps/Summaries/Declaration';
 
 import * as options from 'lib/dbMapping';
 
@@ -24,8 +21,6 @@ export const steps = {
   'eligibility-criteria-details': EligibilityCriteriaDetails,
   'business-details': BusinessDetails,
   'your-details': YourDetails,
-  'business-turnover': BusinessTurnover,
-  'property-costs': PropertyCost,
   'supplementary-information': SupplementaryInformation,
   'bank-details': BankDetails,
   declaration: Declaration,
@@ -127,14 +122,6 @@ export const inputLabels = {
     },
   },
   contact: {
-    contactTypeId: {
-      label: 'Role/position in organisation:',
-      options: options.CONTACT_TYPE,
-      validation: {
-        required: 'Role/position in organisation is required',
-        validate: (value) => value !== '',
-      },
-    },
     firstName: {
       label: 'First Name:',
       validation: {
@@ -166,7 +153,17 @@ export const inputLabels = {
         },
       },
     },
-    address: { label: 'Address:' },
+    address: { label: 'Applicant Address:' },
+    dateOfBirth: {
+      label: 'Date of Birth (Required for Sole Traders):',
+      validation: {
+        validate: {
+          valid: (value) =>
+            isValid(new Date(value)) || 'Must be a is valid Date',
+          past: (value) => isPast(new Date(value)) || 'Must be a past Date',
+        },
+      },
+    },
   },
   business: {
     businessName: {
@@ -224,52 +221,6 @@ export const inputLabels = {
       label: 'Business Website Address (if applicable):',
     },
   },
-  turnover: {
-    turnover: {
-      label: 'Business turnover March to May (inclusive) 2020:',
-      hint:
-        'Information to be verifiable with supplementary information as required below.',
-      type: 'number',
-      validation: { required: "It's required", min: 0 },
-    },
-    year1819: {
-      label: 'Financial Year 18/19',
-      hint:
-        'Information to be verifiable with supplementary information as required below.',
-      type: 'number',
-      validation: { required: "It's required", min: 0 },
-    },
-    year1920: {
-      label: 'Financial Year 19/20',
-      hint:
-        'Information to be verifiable with supplementary information as required below.',
-      type: 'number',
-      validation: { required: "It's required", min: 0 },
-    },
-  },
-  fixedPropertyCosts: {
-    year2018To2019: {
-      label: 'Financial Year 18/19',
-      hint:
-        'Fields require numeric values e.g 10000 for £10,000. Information to be verifiable with supplementary information as required below.',
-      type: 'number',
-      validation: { required: "It's required", min: 0 },
-    },
-    year2019To2020: {
-      label: 'Financial Year 19/20',
-      hint:
-        'Fields require numeric values e.g 10000 for £10,000. Information to be verifiable with supplementary information as required below.',
-      type: 'number',
-      validation: { required: "It's required", min: 0 },
-      adminValidation: true,
-    },
-    itemsIncluded: {
-      label: 'Items included:',
-      hint:
-        'A ‘fixed property related cost’ is defined as an ongoing fixed business premises rent cost, business premises licence cost, business premises mortgage cost, market pitch fee (in the case of a market trader), or business storage fee (in the case of a market trader).',
-      validation: { required: 'Items included is required' },
-    },
-  },
   businessBankAccount: {
     bankName: {
       label: 'Bank Name:',
@@ -308,86 +259,89 @@ export const inputLabels = {
     },
   },
   declaration: {
-    stateAidOptionId: {
-      label: 'State Aid',
-      hint:
-        '(If relevant to this application, please select whether you the Covid-19 Framework Scheme or the State Aid De Minimus Rule applies.)',
-      children: <DeclarationSummary />,
-      isRadiosInline: false,
-      options: options.STATE_AID_OPTION,
-      validation: { required: "It's required" },
+    name: {
+      label: 'Full Name of person making this declaration:',
+      validation: { required: true },
     },
-    dateOfAid: {
-      label: 'Date of aid',
+    contactTypeId: {
+      label: 'Role/position in organisation:',
+      options: options.CONTACT_TYPE,
       validation: {
-        required: 'Date of aid is required',
-        validate: {
-          valid: (value) =>
-            isValid(new Date(value)) || 'Must be a is valid Date',
-          past: (value) => isPast(new Date(value)) || 'Must be a past Date',
-        },
+        required: 'Role/position in organisation is required',
+        validate: (value) => value !== '',
       },
     },
-    stateAidReceived: {
+    authoriseOnBehalf: {
       label:
-        'I/we have received the following value of State Aid under above rule',
-      type: 'number',
-      validation: { required: "It's required" },
+        'I confirm that I am authorised to submit this form on behalf of the business',
+      validation: { required: true },
     },
-    organisationProvidingAid: {
-      label: 'Organisation/Body providing aid',
-      validation: { required: 'Organisation/Body providing aid' },
-    },
-    permittedToAcceptStateAidGrant: {
+    businessMeetsCriteria: {
       label:
-        'I/we declare that I/we are permitted to accept the discretionary grant funding and does not exceed the cap under the above relevant state aid rule',
-      validation: {
-        required: 'You need to agree.',
-        validate: (value) => value === 'Yes' || 'You need to agree.',
-      },
+        'I declare that the business meets the criteria for the grant I am applying for and that the information I have provided is complete and accurate',
+      validation: { required: true },
     },
-    readUnderstoodDeclaration: {
-      label: 'Tick to confirm you have read and understood the declaration',
-      validation: { required: 'You need to confirm.' },
+    businessClosedByLaw: {
+      label:
+        'I confirm that the business has closed by law due to the Government lockdown restrictions',
+      validation: { required: true },
+    },
+    businessIntendsReopen: {
+      label:
+        'I confirm that my business intends to re-open when the national lockdown restrictions end',
+      validation: { required: true },
+    },
+    businessIWillInform: {
+      label:
+        'I confirm that I will inform Hackney Council if the business no longer meets the eligibility criteria ',
+      validation: { required: true },
+    },
+    businessNotExceed: {
+      label:
+        'I confirm that, including receipt of this grant, the business will not exceed the State Aid limits',
+      validation: { required: true },
+    },
+    businessNotUndertaking: {
+      label:
+        'I confirm that my business is not an undertaking in difficulty (within the meaning of Article 2 (18) of the General Block Exemption Regulation) on 31 December 2019',
+      validation: { required: true },
+    },
+    businessNotRatePayer: {
+      label:
+        'I understand that if the recipient of the grant was not the ratepayer on the eligible day, or is paid in error it will be recoverable from the recipient.',
+      validation: { required: true },
+    },
+    businessPermitData: {
+      label:
+        'If required I permit the data provided in this form to be used to determine my eligibility for the  Local Restrictions Support Grant (Open).',
+      validation: { required: true },
+    },
+    businessShareWithBEIS: {
+      label:
+        'I confirm that I am happy for my data to be shared with BEIS for research and evaluation purposes',
+      validation: { required: true },
+    },
+    businessHappyContacted: {
+      label:
+        'I confirm that I am happy to be contacted by Hackney Council in the future for details of new business funding opportunities',
+      validation: { required: true },
     },
   },
   supplementaryInformation: {
-    businessAccounts: {
-      label: 'Business Accounts:',
+    bankStatement: {
+      label: 'Bank Statement:',
       hint:
-        'Please provide a company of the business accounts for the financial year 2018/19 (or your HMRC self assessment tax return for the financial year 2018/19). If not available please provide what is available',
+        'Please provide your November 2020 business bank statement which must correspond with the bank account details provided in this application form',
       validation: {
         validate: (value) => value.length > 0 || 'Document required',
       },
     },
-    fixedPropertyCosts: {
-      label: 'Fixed Property costs:',
-      hint:
-        'Please provide evidence of your ongoing fixed property costs (such as the lease, licence, rental agreement or mortgage statement for the business premises)',
+    RatesBill: {
+      label: 'Business Rates Bill:',
+      hint: 'Please provide a copy of your latest business rates bill',
       validation: {
         validate: (value) => value.length > 0 || 'Document required',
       },
-    },
-    fallInIncome: {
-      label: 'Fall in income:',
-      hint:
-        'Fall in income: please provide financial evidence showing the fall in income experienced by your business as a result of Covid-19 (such as; up to date business management accounts for the last 12 months showing profit and loss, turnover, cashflow and balance sheet, bank statements over the past 6 months, a brief written statement (no more than one side of A4) setting out the financial impact that Covid-19 has had on your business and why, and how this grant will support your business to trade beyond the current crisis)',
-      validation: {
-        validate: (value) => value.length > 0 || 'Document required',
-      },
-    },
-    identity: {
-      label: 'Identity',
-      hint:
-        'Please provide a form of photo identification such as a passport or driving licence',
-      validation: {
-        validate: (value) => value.length > 0 || 'Document required',
-      },
-    },
-    payrollInformation: {
-      label: 'Payroll Information',
-      hint:
-        'If available please provide your business payroll information for the last 6 months showing the number of people employed and paid by the business',
     },
   },
 };
