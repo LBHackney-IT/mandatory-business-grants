@@ -56,7 +56,7 @@ const AddressLookup = ({
   register,
   defaultValue,
   error: { message: errorMessage } = {},
-  supportManualEntry = true
+  supportManualEntry = true,
 }) => {
   const inputRef = useRef();
   const [postcode, setPostcode] = useState(
@@ -69,7 +69,7 @@ const AddressLookup = ({
     <div>
       <div
         className={cx('govuk-form-group', {
-          'govuk-form-group--error': Boolean(error || errorMessage)
+          'govuk-form-group--error': Boolean(error || errorMessage),
         })}
       >
         <label className="govuk-label govuk-label--m" htmlFor="postcode">
@@ -84,13 +84,13 @@ const AddressLookup = ({
           <div className="govuk-grid-column-one-third">
             <input
               className={cx('govuk-input', {
-                'govuk-input--error': Boolean(error)
+                'govuk-input--error': Boolean(error),
               })}
               id="postcode"
               name="postal-code"
               type="text"
               placeholder="Postcode"
-              onChange={e => setPostcode(e.target.value)}
+              onChange={(e) => setPostcode(e.target.value)}
               ref={inputRef}
             />
           </div>
@@ -141,9 +141,9 @@ const AddressLookup = ({
             as={
               results.length > 0 ? (
                 <Select
-                  options={results.map(result => ({
+                  options={results.map((result) => ({
                     value: JSON.stringify(result.address),
-                    text: result.addressText
+                    text: result.addressText,
                   }))}
                   name={name}
                   label={label}
@@ -156,7 +156,7 @@ const AddressLookup = ({
             control={control}
             name={name}
             rules={{
-              required: 'Address is required'
+              required: 'Address is required',
             }}
             onFocus={() => inputRef.current.focus()}
             onChange={([value]) => JSON.parse(value)}
@@ -169,7 +169,7 @@ const AddressLookup = ({
 
 AddressLookup.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 };
 
 export default AddressLookup;

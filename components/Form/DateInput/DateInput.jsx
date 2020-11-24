@@ -21,7 +21,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
   return (
     <div
       className={cx('govuk-form-group', {
-        'govuk-form-group--error': error
+        'govuk-form-group--error': error,
       })}
     >
       <fieldset
@@ -46,7 +46,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                 className={cx(
                   'govuk-input govuk-date-input__input govuk-input--width-2',
                   {
-                    'govuk-input--error': error
+                    'govuk-input--error': error,
                   }
                 )}
                 id={`${name}-day`}
@@ -74,7 +74,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                 className={cx(
                   'govuk-input govuk-date-input__input govuk-input--width-2',
                   {
-                    'govuk-input--error': error
+                    'govuk-input--error': error,
                   }
                 )}
                 id={`${name}-month`}
@@ -101,7 +101,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                 className={cx(
                   'govuk-input govuk-date-input__input govuk-input--width-4',
                   {
-                    'govuk-input--error': error
+                    'govuk-input--error': error,
                   }
                 )}
                 id={`${name}-year`}

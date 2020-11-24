@@ -7,12 +7,12 @@ import { stepPath, getInputProps } from 'components/Steps';
 import ErrorSummary from 'components/ErrorSummary/ErrorSummary';
 import { VALID_BUSINESS_SIZE } from 'lib/dbMapping';
 
-const Step1 = props => {
+const Step1 = (props) => {
   const { register, errors, handleSubmit } = useForm({
-    defaultValues: props.formData
+    defaultValues: props.formData,
   });
   const [showError, setShowError] = useState(false);
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const hasSomeDeclines = Object.entries(data.eligibilityCriteria).some(
       ([key, value]) =>
         (value === 'Yes' &&
@@ -49,7 +49,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'tradingInHackney',
               {
-                register
+                register,
               },
               errors
             )}
@@ -60,7 +60,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'businessSizeId',
               {
-                register
+                register,
               },
               errors
             )}
@@ -71,7 +71,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'typeOfBusinessId',
               {
-                register
+                register,
               },
               errors
             )}
@@ -81,7 +81,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'tradingOn20200311',
               {
-                register
+                register,
               },
               errors
             )}
@@ -92,7 +92,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'servedLegalNotices',
               {
-                register
+                register,
               },
               errors
             )}
@@ -103,7 +103,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'receivedOtherGrants',
               {
-                register
+                register,
               },
               errors
             )}
@@ -114,7 +114,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'hasFixedPropertyCost',
               {
-                register
+                register,
               },
               errors
             )}
@@ -125,7 +125,7 @@ const Step1 = props => {
               'eligibilityCriteria',
               'significantIncomeFall',
               {
-                register
+                register,
               },
               errors
             )}

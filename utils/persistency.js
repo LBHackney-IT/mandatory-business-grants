@@ -8,7 +8,7 @@ export const set = (ref, data) => {
   }
 };
 
-export const get = ref => {
+export const get = (ref) => {
   try {
     return JSON.parse(localStorage.getItem(`${PREFIX}${ref}`));
   } catch (e) {

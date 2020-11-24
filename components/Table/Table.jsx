@@ -10,7 +10,7 @@ const Table = ({
   pageCount: controlledPageCount,
   initialPage = 1,
   initialPageSize = 10,
-  initialSortBy
+  initialSortBy,
 }) => {
   const {
     getTableProps,
@@ -26,7 +26,7 @@ const Table = ({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize, sortBy }
+    state: { pageIndex, pageSize, sortBy },
   } = useTable(
     {
       columns,
@@ -35,13 +35,13 @@ const Table = ({
         pageIndex: parseInt(initialPage - 1, 10),
         pageSize: parseInt(initialPageSize, 10),
         sortBy: initialSortBy && [
-          { id: initialSortBy.slice(1), desc: initialSortBy[0] === '-' }
-        ]
+          { id: initialSortBy.slice(1), desc: initialSortBy[0] === '-' },
+        ],
       },
       manualSortBy: true,
       manualPagination: true,
       pageCount: controlledPageCount,
-      disableMultiSort: true
+      disableMultiSort: true,
     },
     useSortBy,
     usePagination
@@ -53,12 +53,12 @@ const Table = ({
     <>
       <table className="govuk-table" {...getTableProps()}>
         <thead className="govuk-table__head">
-          {headerGroups.map(headerGroup => (
+          {headerGroups.map((headerGroup) => (
             <tr
               className="govuk-table__row"
               {...headerGroup.getHeaderGroupProps()}
             >
-              {headerGroup.headers.map(column => (
+              {headerGroup.headers.map((column) => (
                 <th
                   scope="col"
                   className="govuk-table__header"
@@ -78,7 +78,7 @@ const Table = ({
           ))}
         </thead>
         <tbody className="govuk-table__body" {...getTableBodyProps()}>
-          {page.map(row => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <tr
@@ -91,7 +91,7 @@ const Table = ({
                   )
                 }
               >
-                {row.cells.map(cell => {
+                {row.cells.map((cell) => {
                   return (
                     <td className="govuk-table__cell" {...cell.getCellProps()}>
                       {cell.render('Cell')}
@@ -139,7 +139,7 @@ const Table = ({
           <input
             type="number"
             defaultValue={pageIndex + 1}
-            onChange={e => {
+            onChange={(e) => {
               const page = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(page);
             }}
@@ -148,11 +148,11 @@ const Table = ({
         </span>{' '}
         <select
           value={pageSize}
-          onChange={e => {
+          onChange={(e) => {
             setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 20, 30, 40, 50].map(pageSize => (
+          {[10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>

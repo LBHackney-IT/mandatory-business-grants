@@ -9,7 +9,7 @@ const ErrorMessage = ({ text, className }) => (
 
 ErrorMessage.propTypes = {
   text: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default ErrorMessage;

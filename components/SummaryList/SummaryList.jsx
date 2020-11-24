@@ -34,9 +34,9 @@ SummaryList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       value: PropTypes.node.isRequired,
-      href: PropTypes.string
+      href: PropTypes.string,
     }).isRequired
-  )
+  ),
 };
 
 export default SummaryList;

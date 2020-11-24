@@ -3,7 +3,7 @@ const path = require('path');
 const publicList = [
   { path: '/api/applications', methods: ['POST'] },
   { path: '/api/postcode', methods: ['GET'] },
-  { path: '/api/urls', methods: ['POST'] }
+  { path: '/api/urls', methods: ['POST'] },
 ];
 
 const isChildPath = (parentPath, childPath) => {
@@ -16,13 +16,13 @@ const isAllowedMethod = (allowedMethodList, authorizeEvent) => {
 };
 
 const userInAllowedGroup = (userGroups, allowedGroups) => {
-  return userGroups && userGroups.some(g => allowedGroups.includes(g));
+  return userGroups && userGroups.some((g) => allowedGroups.includes(g));
 };
 
-const customAuthorize = allowedGroups => (decodedToken, authorizeEvent) => {
+const customAuthorize = (allowedGroups) => (decodedToken, authorizeEvent) => {
   if (decodedToken && userInAllowedGroup(decodedToken.groups, allowedGroups))
     return true;
-  return publicList.some(publicMethod => {
+  return publicList.some((publicMethod) => {
     return (
       isChildPath(publicMethod.path, authorizeEvent.path) &&
       isAllowedMethod(publicMethod.methods, authorizeEvent)

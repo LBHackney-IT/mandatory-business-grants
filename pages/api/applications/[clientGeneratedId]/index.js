@@ -3,12 +3,12 @@ import applicationDetails from '../../../../lib/usecases/applicationDetails';
 import {
   updateApplication,
   ONE_PROPERTY_PERMITTED,
-  INVALID_STATUS
+  INVALID_STATUS,
 } from '../../../../lib/usecases/updateApplication';
 import {
   APPLICATION_NOT_FOUND,
   DISALLOWED_PROPERTY_IN_REQUEST,
-  NO_ALLOWED_PROPERTIES_IN_REQUEST
+  NO_ALLOWED_PROPERTIES_IN_REQUEST,
 } from '../../../../lib/constants';
 import { getUserStringFromCookie } from '../../../../utils/auth';
 
@@ -20,7 +20,7 @@ export default async (req, res) => {
       try {
         res.setHeader('Content-Type', 'application/json');
         let applicationDetailsResponse = await applicationDetails({
-          clientGeneratedId
+          clientGeneratedId,
         });
         if (applicationDetailsResponse.error === APPLICATION_NOT_FOUND) {
           res.statusCode = HttpStatus.NOT_FOUND;
@@ -41,7 +41,7 @@ export default async (req, res) => {
         const updateApplicationResponse = await updateApplication({
           clientGeneratedId,
           data: req.body,
-          user: getUserStringFromCookie(req.headers.cookie)
+          user: getUserStringFromCookie(req.headers.cookie),
         });
         if (updateApplicationResponse.error === APPLICATION_NOT_FOUND) {
           res.statusCode = HttpStatus.NOT_FOUND;
@@ -50,7 +50,7 @@ export default async (req, res) => {
             INVALID_STATUS,
             DISALLOWED_PROPERTY_IN_REQUEST,
             NO_ALLOWED_PROPERTIES_IN_REQUEST,
-            ONE_PROPERTY_PERMITTED
+            ONE_PROPERTY_PERMITTED,
           ].includes(updateApplicationResponse.error)
         ) {
           res.statusCode = HttpStatus.BAD_REQUEST;

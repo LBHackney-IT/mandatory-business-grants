@@ -28,7 +28,7 @@ export const steps = {
   'supplementary-information': SupplementaryInformation,
   'bank-details': BankDetails,
   declaration: Declaration,
-  summary: Summary
+  summary: Summary,
 };
 
 export const inputLabels = {
@@ -36,19 +36,19 @@ export const inputLabels = {
     tradingInHackney: {
       label: 'Is your business based in and trading in Hackney?',
       validation: { required: true },
-      adminValidation: true
+      adminValidation: true,
     },
     businessSizeId: {
       label: 'Is your business classed as either a micro or small business?',
       children: <BusinessClassificationSummary />,
       options: options.BUSINESS_SIZE,
       validation: { required: true },
-      adminValidation: true
+      adminValidation: true,
     },
     tradingOn20200311: {
       label: 'Was your business trading on the 11th March 2020?',
       validation: { required: true },
-      adminValidation: true
+      adminValidation: true,
     },
     typeOfBusinessId: {
       label: 'Type of business',
@@ -56,15 +56,15 @@ export const inputLabels = {
       children: <TypeOfBusinessSummary />,
       validation: {
         required: true,
-        validate: value => value !== ''
+        validate: (value) => value !== '',
       },
-      adminValidation: true
+      adminValidation: true,
     },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
       validation: { required: true },
-      adminValidation: true
+      adminValidation: true,
     },
     receivedOtherGrants: {
       label:
@@ -72,7 +72,7 @@ export const inputLabels = {
       hint:
         'Businesses must not be eligible for the existing Small Business Grant, the Retail, Hospitality and Leisure Grant, The Fisheries Response Fund, Domestic Seafood Supply Scheme (DSSS), The Zoos Support Fund, or The Dairy Hardship Fund to be considered for this grant',
       validation: { required: true },
-      adminValidation: true
+      adminValidation: true,
     },
     hasFixedPropertyCost: {
       label: 'Do you meet one of the eligibility criteria?',
@@ -104,14 +104,14 @@ export const inputLabels = {
             </li>
           </ul>
         </ul>
-      )
+      ),
     },
     significantIncomeFall: {
       label:
         'Has your business experienced a SIGNIFICANT fall in income as a result of Covid-19?',
       validation: { required: true },
-      adminValidation: true
-    }
+      adminValidation: true,
+    },
   },
   contact: {
     contactTypeId: {
@@ -119,29 +119,29 @@ export const inputLabels = {
       options: options.CONTACT_TYPE,
       validation: {
         required: 'Role/position in organisation is required',
-        validate: value => value !== ''
-      }
+        validate: (value) => value !== '',
+      },
     },
     firstName: {
       label: 'First Name:',
       validation: {
-        required: 'First Name is required'
+        required: 'First Name is required',
       },
-      adminValidation: true
+      adminValidation: true,
     },
     lastName: {
       label: 'Last Name:',
       validation: {
-        required: 'Last Name is required'
+        required: 'Last Name is required',
       },
-      adminValidation: true
+      adminValidation: true,
     },
     emailAddress: {
       label: 'Email Address:',
       validation: {
-        required: 'Email Address is required'
+        required: 'Email Address is required',
       },
-      type: 'email'
+      type: 'email',
     },
     telephoneNumber: {
       label: 'Contact Telephone Number:',
@@ -149,31 +149,31 @@ export const inputLabels = {
       validation: {
         pattern: {
           value: /^[0-9]*$/,
-          message: 'Telephone Number must be a number'
-        }
-      }
+          message: 'Telephone Number must be a number',
+        },
+      },
     },
-    address: { label: 'Address:' }
+    address: { label: 'Address:' },
   },
   business: {
     businessName: {
       label: 'Business Name:',
       hint: '(trading name, etc)',
       validation: {
-        required: 'Business Name is required'
+        required: 'Business Name is required',
       },
-      adminValidation: true
+      adminValidation: true,
     },
     registeredName: { label: 'Registered Name (if applicable):' },
     businessDescription: {
       label: 'Business activity:',
       hint:
-        'Please set out what your business does and the service/services it provides.'
+        'Please set out what your business does and the service/services it provides.',
     },
     businessAddress: {
       label: 'Business Premises Address:',
       hint:
-        "Please provide your business address in Hackney. For those in shared workspace/offices please provide the address of your shared workspace/office. For market traders please provide the most accurate  address for your market stall if you're unable to provide your exact market pitch address."
+        "Please provide your business address in Hackney. For those in shared workspace/offices please provide the address of your shared workspace/office. For market traders please provide the most accurate  address for your market stall if you're unable to provide your exact market pitch address.",
     },
     siteDescriptionId: {
       label: 'Business Premises Description:',
@@ -182,12 +182,12 @@ export const inputLabels = {
       options: options.SITE_DESCRIPTION,
       validation: {
         required: 'Business description is required',
-        validate: value => value !== ''
-      }
+        validate: (value) => value !== '',
+      },
     },
     companyNumber: {
       label: 'Company Number (if applicable)',
-      type: 'number'
+      type: 'number',
     },
     companyStructureId: {
       label: 'Business Structure:',
@@ -196,31 +196,31 @@ export const inputLabels = {
       options: options.COMPANY_STRUCTURE,
       validation: {
         required: 'Business Structure is required',
-        validate: value => value !== ''
+        validate: (value) => value !== '',
       },
-      adminValidation: true
+      adminValidation: true,
     },
     ratesAccountNumber: {
       label: 'Business Rates Account Number (if applicable):',
-      type: 'number'
+      type: 'number',
     },
     registeredCharity: {
       label: 'Registered Charity Number (if applicable):',
-      type: 'number'
+      type: 'number',
     },
     councilRentAccountNumber: {
       label: 'Council Premises Rent Account Number (if applicable):',
-      type: 'number'
+      type: 'number',
     },
     councilTaxNumber: {
       label: 'Council Tax Number (if applicable):',
       hint: '(eg if you are a B&B)',
-      type: 'number'
+      type: 'number',
     },
     fullTimeEmployees: {
       label: 'Number of Employees:',
       type: 'number',
-      validation: { required: 'Number of Employees is required', min: 0 }
+      validation: { required: 'Number of Employees is required', min: 0 },
     },
     percentageFallInIncome: {
       label: 'Percentage fall in income due to Covid-19:',
@@ -232,17 +232,17 @@ export const inputLabels = {
         min: { value: 0, message: 'Must be a number between 0 and 100' },
         max: {
           value: 100,
-          message: 'Must be a number between 0 and 100'
-        }
-      }
+          message: 'Must be a number between 0 and 100',
+        },
+      },
     },
     rateableValue: {
       label: 'Business Premises Rateable Value (if applicable):',
       type: 'number',
       validation: {
-        min: { value: 0, message: 'Must be a postive number' }
-      }
-    }
+        min: { value: 0, message: 'Must be a postive number' },
+      },
+    },
   },
   turnover: {
     turnover: {
@@ -250,22 +250,22 @@ export const inputLabels = {
       hint:
         'Information to be verifiable with supplementary information as required below.',
       type: 'number',
-      validation: { required: "It's required", min: 0 }
+      validation: { required: "It's required", min: 0 },
     },
     year1819: {
       label: 'Financial Year 18/19',
       hint:
         'Information to be verifiable with supplementary information as required below.',
       type: 'number',
-      validation: { required: "It's required", min: 0 }
+      validation: { required: "It's required", min: 0 },
     },
     year1920: {
       label: 'Financial Year 19/20',
       hint:
         'Information to be verifiable with supplementary information as required below.',
       type: 'number',
-      validation: { required: "It's required", min: 0 }
-    }
+      validation: { required: "It's required", min: 0 },
+    },
   },
   fixedPropertyCosts: {
     year2018To2019: {
@@ -273,7 +273,7 @@ export const inputLabels = {
       hint:
         'Fields require numeric values e.g 10000 for £10,000. Information to be verifiable with supplementary information as required below.',
       type: 'number',
-      validation: { required: "It's required", min: 0 }
+      validation: { required: "It's required", min: 0 },
     },
     year2019To2020: {
       label: 'Financial Year 19/20',
@@ -281,24 +281,24 @@ export const inputLabels = {
         'Fields require numeric values e.g 10000 for £10,000. Information to be verifiable with supplementary information as required below.',
       type: 'number',
       validation: { required: "It's required", min: 0 },
-      adminValidation: true
+      adminValidation: true,
     },
     itemsIncluded: {
       label: 'Items included:',
       hint:
         'A ‘fixed property related cost’ is defined as an ongoing fixed business premises rent cost, business premises licence cost, business premises mortgage cost, market pitch fee (in the case of a market trader), or business storage fee (in the case of a market trader).',
-      validation: { required: 'Items included is required' }
-    }
+      validation: { required: 'Items included is required' },
+    },
   },
   businessBankAccount: {
     bankName: {
       label: 'Bank Name:',
-      validation: { required: 'Bank Name is required' }
+      validation: { required: 'Bank Name is required' },
     },
     accountHolder: {
       label: 'Account Holder Name:',
       validation: { required: 'Account Holder Name is required' },
-      adminValidation: true
+      adminValidation: true,
     },
     accountNumber: {
       inputClassName: 'govuk-input--width-10',
@@ -308,10 +308,10 @@ export const inputLabels = {
         required: 'Account Number is required',
         pattern: {
           value: /^[0-9]{8}$/,
-          message: 'Account Number must be a 8 digit number'
-        }
+          message: 'Account Number must be a 8 digit number',
+        },
       },
-      adminValidation: true
+      adminValidation: true,
     },
     accountSortcode: {
       inputClassName: 'govuk-input--width-5',
@@ -321,11 +321,11 @@ export const inputLabels = {
         required: 'Sort Code is required',
         pattern: {
           value: /^[0-9]{6}$/,
-          message: 'Sort Code must be a 6 digit number'
-        }
+          message: 'Sort Code must be a 6 digit number',
+        },
       },
-      adminValidation: true
-    }
+      adminValidation: true,
+    },
   },
   declaration: {
     stateAidOptionId: {
@@ -335,40 +335,41 @@ export const inputLabels = {
       children: <DeclarationSummary />,
       isRadiosInline: false,
       options: options.STATE_AID_OPTION,
-      validation: { required: "It's required" }
+      validation: { required: "It's required" },
     },
     dateOfAid: {
       label: 'Date of aid',
       validation: {
         required: 'Date of aid is required',
         validate: {
-          valid: value => isValid(new Date(value)) || 'Must be a is valid Date',
-          past: value => isPast(new Date(value)) || 'Must be a past Date'
-        }
-      }
+          valid: (value) =>
+            isValid(new Date(value)) || 'Must be a is valid Date',
+          past: (value) => isPast(new Date(value)) || 'Must be a past Date',
+        },
+      },
     },
     stateAidReceived: {
       label:
         'I/we have received the following value of State Aid under above rule',
       type: 'number',
-      validation: { required: "It's required" }
+      validation: { required: "It's required" },
     },
     organisationProvidingAid: {
       label: 'Organisation/Body providing aid',
-      validation: { required: 'Organisation/Body providing aid' }
+      validation: { required: 'Organisation/Body providing aid' },
     },
     permittedToAcceptStateAidGrant: {
       label:
         'I/we declare that I/we are permitted to accept the discretionary grant funding and does not exceed the cap under the above relevant state aid rule',
       validation: {
         required: 'You need to agree.',
-        validate: value => value === 'Yes' || 'You need to agree.'
-      }
+        validate: (value) => value === 'Yes' || 'You need to agree.',
+      },
     },
     readUnderstoodDeclaration: {
       label: 'Tick to confirm you have read and understood the declaration',
-      validation: { required: 'You need to confirm.' }
-    }
+      validation: { required: 'You need to confirm.' },
+    },
   },
   supplementaryInformation: {
     businessAccounts: {
@@ -376,39 +377,39 @@ export const inputLabels = {
       hint:
         'Please provide a company of the business accounts for the financial year 2018/19 (or your HMRC self assessment tax return for the financial year 2018/19). If not available please provide what is available',
       validation: {
-        validate: value => value.length > 0 || 'Document required'
-      }
+        validate: (value) => value.length > 0 || 'Document required',
+      },
     },
     fixedPropertyCosts: {
       label: 'Fixed Property costs:',
       hint:
         'Please provide evidence of your ongoing fixed property costs (such as the lease, licence, rental agreement or mortgage statement for the business premises)',
       validation: {
-        validate: value => value.length > 0 || 'Document required'
-      }
+        validate: (value) => value.length > 0 || 'Document required',
+      },
     },
     fallInIncome: {
       label: 'Fall in income:',
       hint:
         'Fall in income: please provide financial evidence showing the fall in income experienced by your business as a result of Covid-19 (such as; up to date business management accounts for the last 12 months showing profit and loss, turnover, cashflow and balance sheet, bank statements over the past 6 months, a brief written statement (no more than one side of A4) setting out the financial impact that Covid-19 has had on your business and why, and how this grant will support your business to trade beyond the current crisis)',
       validation: {
-        validate: value => value.length > 0 || 'Document required'
-      }
+        validate: (value) => value.length > 0 || 'Document required',
+      },
     },
     identity: {
       label: 'Identity',
       hint:
         'Please provide a form of photo identification such as a passport or driving licence',
       validation: {
-        validate: value => value.length > 0 || 'Document required'
-      }
+        validate: (value) => value.length > 0 || 'Document required',
+      },
     },
     payrollInformation: {
       label: 'Payroll Information',
       hint:
-        'If available please provide your business payroll information for the last 6 months showing the number of people employed and paid by the business'
-    }
-  }
+        'If available please provide your business payroll information for the last 6 months showing the number of people employed and paid by the business',
+    },
+  },
 };
 
 export const getInputProps = (
@@ -427,7 +428,7 @@ export const getInputProps = (
     register: validation && register ? register(validation) : register,
     control: control,
     rules: control && validation,
-    error: errors && errors[form] && errors[form][name]
+    error: errors && errors[form] && errors[form][name],
   };
 };
 

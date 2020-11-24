@@ -19,7 +19,7 @@ const ApplicationView = ({ applicationId }) => {
   const watcher = watch({ nest: true });
   const validations = JSON.stringify(watcher);
   const [legitValidation, setLegitValidation] = useState();
-  const fetchData = useCallback(async applicationId => {
+  const fetchData = useCallback(async (applicationId) => {
     if (!applicationId) {
       return null;
     }
@@ -35,18 +35,18 @@ const ApplicationView = ({ applicationId }) => {
       setError(e.response.data);
     }
   }, []);
-  const saveValidation = useCallback(async validations => {
+  const saveValidation = useCallback(async (validations) => {
     try {
       await patchApplication(applicationId, { validations });
     } catch {
       fetchData(applicationId);
     }
   });
-  const getValidationRecap = useCallback(watcher =>
+  const getValidationRecap = useCallback((watcher) =>
     Object.entries(watcher).reduce(
       (acc, [key, value]) => ({
         ...acc,
-        [key]: Object.values(value).every(Boolean)
+        [key]: Object.values(value).every(Boolean),
       }),
       {}
     )
@@ -147,7 +147,7 @@ const ApplicationView = ({ applicationId }) => {
 };
 
 ApplicationView.propTypes = {
-  applicationId: PropTypes.string.isRequired
+  applicationId: PropTypes.string.isRequired,
 };
 
 export default ApplicationView;
