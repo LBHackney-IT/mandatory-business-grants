@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { isExpired } from 'utils/date';
 import { stepPath, stepKeys } from 'components/Steps';
 import WarningText from 'components/WarningText/WarningText';
+import dateFormat from 'dateformat';
 
 export default function Home({ date, expirationDate }) {
   return (
@@ -47,8 +48,9 @@ export default function Home({ date, expirationDate }) {
       )}
       <WarningText>
         Please note that applications for the Discretionary Business Grant close
-        at 23:59 on Friday 28th August 2020. Any applications submitted after
-        this time will be invalid.
+        at {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
+        {dateFormat(new Date(expirationDate), 'dddd, mmmm dS, yyyy')}. Any
+        applications submitted after this time will be invalid.
       </WarningText>
     </div>
   );
