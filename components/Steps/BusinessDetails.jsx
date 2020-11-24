@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Router from 'next/router';
 
-import { Button, TextInput, Select } from 'components/Form';
+import { Button, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import AddressLookup from 'components/AddressLookup/AddressLookup';
 
@@ -24,20 +24,9 @@ const Step1 = (props) => {
         {...getInputProps('business', 'registeredName', { register }, errors)}
       />
       <TextInput
-        {...getInputProps('business', 'companyNumber', { register }, errors)}
-      />
-      <TextInput
         {...getInputProps(
           'business',
-          'registeredCharity',
-          { register },
-          errors
-        )}
-      />
-      <Select
-        {...getInputProps(
-          'business',
-          'companyStructureId',
+          'businessRatesAccountNumber',
           { register },
           errors
         )}
@@ -45,24 +34,22 @@ const Step1 = (props) => {
       <TextInput
         {...getInputProps(
           'business',
-          'councilRentAccountNumber',
+          'businessRatesPayer',
           { register },
           errors
         )}
       />
-      <TextInput
+      <AddressLookup
         {...getInputProps(
           'business',
-          'ratesAccountNumber',
-          { register },
+          'businessTradingAddress',
+          { register, control },
           errors
         )}
-      />
-      <TextInput
-        {...getInputProps('business', 'rateableValue', { register }, errors)}
-      />
-      <TextInput
-        {...getInputProps('business', 'councilTaxNumber', { register }, errors)}
+        defaultValue={
+          props.formData.business &&
+          props.formData.business.businessTradingAddress
+        }
       />
       <AddressLookup
         {...getInputProps(
@@ -78,35 +65,13 @@ const Step1 = (props) => {
       <TextInput
         {...getInputProps(
           'business',
-          'businessDescription',
-          { register },
-          errors
-        )}
-      />
-      <Select
-        {...getInputProps(
-          'business',
-          'siteDescriptionId',
-          { register },
-          errors
-        )}
-      />
-
-      <TextInput
-        {...getInputProps(
-          'business',
-          'fullTimeEmployees',
+          'businessAnnualRent',
           { register },
           errors
         )}
       />
       <TextInput
-        {...getInputProps(
-          'business',
-          'percentageFallInIncome',
-          { register },
-          errors
-        )}
+        {...getInputProps('business', 'businessWebsite', { register }, errors)}
       />
       <Button className="govuk-button" text="Next" type="submit" />
     </form>

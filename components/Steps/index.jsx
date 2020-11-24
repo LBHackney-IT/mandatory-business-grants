@@ -22,8 +22,8 @@ export const stepPath = '/step/[id]';
 export const steps = {
   'eligibility-criteria': EligibilityCriteria,
   'eligibility-criteria-details': EligibilityCriteriaDetails,
-  'your-details': YourDetails,
   'business-details': BusinessDetails,
+  'your-details': YourDetails,
   'business-turnover': BusinessTurnover,
   'property-costs': PropertyCost,
   'supplementary-information': SupplementaryInformation,
@@ -170,91 +170,58 @@ export const inputLabels = {
   },
   business: {
     businessName: {
-      label: 'Business Name:',
-      hint: '(trading name, etc)',
+      label: 'Business Trading Name:',
       validation: {
         required: 'Business Name is required',
       },
       adminValidation: true,
     },
-    registeredName: { label: 'Registered Name (if applicable):' },
-    businessDescription: {
-      label: 'Business activity:',
-      hint:
-        'Please set out what your business does and the service/services it provides.',
+    registeredName: {
+      label:
+        'Business Registered Name (if different from Business Trading Name):',
     },
-    businessAddress: {
-      label: 'Business Premises Address:',
-      hint:
-        "Please provide your business address in Hackney. For those in shared workspace/offices please provide the address of your shared workspace/office. For market traders please provide the most accurate  address for your market stall if you're unable to provide your exact market pitch address.",
-    },
-    siteDescriptionId: {
-      label: 'Business Premises Description:',
-      hint:
-        '(e.g shared office, shared workspace, individual shop, individual office, market stall etc)',
-      options: options.SITE_DESCRIPTION,
+    businessRatesAccountNumber: {
+      label: 'Business Rates Account Number:',
+      hint: (
+        <>
+          A nine digit number starting with a 6 - this is shown on your business
+          rates bill. Please note you must have a business rates account to be
+          eligible for this grant. If you do not have an account number, but
+          believe you’re still eligible, please contact{' '}
+          <a href="mailto://grant.admin@hackney.gov.uk">
+            grant.admin@hackney.gov.uk
+          </a>{' '}
+          with a brief summary of your circumstances (e.g. name, property
+          address, reason for not holding an account number).
+        </>
+      ),
       validation: {
-        required: 'Business description is required',
-        validate: (value) => value !== '',
-      },
-    },
-    companyNumber: {
-      label: 'Company Number (if applicable)',
-      type: 'number',
-    },
-    companyStructureId: {
-      label: 'Business Structure:',
-      hint:
-        'If your business structure is not listed below please pick the closest description.',
-      options: options.COMPANY_STRUCTURE,
-      validation: {
-        required: 'Business Structure is required',
-        validate: (value) => value !== '',
-      },
-      adminValidation: true,
-    },
-    ratesAccountNumber: {
-      label: 'Business Rates Account Number (if applicable):',
-      type: 'number',
-    },
-    registeredCharity: {
-      label: 'Registered Charity Number (if applicable):',
-      type: 'number',
-    },
-    councilRentAccountNumber: {
-      label: 'Council Premises Rent Account Number (if applicable):',
-      type: 'number',
-    },
-    councilTaxNumber: {
-      label: 'Council Tax Number (if applicable):',
-      hint: '(eg if you are a B&B)',
-      type: 'number',
-    },
-    fullTimeEmployees: {
-      label: 'Number of Employees:',
-      type: 'number',
-      validation: { required: 'Number of Employees is required', min: 0 },
-    },
-    percentageFallInIncome: {
-      label: 'Percentage fall in income due to Covid-19:',
-      type: 'number',
-      hint:
-        'Please give an indication of your percentage fall in income as a result of Covid-19. This should be from March 2020 onwards compared to the previous 3 months e.g 50= 50% fall in income, 75= 75% fall in income.',
-      validation: {
-        required: 'Percentage fall in income is required',
-        min: { value: 0, message: 'Must be a number between 0 and 100' },
-        max: {
-          value: 100,
-          message: 'Must be a number between 0 and 100',
+        required: true,
+        pattern: {
+          value: /^6(\d{8}|\d{7}x)$/i,
         },
       },
     },
-    rateableValue: {
-      label: 'Business Premises Rateable Value (if applicable):',
-      type: 'number',
+    businessRatesPayer: {
+      label: 'Name of Business Rates Payer:',
+      hint: 'As shown on your business rates bill.',
       validation: {
-        min: { value: 0, message: 'Must be a postive number' },
+        required: true,
       },
+    },
+    businessTradingAddress: {
+      label: 'Business Registered Trading Address:',
+    },
+    businessAddress: {
+      label: 'Business Premises Address in the London Borough of Hackney:',
+    },
+    businessAnnualRent: {
+      label: 'Business Premises Annual Rent (or Mortgage if applicable):',
+      type: 'number',
+      validation: { min: 0 },
+    },
+    businessWebsite: {
+      label: 'Business Website Address (if applicable):',
     },
   },
   turnover: {
