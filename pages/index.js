@@ -49,7 +49,7 @@ export default function Home({ date, expirationDate }) {
       <WarningText>
         Please note that applications for the Discretionary Business Grant close
         at {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
-        {dateFormat(new Date(expirationDate), 'dddd, mmmm dS, yyyy')}. Any
+        {dateFormat(new Date(expirationDate), 'dddd, mmmm dS yyyy')}. Any
         applications submitted after this time will be invalid.
       </WarningText>
     </div>
