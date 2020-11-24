@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Router from 'next/router';
 
-import { Button, Radios } from 'components/Form';
+import { Button, Radios, Select, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import ErrorSummary from 'components/ErrorSummary/ErrorSummary';
+// import { VALID_BUSINESS_SIZE } from 'lib/dbMapping';
 
 const Step1 = (props) => {
   const { register, errors, handleSubmit } = useForm({
@@ -12,15 +13,20 @@ const Step1 = (props) => {
   });
   const [showError, setShowError] = useState(false);
   const onSubmit = (data) => {
-    const hasSomeDeclines = Object.entries(data.eligibilityCriteria).some(
-      // eslint-disable-next-line no-unused-vars
-      ([key, value]) => value === 'No'
-    );
-    setShowError(hasSomeDeclines);
-    if (!hasSomeDeclines) {
-      props.saveData(data);
-      Router.push(stepPath, props.nextStep);
-    }
+    // const hasSomeDeclines = Object.entries(data.eligibilityCriteria).some(
+    //   ([key, value]) =>
+    //     (value === 'Yes' &&
+    //       (key === 'servedLegalNotices' || key === 'receivedOtherGrants')) ||
+    //     (value === 'No' &&
+    //       key !== 'servedLegalNotices' &&
+    //       key !== 'receivedOtherGrants') ||
+    //     (key === 'businessSizeId' && VALID_BUSINESS_SIZE.indexOf(value) === -1)
+    // );
+    // setShowError(hasSomeDeclines);
+    // if (!hasSomeDeclines) {
+    props.saveData(data);
+    Router.push(stepPath, props.nextStep);
+    // }
   };
 
   return (
@@ -40,8 +46,39 @@ const Step1 = (props) => {
           </span>
           <Radios
             {...getInputProps(
-              'eligibilityCriteria',
-              'tradingInHackney',
+              'eligibilityCriteriaDetails',
+              'businessSizeId',
+              {
+                register,
+              },
+              errors
+            )}
+            onChange={() => setShowError(false)}
+          />
+          <TextInput
+            {...getInputProps(
+              'eligibilityCriteriaDetails',
+              'howManyEmployees',
+              {
+                register,
+              },
+              errors
+            )}
+          />
+          <Select
+            {...getInputProps(
+              'eligibilityCriteriaDetails',
+              'typeOfBusinessId',
+              {
+                register,
+              },
+              errors
+            )}
+          />
+          <Radios
+            {...getInputProps(
+              'eligibilityCriteriaDetails',
+              'tradingOn220320',
               {
                 register,
               },
@@ -51,8 +88,8 @@ const Step1 = (props) => {
           />
           <Radios
             {...getInputProps(
-              'eligibilityCriteria',
-              'liableForRates',
+              'eligibilityCriteriaDetails',
+              'tradingOn161020',
               {
                 register,
               },
@@ -62,8 +99,19 @@ const Step1 = (props) => {
           />
           <Radios
             {...getInputProps(
-              'eligibilityCriteria',
-              'isBusinessClosed',
+              'eligibilityCriteriaDetails',
+              'tradingOn041120',
+              {
+                register,
+              },
+              errors
+            )}
+            onChange={() => setShowError(false)}
+          />
+          <Radios
+            {...getInputProps(
+              'eligibilityCriteriaDetails',
+              'servedLegalNotices',
               {
                 register,
               },

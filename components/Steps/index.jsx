@@ -2,6 +2,7 @@ import isValid from 'date-fns/isValid';
 import isPast from 'date-fns/isPast';
 
 import EligibilityCriteria from 'components/Steps/EligibilityCriteria';
+import EligibilityCriteriaDetails from 'components/Steps/EligibilityCriteriaDetails';
 import SupplementaryInformation from 'components/Steps/SupplementaryInformation';
 import YourDetails from 'components/Steps/YourDetails';
 import BusinessDetails from 'components/Steps/BusinessDetails';
@@ -11,7 +12,6 @@ import BankDetails from 'components/Steps/BankDetails';
 import Declaration from 'components/Steps/Declaration';
 import Summary from 'components/Steps/Summary';
 
-import TypeOfBusinessSummary from 'components/Steps/Summaries/TypeOfBusiness';
 import BusinessClassificationSummary from 'components/Steps/Summaries/BusinessClassification';
 import DeclarationSummary from 'components/Steps/Summaries/Declaration';
 
@@ -21,6 +21,7 @@ export const stepPath = '/step/[id]';
 
 export const steps = {
   'eligibility-criteria': EligibilityCriteria,
+  'eligibility-criteria-details': EligibilityCriteriaDetails,
   'your-details': YourDetails,
   'business-details': BusinessDetails,
   'business-turnover': BusinessTurnover,
@@ -38,77 +39,89 @@ export const inputLabels = {
       validation: { required: true },
       adminValidation: true,
     },
+    liableForRates: {
+      label: 'Is your business liable for business rates?',
+      validation: { required: true },
+      adminValidation: true,
+    },
+    isBusinessClosed: {
+      label: 'Is your business closed by law?',
+      hint:
+        'Please select Partly if your business is continuing to offer delivery and/or click-and-collect services (where items are pre-ordered and collected without entering the premises).',
+      options: options.IS_BUSINESS_CLOSED,
+      validation: { required: true },
+      adminValidation: true,
+    },
+  },
+  eligibilityCriteriaDetails: {
     businessSizeId: {
-      label: 'Is your business classed as either a micro or small business?',
+      label: 'What is the size of your business?',
       children: <BusinessClassificationSummary />,
       options: options.BUSINESS_SIZE,
       validation: { required: true },
       adminValidation: true,
     },
-    tradingOn20200311: {
-      label: 'Was your business trading on the 11th March 2020?',
-      validation: { required: true },
-      adminValidation: true,
+    howManyEmployees: {
+      label: 'How many employees does your business have?',
+      hint: 'Full time equivalents',
+      inputClassName: 'govuk-input--width-10',
+      inputMode: 'numeric',
+      validation: {
+        required: true,
+        pattern: {
+          value: /^[0-9]*$/,
+        },
+      },
     },
     typeOfBusinessId: {
       label: 'Type of business',
       options: options.TYPE_OF_BUSINESS,
-      children: <TypeOfBusinessSummary />,
+      hint: (
+        <>
+          Please note your business must be open to the public - businesses
+          which supply these sectors will not be eligible.For further guidance
+          on which category best suits your business activity please use the
+          following{' '}
+          <a
+            href="https://www.gov.uk/guidance/new-national-restrictions-from-5-november?priority-taxon=09944b84-02ba-4742-a696-9e562fc9b29d#businesses-and-venues"
+            target="_blank"
+            rel="noopener"
+          >
+            link
+          </a>
+          .
+        </>
+      ),
       validation: {
         required: true,
         validate: (value) => value !== '',
       },
       adminValidation: true,
     },
+    tradingOn220320: {
+      label: 'Was your business open for trading on the 22nd March 2020?',
+      hint:
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Sector) must have been open and trading on the 22nd March 2020 (prior to being ordered to close by government guidance)',
+      validation: { required: true },
+      adminValidation: true,
+    },
+    tradingOn161020: {
+      label: 'Was your business open for trading on the 16th October 2020?',
+      hint:
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Open) must have been open and trading on the 16th October 2020',
+      validation: { required: true },
+      adminValidation: true,
+    },
+    tradingOn041120: {
+      label: 'Was your business open for trading on the 4th November 2020?',
+      hint:
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (for closed businesses) must have been open and trading on the 4th November 2020 (prior to being ordered to close by government guidance)',
+      validation: { required: true },
+      adminValidation: true,
+    },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
-      validation: { required: true },
-      adminValidation: true,
-    },
-    receivedOtherGrants: {
-      label:
-        'Has your business either received or is eligible for either a Small Business Grant, the Retail, Hospitality and Leisure Grant, The Fisheries Response Fund, Domestic Seafood Supply Scheme (DSSS), The Zoos Support Fund, or The Dairy Hardship Fund.',
-      hint:
-        'Businesses must not be eligible for the existing Small Business Grant, the Retail, Hospitality and Leisure Grant, The Fisheries Response Fund, Domestic Seafood Supply Scheme (DSSS), The Zoos Support Fund, or The Dairy Hardship Fund to be considered for this grant',
-      validation: { required: true },
-      adminValidation: true,
-    },
-    hasFixedPropertyCost: {
-      label: 'Do you meet one of the eligibility criteria?',
-      hint:
-        'A ‘fixed property related cost’ is defined as an ongoing fixed business premises rent cost, business premises licence cost, business premises mortgage cost, market pitch fee (in the case of a market trader), or business storage fee (in the case of a market trader).',
-      validation: { required: true },
-      children: (
-        <ul className="govuk-list govuk-list--bullet">
-          <li>Retail, Leisure and Hospitality Business:</li>
-          <ul className="govuk-list govuk-list--bullet">
-            <li>
-              With a property that has a rateable value of £60,000 or less
-            </li>
-            <li>OR</li>
-            <li>
-              Without a rateable value AND your annual fixed property related
-              costs are £60,000 or less
-            </li>
-          </ul>
-          <li>Not a Retail, Leisure and Hospitality Business:</li>
-          <ul className="govuk-list govuk-list--bullet">
-            <li>
-              With a property that has a rateable value of less than £51,000
-            </li>
-            <li>OR</li>
-            <li>
-              Without a rateable value AND your annual fixed property related
-              costs are less than £51,000
-            </li>
-          </ul>
-        </ul>
-      ),
-    },
-    significantIncomeFall: {
-      label:
-        'Has your business experienced a SIGNIFICANT fall in income as a result of Covid-19?',
       validation: { required: true },
       adminValidation: true,
     },
