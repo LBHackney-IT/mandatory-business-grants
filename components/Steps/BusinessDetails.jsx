@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Router from 'next/router';
 
-import { Button, TextInput } from 'components/Form';
+import { Button, TextInput, Select } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import AddressLookup from 'components/Form/AddressLookup/AddressLookup';
 
@@ -22,6 +22,22 @@ const Step1 = (props) => {
       />
       <TextInput
         {...getInputProps('business', 'registeredName', { register }, errors)}
+      />
+      <Select
+        {...getInputProps(
+          'business',
+          'businessIdentifyType',
+          { register },
+          errors
+        )}
+      />
+      <TextInput
+        {...getInputProps(
+          'business',
+          'businessIdentifyNumber',
+          { register },
+          errors
+        )}
       />
       <TextInput
         {...getInputProps(

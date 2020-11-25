@@ -178,6 +178,19 @@ export const inputLabels = {
       label:
         'Business Registered Name (if different from Business Trading Name):',
     },
+    businessIdentifyType: {
+      label: 'Please supply one of the following Business Identifying Numbers',
+      hint: 'Where available, please provide your Company Number.',
+      options: options.TYPE_IDENTIFIER_NUMBER,
+      validation: {
+        required: true,
+      },
+    },
+    businessIdentifyNumber: {
+      validation: {
+        required: true,
+      },
+    },
     businessRatesAccountNumber: {
       label: 'Business Rates Account Number:',
       hint: (
