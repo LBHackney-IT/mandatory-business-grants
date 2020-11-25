@@ -84,7 +84,7 @@ const Step1 = (props) => {
             <TextInput
               {...getInputProps(
                 'eligibilityCriteriaDetails',
-                'businessCustomeCategory',
+                'businessCustomCategory',
                 {
                   register,
                 },

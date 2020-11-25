@@ -101,7 +101,7 @@ export const inputLabels = {
         validate: (value) => value !== '',
       },
     },
-    businessCustomeCategory: {
+    businessCustomCategory: {
       label: 'Please provide a short description of your business activity:',
       validation: {
         required: true,
