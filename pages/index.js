@@ -47,7 +47,7 @@ export default function Home({ date, expirationDate }) {
         </button>
       )}
       <WarningText>
-        Please note that applications for the Business Grants close at
+        Please note that applications for the Business Grants close at{' '}
         {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
         {dateFormat(new Date(expirationDate), 'dddd, mmmm dS yyyy')}. Any
         applications submitted after this time will be invalid.
