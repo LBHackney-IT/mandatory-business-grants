@@ -68,13 +68,14 @@ export const inputLabels = {
         },
       },
     },
-    typeOfBusinessId: {
-      label: 'Type of business',
-      options: options.TYPE_OF_BUSINESS,
+    businessCategory: {
+      label:
+        'Please select the category which best describes your business activity',
+      options: Object.keys(options.BUSINESS_CATEGORIES),
       hint: (
         <>
           Please note your business must be open to the public - businesses
-          which supply these sectors will not be eligible.For further guidance
+          which supply these sectors will not be eligible. For further guidance
           on which category best suits your business activity please use the
           following{' '}
           <a
@@ -92,6 +93,19 @@ export const inputLabels = {
         validate: (value) => value !== '',
       },
       adminValidation: true,
+    },
+    businessSubCategory: {
+      label: 'Please select the sub-category:',
+      validation: {
+        required: true,
+        validate: (value) => value !== '',
+      },
+    },
+    businessCustomCategory: {
+      label: 'Please provide a short description of your business activity:',
+      validation: {
+        required: true,
+      },
     },
     tradingOn220320: {
       label: 'Was your business open for trading on the 22nd March 2020?',
