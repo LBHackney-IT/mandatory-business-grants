@@ -42,7 +42,7 @@ export const inputLabels = {
     isBusinessClosed: {
       label: 'Is your business closed by law?',
       hint:
-        'Please select Partly if your business is continuing to offer delivery and/or click-and-collect services (where items are pre-ordered and collected without entering the premises).',
+        'Please select Partly if your business is continuing to offer delivery, takeaway and/or click-and-collect services (where items are pre-ordered and collected without entering the premises).',
       options: options.IS_BUSINESS_CLOSED,
       validation: { required: true },
       adminValidation: true,
@@ -96,21 +96,21 @@ export const inputLabels = {
     tradingOn220320: {
       label: 'Was your business open for trading on the 22nd March 2020?',
       hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Sector) must have been open and trading on the 22nd March 2020 (prior to being ordered to close by government guidance)',
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Sector) must have been open and trading on the 22nd March 2020 (prior to being required to close by Government)',
       validation: { required: true },
       adminValidation: true,
     },
     tradingOn161020: {
       label: 'Was your business open for trading on the 16th October 2020?',
       hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Open) must have been open and trading on the 16th October 2020',
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Open) must have been open and trading on the 16th October 2020 (prior to London entering the Tier 2 restrictions period on the 17th October 2020)',
       validation: { required: true },
       adminValidation: true,
     },
     tradingOn041120: {
       label: 'Was your business open for trading on the 4th November 2020?',
       hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (for closed businesses) must have been open and trading on the 4th November 2020 (prior to being ordered to close by government guidance)',
+        'Businesses that believe they are eligible for the Local Restrictions Support Grant (for closed businesses) must have been open and trading on the 4th November 2020 (prior to being required to close from the 5th November 2020 by Government)',
       validation: { required: true },
       adminValidation: true,
     },
@@ -155,8 +155,9 @@ export const inputLabels = {
     },
     address: { label: 'Applicant Address:' },
     dateOfBirth: {
-      label: 'Date of Birth (Required for Sole Traders):',
+      label: 'Date of Birth:',
       validation: {
+        required: true,
         validate: {
           valid: (value) =>
             value && (isValid(new Date(value)) || 'Must be a valid Date'),
@@ -180,7 +181,8 @@ export const inputLabels = {
     },
     businessIdentifyType: {
       label: 'Please supply one of the following Business Identifying Numbers',
-      hint: 'Where available, please provide your Company Number.',
+      hint:
+        'Where available, please provide your Company Number as listed on Companies House. If you don’t have a Company Number please provide another number from the list below.',
       options: options.TYPE_IDENTIFIER_NUMBER,
       validation: {
         required: true,
@@ -292,7 +294,7 @@ export const inputLabels = {
     },
     businessMeetsCriteria: {
       label:
-        'I declare that the business meets the criteria for the grant I am applying for and that the information I have provided is complete and accurate',
+        'I declare that the business meets the criteria for the grant/grants I am applying for and that the information I have provided is complete and accurate',
       validation: { required: true },
     },
     businessClosedByLaw: {
@@ -311,13 +313,45 @@ export const inputLabels = {
       validation: { required: true },
     },
     businessNotExceed: {
-      label:
-        'I confirm that, including receipt of this grant, the business will not exceed the State Aid limits',
+      label: (
+        <>
+          <p>
+            LRSG (Closed), LRSG (Sector) and LRSG (Open) grants all count
+            towards the total de minimis state aid you are permitted to receive
+            over a 3 year period which is €200,000. If you have reached the de
+            minimis threshold, you may still be eligible for funding under the
+            <a
+              href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
+              target="_blank"
+              rel="noopener"
+            >
+              COVID-19 Temporary Framework
+            </a>
+            . The limit for this framework is €800,000.
+          </p>
+          <p>
+            I confirm that, including receipt of this grant, the business will
+            not exceed the relevant State Aid threshold limits.
+          </p>
+        </>
+      ),
       validation: { required: true },
     },
     businessNotUndertaking: {
-      label:
-        'I confirm that my business is not an undertaking in difficulty (within the meaning of Article 2 (18) of the General Block Exemption Regulation) on 31 December 2019',
+      label: (
+        <>
+          I confirm that my business is not an{' '}
+          <a
+            href="https://www.gov.uk/guidance/innovation-apply-for-a-funding-award#undertakings-in-difficulty--eu-definition"
+            target="_blank"
+            rel="noopener"
+          >
+            undertaking in difficulty
+          </a>{' '}
+          (within the meaning of Article 2 (18) of the General Block Exemption
+          Regulation) on 31 December 2019
+        </>
+      ),
       validation: { required: true },
     },
     businessNotRatePayer: {
@@ -328,14 +362,30 @@ export const inputLabels = {
     businessPermitData: {
       label: (
         <>
-          If required I permit the data provided in this form to be used to
-          determine my eligibility for the{' '}
+          I permit the data provided in this form to be used to determine my
+          eligibility and process my application for the{' '}
+          <a
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Closed) Addendum
+          </a>
+          , the
           <a
             href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
             target="_blank"
             rel="noopener"
           >
             Local Restrictions Support Grant (Open)
+          </a>
+          and the{' '}
+          <a
+            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Sector)
           </a>
           .
         </>
@@ -349,7 +399,7 @@ export const inputLabels = {
     },
     businessHappyContacted: {
       label:
-        'I confirm that I am happy to be contacted by Hackney Council in the future for details of new business funding opportunities',
+        'I confirm that I am happy to be contacted by Hackney Council in the future for details of new business funding opportunities and in relation to other business initiatives',
       validation: { required: true },
     },
   },
