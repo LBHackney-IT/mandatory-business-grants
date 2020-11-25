@@ -6,6 +6,7 @@
 /*drop table document_upload;*/
 /*drop table if exists contact_type cascade;*/
 /*drop table if exists business_size cascade;*/
+/*drop table if exists grant_application cascade;*/
 
 drop table if exists business cascade;
 drop table if exists business_address cascade;
@@ -16,7 +17,6 @@ drop table if exists contact cascade;
 drop table if exists contact_address cascade;
 drop table if exists declaration cascade;
 drop table if exists eligibility_criteria cascade;
-drop table if exists grant_application cascade;
 drop table if exists rateable_limit_answer cascade;
 drop table if exists site_description cascade;
 drop table if exists state_aid_option cascade;
@@ -28,7 +28,7 @@ as the structure becomes more apparent
 */
 create table declaration (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   name text,
   contact_type_id integer references contact_type(id),
   authorise_on_behalf boolean,
@@ -46,7 +46,7 @@ create table declaration (
 
 create table business_bank_account (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   bank_name text,
   account_holder text,
   account_number text,
@@ -55,7 +55,7 @@ create table business_bank_account (
 
 create table fixed_property_cost (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   items_included text,
   year_2019_to_2020 text,
   year_2018_to_2019 text
@@ -63,7 +63,7 @@ create table fixed_property_cost (
 
 create table turnover (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   items_included text,
   year_19_20 text,
   year_18_19 text,
@@ -72,7 +72,7 @@ create table turnover (
 
 create table business (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   business_name text,
   registered_name text,
   business_identify_type text,
@@ -85,7 +85,7 @@ create table business (
 
 create table business_address (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   first_line text,
   second_line text,
   third_line text,
@@ -97,7 +97,7 @@ create table business_address (
 /*same form as business_address*/
 create table business_trading_address (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   first_line text,
   second_line text,
   third_line text,
@@ -108,7 +108,7 @@ create table business_trading_address (
 
 create table contact (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   first_name text,
   last_name text,
   email_address text,
@@ -118,7 +118,7 @@ create table contact (
 
 create table contact_address (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   first_line text,
   second_line text,
   third_line text,
@@ -129,7 +129,7 @@ create table contact_address (
 
 create table eligibility_criteria (
   id serial primary key,
-  grant_application_id integer,
+  grant_application_id integer references grant_application(id),
   trading_in_hackney boolean,
   liable_for_rates boolean,
   is_business_closed boolean
@@ -137,8 +137,8 @@ create table eligibility_criteria (
 
 create table eligibility_criteria_details (
   id serial primary key,
-  grant_application_id integer,
-  business_size_id integer,
+  grant_application_id integer references grant_application(id),
+  business_size_id integer references business_size(id),
   how_many_employees integer,
   trading_on_22_03_20 boolean,
   trading_on_16_10_20 boolean,
