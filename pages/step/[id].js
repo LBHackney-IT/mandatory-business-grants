@@ -34,7 +34,7 @@ const FormWizard = () => {
     !formData.eligibilityCriteria &&
     stepId !== firstStep
   ) {
-    Router.replace(`/step/${firstStep}`);
+    typeof window !== 'undefined' && Router.replace(`/step/${firstStep}`);
     return null;
   }
   const Step = steps[stepId];
