@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Router from 'next/router';
 
-import { Button, Radios, Select } from 'components/Form';
+import { Button, Radios } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import ErrorSummary from 'components/ErrorSummary/ErrorSummary';
-import { VALID_BUSINESS_SIZE } from 'lib/dbMapping';
 
 const Step1 = (props) => {
   const { register, errors, handleSubmit } = useForm({
@@ -14,13 +13,8 @@ const Step1 = (props) => {
   const [showError, setShowError] = useState(false);
   const onSubmit = (data) => {
     const hasSomeDeclines = Object.entries(data.eligibilityCriteria).some(
-      ([key, value]) =>
-        (value === 'Yes' &&
-          (key === 'servedLegalNotices' || key === 'receivedOtherGrants')) ||
-        (value === 'No' &&
-          key !== 'servedLegalNotices' &&
-          key !== 'receivedOtherGrants') ||
-        (key === 'businessSizeId' && VALID_BUSINESS_SIZE.indexOf(value) === -1)
+      // eslint-disable-next-line no-unused-vars
+      ([key, value]) => value === 'No'
     );
     setShowError(hasSomeDeclines);
     if (!hasSomeDeclines) {
@@ -31,108 +25,52 @@ const Step1 = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="govuk-form-group">
-        <fieldset
-          className="govuk-fieldset"
-          role="group"
-          aria-describedby="step-hint"
-        >
-          <legend className="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 className="govuk-fieldset__heading">Eligibility Criteria</h1>
-          </legend>
-          <span id="step-hint" className="govuk-hint">
-            Applicants must meet all the eligibility questions to proceed to the
-            next section
-          </span>
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'tradingInHackney',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'businessSizeId',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Select
-            {...getInputProps(
-              'eligibilityCriteria',
-              'typeOfBusinessId',
-              {
-                register,
-              },
-              errors
-            )}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'tradingOn20200311',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'servedLegalNotices',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'receivedOtherGrants',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'hasFixedPropertyCost',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteria',
-              'significantIncomeFall',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-        </fieldset>
-      </div>
+      <fieldset
+        className="govuk-fieldset"
+        role="group"
+        aria-describedby="step-hint"
+      >
+        <legend className="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 className="govuk-fieldset__heading">Eligibility Criteria</h1>
+        </legend>
+        <span id="step-hint" className="govuk-hint">
+          Applicants must meet all the eligibility questions to proceed to the
+          next section
+        </span>
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'tradingInHackney',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'liableForRates',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+        <Radios
+          {...getInputProps(
+            'eligibilityCriteria',
+            'isBusinessClosed',
+            {
+              register,
+            },
+            errors
+          )}
+          onChange={() => setShowError(false)}
+        />
+      </fieldset>
       {showError && (
         <ErrorSummary
           title="Unfortunately you are not eligible for this grant."

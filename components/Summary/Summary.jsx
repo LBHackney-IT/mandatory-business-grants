@@ -81,9 +81,9 @@ const sections = [
     slug: 'eligibility-criteria',
   },
   {
-    name: 'contact',
-    title: 'Your details',
-    slug: 'your-details',
+    name: 'eligibilityCriteriaDetails',
+    title: 'Eligibility Criteria Details',
+    slug: 'eligibility-criteria-details',
   },
   {
     name: 'business',
@@ -91,14 +91,9 @@ const sections = [
     slug: 'business-details',
   },
   {
-    name: 'turnover',
-    title: 'Business Turnover',
-    slug: 'business-turnover',
-  },
-  {
-    name: 'fixedPropertyCosts',
-    title: 'Fixed property related costs',
-    slug: 'property-costs',
+    name: 'contact',
+    title: 'Your details',
+    slug: 'your-details',
   },
   {
     name: 'supplementaryInformation',

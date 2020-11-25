@@ -1,15 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Controller } from 'react-hook-form';
 
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
-const getInitialDate = (value = '') => {
-  const [year = '', month = '', day = ''] = value.split('-');
+const getInitialDate = (value) => {
+  const [year = '', month = '', day = ''] = value?.split('-') || [];
   return { day, month, year };
 };
 
-const DateInput = ({ label, inputRef, error, value, onChange }) => {
+const DateInput = ({
+  label,
+  labelSize = 'm',
+  inputRef,
+  error,
+  hint,
+  value,
+  name,
+  onChange,
+  ...otherProps
+}) => {
   const [date, setDate] = useState(getInitialDate(value));
   useEffect(() => {
     const { day, month, year } = date;
@@ -17,6 +28,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
       month !== '' &&
       year !== '' &&
       onChange(`${year}-${month}-${day}`);
+    day === '' && month === '' && year === '' && onChange();
   }, [date]);
   return (
     <div
@@ -29,9 +41,16 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
         role="group"
         aria-describedby={`${name}-hint`}
       >
-        <legend className="govuk-fieldset__legend govuk-fieldset__legend--m">
-          <h1 className="govuk-fieldset__heading">{label}</h1>
+        <legend
+          className={`govuk-fieldset__legend govuk-fieldset__legend--${labelSize}`}
+        >
+          {label}
         </legend>
+        {hint && (
+          <span id={`${name}-hint`} className="govuk-hint">
+            {hint}
+          </span>
+        )}
         {error && <ErrorMessage text={error.message} />}
         <div className="govuk-date-input" id={name}>
           <div className="govuk-date-input__item">
@@ -59,6 +78,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                   setDate({ ...date, day: value })
                 }
                 ref={inputRef}
+                {...otherProps}
               />
             </div>
           </div>
@@ -86,6 +106,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                 onChange={({ target: { value } }) =>
                   setDate({ ...date, month: value })
                 }
+                {...otherProps}
               />
             </div>
           </div>
@@ -113,6 +134,7 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
                 onChange={({ target: { value } }) =>
                   setDate({ ...date, year: value })
                 }
+                {...otherProps}
               />
             </div>
           </div>
@@ -122,11 +144,27 @@ const DateInput = ({ label, inputRef, error, value, onChange }) => {
   );
 };
 
-const ControlledDateInput = ({ control, name, rules, ...otherProps }) => {
+const ControlledDateInput = ({
+  control,
+  name,
+  rules,
+  label,
+  hint,
+  ...otherProps
+}) => {
   const inputRef = useRef();
   return (
     <Controller
-      as={<DateInput inputRef={inputRef} {...otherProps} />}
+      as={
+        <DateInput
+          inputRef={inputRef}
+          hint={hint}
+          label={label}
+          rules={rules}
+          name={name}
+          {...otherProps}
+        />
+      }
       onChange={([value]) => value}
       name={name}
       rules={rules}
@@ -134,6 +172,15 @@ const ControlledDateInput = ({ control, name, rules, ...otherProps }) => {
       control={control}
     ></Controller>
   );
+};
+
+ControlledDateInput.propTypes = {
+  label: PropTypes.string,
+  labelSize: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
+  name: PropTypes.string.isRequired,
+  hint: PropTypes.string,
+  rules: PropTypes.shape({}),
+  control: PropTypes.object.isRequired,
 };
 
 export default ControlledDateInput;

@@ -32,11 +32,8 @@ const SupplementaryInformation = (props) => {
           clear and legible.
         </p>
       </div>
-      <ControlledFileUpload {...sharedProps('businessAccounts')} />
-      <ControlledFileUpload {...sharedProps('fixedPropertyCosts')} />
-      <ControlledFileUpload {...sharedProps('fallInIncome')} />
-      <ControlledFileUpload {...sharedProps('identity')} />
-      <ControlledFileUpload {...sharedProps('payrollInformation')} />
+      <ControlledFileUpload {...sharedProps('bankStatement')} />
+      <ControlledFileUpload {...sharedProps('RatesBill')} />
       <Button className="govuk-button" text="Next" type="submit" />
     </form>
   );

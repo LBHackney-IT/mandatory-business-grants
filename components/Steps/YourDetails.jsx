@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 import Router from 'next/router';
 
-import { Button, TextInput, Select } from 'components/Form';
+import { Button, TextInput, DateInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
-import AddressLookup from 'components/AddressLookup/AddressLookup';
+import AddressLookup from 'components/Form/AddressLookup/AddressLookup';
 
 const Step1 = (props) => {
   const { register, control, errors, handleSubmit } = useForm({
@@ -17,9 +17,6 @@ const Step1 = (props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Your Details</h1>
-      <Select
-        {...getInputProps('contact', 'contactTypeId', { register }, errors)}
-      />
       <TextInput
         {...getInputProps('contact', 'firstName', { register }, errors)}
       />
@@ -33,8 +30,10 @@ const Step1 = (props) => {
         {...getInputProps('contact', 'telephoneNumber', { register }, errors)}
       />
       <AddressLookup
-        {...getInputProps('contact', 'address', { register, control }, errors)}
-        defaultValue={props.formData.contact && props.formData.contact.address}
+        {...getInputProps('contact', 'address', { register }, errors)}
+      />
+      <DateInput
+        {...getInputProps('contact', 'dateOfBirth', { control }, errors)}
       />
       <Button className="govuk-button" text="Next" type="submit" />
     </form>
