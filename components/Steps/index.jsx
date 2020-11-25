@@ -75,7 +75,7 @@ export const inputLabels = {
       hint: (
         <>
           Please note your business must be open to the public - businesses
-          which supply these sectors will not be eligible.For further guidance
+          which supply these sectors will not be eligible. For further guidance
           on which category best suits your business activity please use the
           following{' '}
           <a
@@ -102,7 +102,7 @@ export const inputLabels = {
       },
     },
     businessCustomeCategory: {
-      label: 'Please describe your category:',
+      label: 'Please provide a short description of your business activity:',
       validation: {
         required: true,
       },
