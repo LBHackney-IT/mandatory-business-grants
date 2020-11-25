@@ -6,8 +6,10 @@ import { Button, Radios, Select, TextInput } from 'components/Form';
 import { stepPath, getInputProps } from 'components/Steps';
 import ErrorSummary from 'components/ErrorSummary/ErrorSummary';
 
+import { BUSINESS_CATEGORIES, BUSINESS_SUB_WITH_FREETEXT } from 'lib/dbMapping';
+
 const Step1 = (props) => {
-  const { register, errors, handleSubmit } = useForm({
+  const { register, errors, handleSubmit, watch } = useForm({
     defaultValues: props.formData,
   });
   const [showError, setShowError] = useState(false);
@@ -15,7 +17,10 @@ const Step1 = (props) => {
     props.saveData(data);
     Router.push(stepPath, props.nextStep);
   };
-
+  const selectedCategory = watch('eligibilityCriteriaDetails.businessCategory');
+  const selectedSubCategory = watch(
+    'eligibilityCriteriaDetails.businessSubCategory'
+  );
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="govuk-form-group">
@@ -55,13 +60,38 @@ const Step1 = (props) => {
           <Select
             {...getInputProps(
               'eligibilityCriteriaDetails',
-              'typeOfBusinessId',
+              'businessCategory',
               {
                 register,
               },
               errors
             )}
           />
+          {selectedCategory && (
+            <Select
+              {...getInputProps(
+                'eligibilityCriteriaDetails',
+                'businessSubCategory',
+                {
+                  register,
+                },
+                errors
+              )}
+              options={BUSINESS_CATEGORIES[selectedCategory]}
+            />
+          )}
+          {BUSINESS_SUB_WITH_FREETEXT.includes(selectedSubCategory) && (
+            <TextInput
+              {...getInputProps(
+                'eligibilityCriteriaDetails',
+                'businessCustomeCategory',
+                {
+                  register,
+                },
+                errors
+              )}
+            />
+          )}
           <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',
