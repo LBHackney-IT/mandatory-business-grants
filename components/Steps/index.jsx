@@ -326,8 +326,20 @@ export const inputLabels = {
       validation: { required: true },
     },
     businessPermitData: {
-      label:
-        'If required I permit the data provided in this form to be used to determine my eligibility for the  Local Restrictions Support Grant (Open).',
+      label: (
+        <>
+          If required I permit the data provided in this form to be used to
+          determine my eligibility for the{' '}
+          <a
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Open)
+          </a>
+          .
+        </>
+      ),
       validation: { required: true },
     },
     businessShareWithBEIS: {

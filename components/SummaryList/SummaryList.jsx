@@ -32,7 +32,7 @@ const SummaryList = ({ list, name, register }) => (
 SummaryList.propTypes = {
   list: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
       value: PropTypes.node.isRequired,
       href: PropTypes.string,
     }).isRequired
