@@ -6,7 +6,7 @@ import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import { BasicSelect, TextInput } from 'components/Form';
 import { fetchApplications, patchApplications } from 'utils/api/applications';
 
-import { APPLICATION_STATE, TYPE_OF_BUSINESS } from 'lib/dbMapping';
+import { APPLICATION_STATE } from 'lib/dbMapping';
 import { fetchGrantOfficers } from '../../utils/api/grantOfficers';
 
 const ApplicationsList = ({
@@ -14,7 +14,6 @@ const ApplicationsList = ({
   pageSize,
   sort,
   status,
-  businessType,
   grantOfficer,
   applicationId,
 }) => {
@@ -44,7 +43,6 @@ const ApplicationsList = ({
   );
   const [filters, setFilters] = useState({
     status,
-    businessType,
     grantOfficer,
     applicationId,
   });
@@ -123,12 +121,6 @@ const ApplicationsList = ({
         label="Filter by Status:"
         value={filters.status}
         onChange={(status) => setValues({ status })}
-      />
-      <BasicSelect
-        options={TYPE_OF_BUSINESS}
-        label="Filter by Type of Business:"
-        value={filters.businessType}
-        onChange={(businessType) => setValues({ businessType })}
       />
       {officers && (
         <BasicSelect
