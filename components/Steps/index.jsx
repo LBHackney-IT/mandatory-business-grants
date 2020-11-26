@@ -337,11 +337,6 @@ export const inputLabels = {
         'I declare that the business meets the criteria for the grant/grants I am applying for and that the information I have provided is complete and accurate',
       validation: { required: true },
     },
-    businessClosedByLaw: {
-      label:
-        'I confirm that the business has closed by law due to the Government lockdown restrictions',
-      validation: { required: true },
-    },
     businessIntendsReopen: {
       label:
         'I confirm that my business intends to re-open, if it has not already done so (subject to Government guidance)',
