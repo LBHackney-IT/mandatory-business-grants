@@ -27,7 +27,14 @@ const Result = ({ formData, clearFormData }) => {
       setError(e.message);
     }
   };
-  if (submitting) return null;
+  if (submitting) {
+    return (
+      <>
+        <h1>Submitting...</h1>
+        <h2>Do not navigate away from this page</h2>
+      </>
+    );
+  }
   return (
     <>
       <h1>Summary</h1>

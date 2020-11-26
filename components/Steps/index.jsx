@@ -70,7 +70,7 @@ export const inputLabels = {
           Please note your business must normally be open to the public -
           businesses which supply these sectors will not be eligible. For
           further guidance on which category best suits your business activity
-          please use the following
+          please use the following{' '}
           <a
             href="https://www.gov.uk/guidance/new-national-restrictions-from-5-november?priority-taxon=09944b84-02ba-4742-a696-9e562fc9b29d#businesses-and-venues"
             target="_blank"
