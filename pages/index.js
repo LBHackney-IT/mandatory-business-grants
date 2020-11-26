@@ -1,25 +1,54 @@
 import Router from 'next/router';
-
 import { isExpired } from 'utils/date';
 import { stepPath, stepKeys } from 'components/Steps';
-import WarningText from 'components/WarningText/WarningText';
-import dateFormat from 'dateformat';
 
 export default function Home({ date, expirationDate }) {
   return (
     <div>
       <h1>Apply for the COVID-19 Local Authority Business Grants Fund</h1>
       <p className="govuk-body">
-        The Business Grant Fund supports small and micro businesses that are not
-        eligible for other grant schemes.
+        The Government has announced a series of grants for certain businesses
+        affected by the Covid-19 pandemic, the tier restrictions introduced in
+        London from October and the subsequent national lockdown period from 5
+        November 2020.
       </p>
       <p className="govuk-body">
-        For further information please go to{' '}
-        <a
-          className="govuk-link"
-          href="https://hackney.gov.uk/support-for-business#financial"
-        >
-          https://hackney.gov.uk/support-for-business#financial
+        By completing this application form you will be considered for the
+        following grants:
+      </p>
+      <ul className="govuk-list govuk-list--bullet">
+        <li>
+          Grant 1:{' '}
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
+          >
+            Local restrictions support grant (for closed businesses)
+          </a>
+        </li>
+        <li>
+          Grant 2:{' '}
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
+          >
+            Local restrictions support grant (sector)
+          </a>
+        </li>
+        <li>
+          Grant 3:{' '}
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
+          >
+            Local restrictions support grant (for businesses that are open)
+          </a>
+        </li>
+      </ul>
+      <p className="govuk-body">
+        For further information, please go to{' '}
+        <a className="govuk-link" href="https://hackney.gov.uk/business-grants">
+          https://hackney.gov.uk/business-grants
         </a>
       </p>
       {(!expirationDate ||
@@ -46,12 +75,6 @@ export default function Home({ date, expirationDate }) {
           </svg>
         </button>
       )}
-      <WarningText>
-        Please note that applications for the Business Grants close at{' '}
-        {dateFormat(new Date(expirationDate), 'h:MM:ss TT')} on{' '}
-        {dateFormat(new Date(expirationDate), 'dddd, mmmm dS yyyy')}. Any
-        applications submitted after this time will be invalid.
-      </WarningText>
     </div>
   );
 }
