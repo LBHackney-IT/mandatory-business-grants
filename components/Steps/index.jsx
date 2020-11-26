@@ -39,14 +39,6 @@ export const inputLabels = {
       validation: { required: true },
       adminValidation: true,
     },
-    isBusinessClosed: {
-      label: 'Is your business closed by law?',
-      hint:
-        'Please select Partly if your business is continuing to offer delivery, takeaway and/or click-and-collect services (where items are pre-ordered and collected without entering the premises).',
-      options: options.IS_BUSINESS_CLOSED,
-      validation: { required: true },
-      adminValidation: true,
-    },
   },
   eligibilityCriteriaDetails: {
     businessSizeId: {

@@ -1,8 +1,7 @@
 {
   "eligibilityCriteria": {
     "tradingInHackney": "Yes",
-    "liableForRates": "Yes",
-    "isBusinessClosed": "Yes"
+    "liableForRates": "Yes"
   },
   "eligibilityCriteriaDetails": {
     "businessSizeId": "Micro",

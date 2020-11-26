@@ -59,17 +59,6 @@ const Step1 = (props) => {
           )}
           onChange={() => setShowError(false)}
         />
-        <Radios
-          {...getInputProps(
-            'eligibilityCriteria',
-            'isBusinessClosed',
-            {
-              register,
-            },
-            errors
-          )}
-          onChange={() => setShowError(false)}
-        />
       </fieldset>
       {showError && (
         <ErrorSummary
