@@ -1,85 +1,84 @@
 {
   "eligibilityCriteria": {
-      "tradingInHackney": "Yes",
-      "liableForRates": "Yes",
-      "isBusinessClosed": "Yes"
+    "tradingInHackney": "Yes",
+    "liableForRates": "Yes",
+    "isBusinessClosed": "Yes"
   },
   "eligibilityCriteriaDetails": {
-      "businessSizeId": "Micro",
-      "howManyEmployees": "12",
-      "businessCategory": "Retail",
-      "tradingOn220320": "Yes",
-      "tradingOn161020": "Yes",
-      "tradingOn041120": "Yes",
-      "servedLegalNotices": "Yes",
-      "businessSubCategory": "Other Non-Essential Retail",
-      "businessCustomCategory": "other category"
+    "businessSizeId": "Micro",
+    "howManyEmployees": "12",
+    "businessCategory": "Retail",
+    "tradingOn220320": "Yes",
+    "tradingOn161020": "No",
+    "tradingOn041120": "Yes",
+    "servedLegalNotices": "Yes",
+    "businessSubCategory": "Other Non-Essential Retail",
+    "businessCustomCategory": "other category"
   },
   "business": {
-      "businessName": "Business Name",
-      "registeredName": "Business Registered Name",
-      "businessIdentifyType": "Company Number",
-      "businessIdentifyNumber": "131212321",
-      "businessRatesAccountNumber": "61231231X",
-      "businessRatesPayer": "asd",
-      "businessTradingAddress": {
-          "buildName": "flat x",
-          "streetNumber": "1",
-          "street": "street name",
-          "town": "town",
-          "postcode": "e83as"
-      },
-      "businessAddress": {
-          "buildName": "flat y",
-          "streetNumber": "2",
-          "street": "street",
-          "town": "town",
-          "postcode": "e83as"
-      },
-      "businessAnnualRent": "123",
-      "businessWebsite": "http://asd.com"
+    "businessName": "Business Name",
+    "registeredName": "Business Registered Name",
+    "businessIdentifyType": "Company Number",
+    "businessIdentifyNumber": "131212321",
+    "businessRatesAccountNumber": "61231231X",
+    "businessRatesPayer": "asd",
+    "businessTradingAddress": {
+      "buildName": "flat x",
+      "streetNumber": "1",
+      "street": "street name",
+      "town": "town",
+      "postcode": "e83as"
+    },
+    "businessAddress": {
+      "buildName": "flat y",
+      "streetNumber": "2",
+      "street": "street",
+      "town": "town",
+      "postcode": "e83as"
+    },
+    "businessAnnualRent": "123",
+    "businessWebsite": "http://asd.com"
   },
   "contact": {
-      "firstName": "First name",
-      "lastName": "Last name",
-      "emailAddress": "test@example.com",
-      "telephoneNumber": "07777777",
-      "address": {
-          "buildName": "3",
-          "streetNumber": "2",
-          "street": "contact street",
-          "town": "Town name",
-          "postcode": "e83as"
-      },
-      "dateOfBirth": "2000-12-20"
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailAddress": "test@example.com",
+    "telephoneNumber": "07777777",
+    "address": {
+      "buildName": "3",
+      "streetNumber": "2",
+      "street": "contact street",
+      "town": "Town name",
+      "postcode": "e83as"
+    },
+    "dateOfBirth": "2000-12-20"
   },
   "supplementaryInformation": {
-      "bankStatement": [
-          "faked_it_out_for_local_testing.ext"
-      ],
-      "RatesBill": [
-          "faked_it_out_for_local_testing.ext"
-      ]
+    "bankStatement": ["faked_it_out_for_local_testing.ext"],
+    "RatesBill": [
+      "faked_it_out_for_local_testing.ext",
+      "asd@asd.com/<gen>/test.jpg"
+    ]
   },
   "businessBankAccount": {
-      "bankName": "Big Bank",
-      "accountHolder": "Mr Account Holder",
-      "accountNumber": "12312312",
-      "accountSortcode": "123123"
+    "bankName": "Big Bank",
+    "accountHolder": "Mr Account Holder",
+    "accountNumber": "12312312",
+    "accountSortcode": "123123"
   },
   "declaration": {
-      "name": "Declaration Name",
-      "contactTypeId": "Owner (Sole Trader)",
-      "authoriseOnBehalf": true,
-      "businessMeetsCriteria": true,
-      "businessClosedByLaw": true,
-      "businessIntendsReopen": true,
-      "businessIWillInform": true,
-      "businessNotExceed": true,
-      "businessNotUndertaking": true,
-      "businessNotRatePayer": true,
-      "businessPermitData": true,
-      "businessShareWithBEIS": true,
-      "businessHappyContacted": true
+    "name": "Declaration Name",
+    "contactTypeId": "Owner (Sole Trader)",
+    "authoriseOnBehalf": true,
+    "businessMeetsCriteria": true,
+    "businessClosedByLaw": true,
+    "businessIntendsReopen": true,
+    "businessIWillInform": true,
+    "businessNotExceed": true,
+    "businessNotUndertaking": true,
+    "businessNotRatePayer": true,
+    "businessPermitData": true,
+    "businessShareWithBEIS": true,
+    "businessHappyContacted": true
   }
 }
