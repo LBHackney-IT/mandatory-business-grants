@@ -426,7 +426,7 @@ export const inputLabels = {
         validate: (value) => value.length > 0 || 'Document required',
       },
     },
-    RatesBill: {
+    ratesBill: {
       label: 'Business Rates Bill:',
       hint: 'Please provide a copy of your latest business rates bill',
       validation: {

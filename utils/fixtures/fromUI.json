@@ -55,7 +55,7 @@
   },
   "supplementaryInformation": {
     "bankStatement": ["faked_it_out_for_local_testing.ext"],
-    "RatesBill": [
+    "ratesBill": [
       "faked_it_out_for_local_testing.ext",
       "asd@asd.com/<gen>/test.jpg"
     ]
