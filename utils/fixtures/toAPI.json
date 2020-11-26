@@ -49,7 +49,7 @@
       "town": "town",
       "postcode": "e83as"
     },
-    "businessAnnualRent": null,
+    "businessAnnualRent": 123,
     "businessWebsite": "http://asd.com"
   },
   "supplementaryInformation": {
