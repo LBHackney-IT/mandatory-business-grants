@@ -15,7 +15,7 @@ const fileUploader = async (file, clientGeneratedId) => {
   formData.append('file', file);
   await axios.post(data.url, formData, {
     headers: {
-      'Content-Type': 'multipart/form-data',
+      'Content-Type': file.type,
     },
   });
   return data.fileKey;
