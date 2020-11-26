@@ -52,11 +52,12 @@ export const inputLabels = {
       label: 'How many employees does your business have?',
       hint: 'Full time equivalents',
       inputClassName: 'govuk-input--width-10',
+      type: 'number',
       inputMode: 'numeric',
       validation: {
         required: true,
         pattern: {
-          value: /^[0-9]*$/,
+          value: /^[0-9]+$/,
         },
       },
     },
