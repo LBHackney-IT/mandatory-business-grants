@@ -58,16 +58,6 @@ const Declaration = (props) => {
       <Checkbox
         {...getInputProps(
           'declaration',
-          'businessClosedByLaw',
-          {
-            register,
-          },
-          errors
-        )}
-      />
-      <Checkbox
-        {...getInputProps(
-          'declaration',
           'businessIntendsReopen',
           {
             register,

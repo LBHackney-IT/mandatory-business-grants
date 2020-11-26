@@ -61,7 +61,7 @@ const Radio = ({
 );
 
 Radio.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   name: PropTypes.string.isRequired,
   register: PropTypes.func.isRequired,
   options: PropTypes.array,

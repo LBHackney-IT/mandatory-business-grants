@@ -1,8 +1,7 @@
 {
   "eligibilityCriteria": {
     "tradingInHackney": true,
-    "liableForRates": true,
-    "isBusinessClosed": true
+    "liableForRates": true
   },
   "eligibilityCriteriaDetails": {
     "businessSizeId": "Micro",
@@ -50,7 +49,7 @@
       "town": "town",
       "postcode": "e83as"
     },
-    "businessAnnualRent": null,
+    "businessAnnualRent": 123,
     "businessWebsite": "http://asd.com"
   },
   "supplementaryInformation": {
@@ -71,7 +70,6 @@
     "contactTypeId": "Owner (Sole Trader)",
     "authoriseOnBehalf": true,
     "businessMeetsCriteria": true,
-    "businessClosedByLaw": true,
     "businessIntendsReopen": true,
     "businessIWillInform": true,
     "businessNotExceed": true,

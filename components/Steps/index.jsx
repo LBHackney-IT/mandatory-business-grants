@@ -39,14 +39,6 @@ export const inputLabels = {
       validation: { required: true },
       adminValidation: true,
     },
-    isBusinessClosed: {
-      label: 'Is your business closed by law?',
-      hint:
-        'Please select Partly if your business is continuing to offer delivery, takeaway and/or click-and-collect services (where items are pre-ordered and collected without entering the premises).',
-      options: options.IS_BUSINESS_CLOSED,
-      validation: { required: true },
-      adminValidation: true,
-    },
   },
   eligibilityCriteriaDetails: {
     businessSizeId: {
@@ -60,11 +52,12 @@ export const inputLabels = {
       label: 'How many employees does your business have?',
       hint: 'Full time equivalents',
       inputClassName: 'govuk-input--width-10',
+      type: 'number',
       inputMode: 'numeric',
       validation: {
         required: true,
         pattern: {
-          value: /^[0-9]*$/,
+          value: /^[0-9]+$/,
         },
       },
     },
@@ -74,10 +67,10 @@ export const inputLabels = {
       options: Object.keys(options.BUSINESS_CATEGORIES),
       hint: (
         <>
-          Please note your business must be open to the public - businesses
-          which supply these sectors will not be eligible. For further guidance
-          on which category best suits your business activity please use the
-          following{' '}
+          Please note your business must normally be open to the public -
+          businesses which supply these sectors will not be eligible. For
+          further guidance on which category best suits your business activity
+          please use the following
           <a
             href="https://www.gov.uk/guidance/new-national-restrictions-from-5-november?priority-taxon=09944b84-02ba-4742-a696-9e562fc9b29d#businesses-and-venues"
             target="_blank"
@@ -108,23 +101,56 @@ export const inputLabels = {
       },
     },
     tradingOn220320: {
-      label: 'Was your business open for trading on the 22nd March 2020?',
-      hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Sector) must have been open and trading on the 22nd March 2020 (prior to being required to close by Government)',
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          restrictions support grant (sector):
+          <ul>
+            <li>Business was trading and open on the 22nd March 2020</li>
+            <li>
+              Business was required to close on the 23rd March 2020, and has
+              been unable to open since
+            </li>
+          </ul>
+        </>
+      ),
       validation: { required: true },
       adminValidation: true,
     },
     tradingOn161020: {
-      label: 'Was your business open for trading on the 16th October 2020?',
-      hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (Open) must have been open and trading on the 16th October 2020 (prior to London entering the Tier 2 restrictions period on the 17th October 2020)',
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Open):
+          <ul>
+            <li>Business was trading and open on the 16th October 2020</li>
+            <li>
+              Business whose trade was severely impacted by Tier 2 restrictions
+              (e.g. preventing households from mixing indoors and a 10pm curfew
+              for pubs and restaurants)
+            </li>
+          </ul>
+        </>
+      ),
       validation: { required: true },
       adminValidation: true,
     },
     tradingOn041120: {
-      label: 'Was your business open for trading on the 4th November 2020?',
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (for closed businesses):
+          <ul>
+            <li>Business was trading and open on the 4th November 2020</li>
+            <li>
+              Business was required to close on the 5th November 2020, due to
+              the national lockdown
+            </li>
+          </ul>
+        </>
+      ),
       hint:
-        'Businesses that believe they are eligible for the Local Restrictions Support Grant (for closed businesses) must have been open and trading on the 4th November 2020 (prior to being required to close from the 5th November 2020 by Government)',
+        'Please note, your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/ takeaway/ click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
       adminValidation: true,
     },
@@ -161,6 +187,7 @@ export const inputLabels = {
       label: 'Contact Telephone Number:',
       type: 'tel',
       validation: {
+        required: true,
         pattern: {
           value: /^[0-9]*$/,
           message: 'Telephone Number must be a number',
@@ -169,9 +196,8 @@ export const inputLabels = {
     },
     address: { label: 'Applicant Address:' },
     dateOfBirth: {
-      label: 'Date of Birth:',
+      label: 'Date of Birth (Only required for Sole Traders):',
       validation: {
-        required: true,
         validate: {
           valid: (value) =>
             value && (isValid(new Date(value)) || 'Must be a valid Date'),
@@ -243,12 +269,13 @@ export const inputLabels = {
       label: 'Business Premises Address in the London Borough of Hackney:',
     },
     businessAnnualRent: {
-      label: 'Business Premises Annual Rent (or Mortgage if applicable):',
+      label:
+        'Business Premises Annual Rent (or Annual Mortgage Cost if applicable):',
       type: 'number',
-      validation: { min: 0 },
+      validation: { required: true, min: 0 },
     },
     businessWebsite: {
-      label: 'Business Website Address (if applicable):',
+      label: 'Business Website (if applicable):',
     },
   },
   businessBankAccount: {
@@ -311,19 +338,31 @@ export const inputLabels = {
         'I declare that the business meets the criteria for the grant/grants I am applying for and that the information I have provided is complete and accurate',
       validation: { required: true },
     },
-    businessClosedByLaw: {
-      label:
-        'I confirm that the business has closed by law due to the Government lockdown restrictions',
-      validation: { required: true },
-    },
     businessIntendsReopen: {
       label:
-        'I confirm that my business intends to re-open when the national lockdown restrictions end',
+        'I confirm that my business intends to re-open, if it has not already done so (subject to Government guidance)',
       validation: { required: true },
     },
     businessIWillInform: {
-      label:
-        'I confirm that I will inform Hackney Council if the business no longer meets the eligibility criteria ',
+      label: (
+        <>
+          I confirm that I will inform Hackney Council if;
+          <ul>
+            <li>
+              My business no longer occupies the premises stated in this
+              application form
+            </li>
+            <li>
+              My business ceases trading permanently, or goes into
+              administration, becomes insolvent, is in receipt of a striking off
+              notice
+            </li>
+            <li>
+              My business no longer meets any other grant eligibility criteria
+            </li>
+          </ul>
+        </>
+      ),
       validation: { required: true },
     },
     businessNotExceed: {
@@ -361,7 +400,7 @@ export const inputLabels = {
             rel="noopener"
           >
             undertaking in difficulty
-          </a>{' '}
+          </a>
           (within the meaning of Article 2 (18) of the General Block Exemption
           Regulation) on 31 December 2019
         </>
@@ -377,7 +416,8 @@ export const inputLabels = {
       label: (
         <>
           I permit the data provided in this form to be used to determine my
-          eligibility and process my application for the{' '}
+          eligibility and process my application for current, and future rounds
+          of the
           <a
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
             target="_blank"
@@ -393,7 +433,7 @@ export const inputLabels = {
           >
             Local Restrictions Support Grant (Open)
           </a>
-          and the{' '}
+          and the
           <a
             href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
             target="_blank"
@@ -407,8 +447,19 @@ export const inputLabels = {
       validation: { required: true },
     },
     businessShareWithBEIS: {
-      label:
-        'I confirm that I am happy for my data to be shared with BEIS for research and evaluation purposes',
+      label: (
+        <>
+          I confirm that I am happy for my data to be shared with
+          <a
+            href="https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy"
+            target="_blank"
+            rel="noopener"
+          >
+            BEIS
+          </a>
+          for research and evaluation purposes
+        </>
+      ),
       validation: { required: true },
     },
     businessHappyContacted: {
@@ -421,17 +472,15 @@ export const inputLabels = {
     bankStatement: {
       label: 'Bank Statement:',
       hint:
-        'Please provide your November 2020 business bank statement which must correspond with the bank account details provided in this application form',
+        'Please provide your November 2020 business bank statement - this must correspond with the bank account details provided in this application form. If you do not have your November bank statement, please submit your most recent bank statement.',
       validation: {
         validate: (value) => value.length > 0 || 'Document required',
       },
     },
     ratesBill: {
       label: 'Business Rates Bill:',
-      hint: 'Please provide a copy of your latest business rates bill',
-      validation: {
-        validate: (value) => value.length > 0 || 'Document required',
-      },
+      hint:
+        'Please provide a copy of your latest business rates bill. If you do not have a copy of this bill you may still submit your grant application, but please note that processing may take longer.',
     },
   },
 };
