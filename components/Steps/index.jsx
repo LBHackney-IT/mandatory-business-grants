@@ -481,9 +481,6 @@ export const inputLabels = {
       label: 'Business Rates Bill:',
       hint:
         'Please provide a copy of your latest business rates bill. If you do not have a copy of this bill you may still submit your grant application, but please note that processing may take longer.',
-      validation: {
-        validate: (value) => value.length > 0 || 'Document required',
-      },
     },
   },
 };
