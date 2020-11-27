@@ -117,16 +117,20 @@ resources:
           CidrIp: 0.0.0.0/0
 
     covidBusinessGrantsDb:
-      Type: "AWS::RDS::DBInstance"
+      Type: AWS::RDS::DBInstance
       Properties:
-        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
-        DBName: ${self:provider.dbname}
         AllocatedStorage: 5
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
         DBInstanceClass: "db.t2.micro"
+        DBName: ${self:provider.dbname}
+        DeletionProtection: true
         Engine: "postgres"
         EngineVersion: "11.7"
         MasterUsername: ${env:MASTER_USERNAME}
         MasterUserPassword: ${env:MASTER_USER_PASSWORD}
+        MultiAZ: true
+        PubliclyAccessible: false
+        StorageEncrypted: true
         VPCSecurityGroups:
         - Fn::GetAtt:
           - covidBusinessGrantsDbSecurityGroup
