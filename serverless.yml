@@ -5,7 +5,7 @@ provider:
   runtime: nodejs12.x
   region: eu-west-2
   stage: ${opt:stage}
-  dbname: covidBusinessGrantsDb
+  dbname: covidBusinessGrantsDbUpdated
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -52,7 +52,7 @@ functions:
       ENV: ${self:provider.stage}
       HOST:
         Fn::GetAtt:
-          - covidBusinessGrantsDb
+          - covidBusinessGrantsDbUpdated
           - Endpoint.Address
       USERNAME: ${env:MASTER_USERNAME}
       PASSWORD: ${env:MASTER_USER_PASSWORD}
@@ -116,7 +116,7 @@ resources:
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
 
-    covidBusinessGrantsDb:
+    covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
       Properties:
         AllocatedStorage: 5
@@ -138,7 +138,7 @@ resources:
         Tags:
           -
             Key: "Name"
-            Value: "covidBusinessGrantsDb"
+            Value: "covidBusinessGrantsDbUpdated"
       DeletionPolicy: "Snapshot"
 
     CloudFrontDistribution:
