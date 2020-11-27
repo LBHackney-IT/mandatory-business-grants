@@ -226,6 +226,38 @@ export const inputLabels = {
         required: true,
       },
     },
+    businessIdentifyNumberCompanyNumber: {
+      validation: {
+        required: true,
+        pattern: {
+          value: /^[0-9]{11}$/,
+        },
+      },
+    },
+    businessIdentifyNumberVAT: {
+      validation: {
+        required: true,
+        pattern: {
+          value: /^[0-9a-z]{11}$/i,
+        },
+      },
+    },
+    businessIdentifyNumberNIN: {
+      validation: {
+        required: true,
+        pattern: {
+          value: /^[0-9a-z]{9}$/i,
+        },
+      },
+    },
+    businessIdentifyNumberUTR: {
+      validation: {
+        required: true,
+        pattern: {
+          value: /^(\d{10}|\d{9}K)$/i,
+        },
+      },
+    },
     businessRatesAccountNumber: {
       label: 'Business Rates Account Number:',
       hint: (
@@ -265,7 +297,7 @@ export const inputLabels = {
       label:
         'Business Premises Annual Rent (or Annual Mortgage Cost if applicable):',
       type: 'number',
-      validation: { required: true, min: 0 },
+      validation: { required: true, min: 0, validate: (value) => value > 0 },
     },
     businessWebsite: {
       label: 'Business Website (if applicable):',
