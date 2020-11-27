@@ -46,7 +46,6 @@ export const inputLabels = {
       children: <BusinessClassificationSummary />,
       options: options.BUSINESS_SIZE,
       validation: { required: true },
-      adminValidation: true,
     },
     howManyEmployees: {
       label: 'How many employees does your business have?',
@@ -115,7 +114,6 @@ export const inputLabels = {
         </>
       ),
       validation: { required: true },
-      adminValidation: true,
     },
     tradingOn161020: {
       label: (
@@ -133,7 +131,6 @@ export const inputLabels = {
         </>
       ),
       validation: { required: true },
-      adminValidation: true,
     },
     tradingOn041120: {
       label: (
@@ -152,7 +149,6 @@ export const inputLabels = {
       hint:
         'Please note, your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/ takeaway/ click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
-      adminValidation: true,
     },
     servedLegalNotices: {
       label:
@@ -167,14 +163,12 @@ export const inputLabels = {
       validation: {
         required: 'First Name is required',
       },
-      adminValidation: true,
     },
     lastName: {
       label: 'Last Name:',
       validation: {
         required: 'Last Name is required',
       },
-      adminValidation: true,
     },
     emailAddress: {
       label: 'Email Address:',
@@ -213,7 +207,6 @@ export const inputLabels = {
       validation: {
         required: 'Business Name is required',
       },
-      adminValidation: true,
     },
     registeredName: {
       label:
