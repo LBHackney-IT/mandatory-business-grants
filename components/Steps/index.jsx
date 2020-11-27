@@ -21,8 +21,8 @@ export const steps = {
   'eligibility-criteria-details': EligibilityCriteriaDetails,
   'business-details': BusinessDetails,
   'your-details': YourDetails,
-  'supplementary-information': SupplementaryInformation,
   'bank-details': BankDetails,
+  'supplementary-information': SupplementaryInformation,
   declaration: Declaration,
   summary: Summary,
 };
@@ -46,7 +46,6 @@ export const inputLabels = {
       children: <BusinessClassificationSummary />,
       options: options.BUSINESS_SIZE,
       validation: { required: true },
-      adminValidation: true,
     },
     howManyEmployees: {
       label: 'How many employees does your business have?',
@@ -115,7 +114,6 @@ export const inputLabels = {
         </>
       ),
       validation: { required: true },
-      adminValidation: true,
     },
     tradingOn161020: {
       label: (
@@ -133,7 +131,6 @@ export const inputLabels = {
         </>
       ),
       validation: { required: true },
-      adminValidation: true,
     },
     tradingOn041120: {
       label: (
@@ -152,7 +149,6 @@ export const inputLabels = {
       hint:
         'Please note, your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/ takeaway/ click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
-      adminValidation: true,
     },
     servedLegalNotices: {
       label:
@@ -167,14 +163,12 @@ export const inputLabels = {
       validation: {
         required: 'First Name is required',
       },
-      adminValidation: true,
     },
     lastName: {
       label: 'Last Name:',
       validation: {
         required: 'Last Name is required',
       },
-      adminValidation: true,
     },
     emailAddress: {
       label: 'Email Address:',
@@ -213,7 +207,6 @@ export const inputLabels = {
       validation: {
         required: 'Business Name is required',
       },
-      adminValidation: true,
     },
     registeredName: {
       label:
@@ -372,7 +365,7 @@ export const inputLabels = {
             LRSG (Closed), LRSG (Sector) and LRSG (Open) grants all count
             towards the total de minimis state aid you are permitted to receive
             over a 3 year period which is €200,000. If you have reached the de
-            minimis threshold, you may still be eligible for funding under the
+            minimis threshold, you may still be eligible for funding under the{' '}
             <a
               href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
               target="_blank"
@@ -400,7 +393,7 @@ export const inputLabels = {
             rel="noopener"
           >
             undertaking in difficulty
-          </a>
+          </a>{' '}
           (within the meaning of Article 2 (18) of the General Block Exemption
           Regulation) on 31 December 2019
         </>
@@ -417,7 +410,7 @@ export const inputLabels = {
         <>
           I permit the data provided in this form to be used to determine my
           eligibility and process my application for current, and future rounds
-          of the
+          of the{' '}
           <a
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
             target="_blank"
@@ -425,22 +418,22 @@ export const inputLabels = {
           >
             Local Restrictions Support Grant (Closed) Addendum
           </a>
-          , the
+          , the{' '}
           <a
             href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
             target="_blank"
             rel="noopener"
           >
             Local Restrictions Support Grant (Open)
-          </a>
-          and the
+          </a>{' '}
+          and the{' '}
           <a
             href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
             target="_blank"
             rel="noopener"
           >
             Local Restrictions Support Grant (Sector)
-          </a>
+          </a>{' '}
           .
         </>
       ),
@@ -449,14 +442,14 @@ export const inputLabels = {
     businessShareWithBEIS: {
       label: (
         <>
-          I confirm that I am happy for my data to be shared with
+          I confirm that I am happy for my data to be shared with{' '}
           <a
             href="https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy"
             target="_blank"
             rel="noopener"
           >
             BEIS
-          </a>
+          </a>{' '}
           for research and evaluation purposes
         </>
       ),
@@ -465,7 +458,6 @@ export const inputLabels = {
     businessHappyContacted: {
       label:
         'I confirm that I am happy to be contacted by Hackney Council in the future for details of new business funding opportunities and in relation to other business initiatives',
-      validation: { required: true },
     },
   },
   supplementaryInformation: {

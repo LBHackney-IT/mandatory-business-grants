@@ -38,7 +38,9 @@ export const SummarySection = ({
             : typeof value === 'object'
             ? Object.values(value).filter(Boolean).map(MultiValue)
             : typeof value === 'boolean'
-            ? JSON.stringify(value)
+            ? value === true
+              ? 'Yes'
+              : 'No'
             : value,
         }))}
     />
