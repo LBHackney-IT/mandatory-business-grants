@@ -77,6 +77,6 @@
     "businessNotRatePayer": true,
     "businessPermitData": true,
     "businessShareWithBEIS": true,
-    "businessHappyContacted": true
+    "businessHappyContacted": false
   }
 }

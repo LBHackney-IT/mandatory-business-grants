@@ -21,8 +21,8 @@ export const steps = {
   'eligibility-criteria-details': EligibilityCriteriaDetails,
   'business-details': BusinessDetails,
   'your-details': YourDetails,
-  'supplementary-information': SupplementaryInformation,
   'bank-details': BankDetails,
+  'supplementary-information': SupplementaryInformation,
   declaration: Declaration,
   summary: Summary,
 };
@@ -465,7 +465,6 @@ export const inputLabels = {
     businessHappyContacted: {
       label:
         'I confirm that I am happy to be contacted by Hackney Council in the future for details of new business funding opportunities and in relation to other business initiatives',
-      validation: { required: true },
     },
   },
   supplementaryInformation: {
