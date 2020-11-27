@@ -51,6 +51,7 @@ jobs:
       - run:
           name: deploy
           command: yarn build && yarn --production=true && sudo npm i -g serverless && sls deploy --stage staging
+          no_output_timeout: 15m
 
   build-deploy-production:
     executor: aws-cli/default
@@ -60,6 +61,7 @@ jobs:
       - run:
           name: deploy
           command: yarn build && yarn --production=true && sudo npm i -g serverless && sls deploy --stage production
+          no_output_timeout: 15m
 
   assume-role-staging:
     executor: docker-python
