@@ -18,6 +18,9 @@ const Footer = () => (
             </a>
             , except where otherwise stated
           </span>
+          <p>
+            <a href="https://hackney.gov.uk/privacy">Privacy statement</a>
+          </p>
         </div>
       </div>
     </div>
