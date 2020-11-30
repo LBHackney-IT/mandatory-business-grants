@@ -215,7 +215,7 @@ export const inputLabels = {
     businessIdentifyType: {
       label: 'Please supply one of the following Business Identifying Numbers:',
       hint:
-        'Where available, please provide your Company Number as listed on Companies House. If you don’t have a Company Number please provide another number from the list below.',
+        'Where available, please provide your Company Number as listed on Companies House. If you don’t have a Company Number, please provide another number from the list below.',
       options: options.TYPE_IDENTIFIER_NUMBER,
       validation: {
         required: true,
