@@ -164,7 +164,7 @@ $ yarn dbmigratedry up
 ### Migrations and seeding
 
 To run database migrations against the RDS databases on AWS, you need to run the `dbmigrate up` command via
-AWS System Manager.
+AWS Systems Manager.
 
 1. Log into the AWS account
 2. Go to System Manager
@@ -172,12 +172,13 @@ AWS System Manager.
 4. Click 'Start Session'
 5. Select an instance (there should only be 1)
 6. Click 'Start Session' - This should open up a terminal like window in your browser
-7. Run `cd ~/mandatory-business-grants/ && git pull && npm run dbmigrate up`
+7. Run `source ~/.bashrc` to prepare the exported environment variable
+8. Run `cd ~/mandatory-business-grants/ && git pull && npm run dbmigrate up`
 
 To seed the AWS database, start a session as above. Then, run the following command:
 
 ```sh
-$ cd ~/mandatory-business-grants/ && source ./.env && cat db/seeds.sql | psql $DATABASE_URL
+$ cd ~/mandatory-business-grants/ && cat db/seeds.sql | psql $DATABASE_URL
 ```
 
 ### PostgresSQL command line access
@@ -239,7 +240,7 @@ CloudFormation), but in the meantime, below are the steps to recreate it manuall
   - Add the DATABASE_URL environment variable (you can get the database details from the Lambda environment
     variables)
   ```bash
-  echo "export DATABASE_URL=postgres://<username>:<password>@<endpoint>:<port>/covidBusinessGrantsDb" >> ~/.bashrc
+  echo "export DATABASE_URL=postgres://<username>:<password>@<endpoint>:<port>/<database>" >> ~/.bashrc
   source ~/.bashrc
   ```
   - Install PostgreSQL so we can use the client
