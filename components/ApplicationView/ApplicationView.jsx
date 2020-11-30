@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
+import { LRSG_GRANT_AMOUNT } from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
 import ExpandableDetails from 'components/ExpandableDetails/ExpandableDetails';
@@ -13,7 +14,10 @@ const ApplicationView = ({ applicationId }) => {
   const [data, setData] = useState();
   const [error, setError] = useState(false);
   const [status, setStatus] = useState();
-  const [grantAmountAwarded, setGrantAmountAwarded] = useState();
+  const [
+    lrsgClosedBusinessesAmount,
+    setLrsgClosedBusinessesAmount,
+  ] = useState();
   const [validationRecap, setValidationRecap] = useState();
   const { register, watch, reset } = useForm({ defaultValues: {} });
   const watcher = watch({ nest: true });
@@ -103,9 +107,13 @@ const ApplicationView = ({ applicationId }) => {
                   onChange={setStatus}
                 />
                 <ApplicationGrantAmountSelector
-                  grantAmountAwarded={data.grantAmountAwarded}
+                  storeAs="lrsgClosedBusinessesAmount"
+                  name="lrsg-closed-businesses"
+                  label="LRSG (closed businesses)"
+                  options={LRSG_GRANT_AMOUNT}
+                  grantAmountAwarded={data.lrsgClosedBusinessesAmount}
                   applicationId={applicationId}
-                  onChange={setGrantAmountAwarded}
+                  onChange={setLrsgClosedBusinessesAmount}
                 />
               </div>
             </div>
@@ -137,7 +145,7 @@ const ApplicationView = ({ applicationId }) => {
           <Comments
             applicationId={applicationId}
             status={status}
-            grantAmountAwarded={grantAmountAwarded}
+            grantAmountAwarded={lrsgClosedBusinessesAmount}
           />
         </>
       )}
