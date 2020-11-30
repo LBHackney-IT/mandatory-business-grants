@@ -14,25 +14,6 @@ const Result = ({ formData, clearFormData }) => {
   }, []);
   const submitForm = async () => {
     try {
-      const businessIdentifyingNums = [
-        'businessIdentifyNumberCompanyNumber',
-        'businessIdentifyNumberVAT',
-        'businessIdentifyNumberNIN',
-        'businessIdentifyNumberUTR',
-        'businessIdentifyNumber',
-      ];
-      for (let i = 0; i < businessIdentifyingNums.length; i++) {
-        if (
-          Object.prototype.hasOwnProperty.call(
-            formData.business,
-            businessIdentifyingNums[i]
-          )
-        ) {
-          formData.business.businessIdentifyNumber =
-            formData.business[businessIdentifyingNums[i]];
-        }
-      }
-
       setSubmitting(true);
       const ref = await postApplication(formData);
       set(ref, formData);

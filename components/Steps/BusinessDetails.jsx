@@ -54,6 +54,8 @@ const Step1 = (props) => {
             { register },
             errors
           )}
+          name="business.businessIdentifyNumber"
+          error={errors.business?.businessIdentifyNumber}
         />
       )}
       <TextInput
