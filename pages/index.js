@@ -40,7 +40,8 @@ export default function Home({ date, expirationDate }) {
             className="govuk-link"
             href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
           >
-            Local restrictions support grant (for businesses that are open)
+            Local restrictions support grant (open) for the Tier 2 restrictions
+            period
           </a>
         </li>
       </ul>
