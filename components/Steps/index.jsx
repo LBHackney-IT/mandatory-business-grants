@@ -236,7 +236,7 @@ export const inputLabels = {
     },
     businessIdentifyNumberVAT: {
       type: 'number',
-      hint: 'Please enter your 9 digits number',
+      hint: 'Please enter your 9 digit number, without the \'GB\' at the start, for example 123456789. You can find it on your VAT registration certificate.',
       validation: {
         required: true,
         pattern: {
