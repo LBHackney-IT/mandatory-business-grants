@@ -213,7 +213,7 @@ export const inputLabels = {
         'Business Registered Name (if different from Business Trading Name):',
     },
     businessIdentifyType: {
-      label: 'Please supply one of the following Business Identifying Numbers',
+      label: 'Please supply one of the following Business Identifying Numbers:',
       hint:
         'Where available, please provide your Company Number as listed on Companies House. If you don’t have a Company Number please provide another number from the list below.',
       options: options.TYPE_IDENTIFIER_NUMBER,
@@ -230,15 +230,17 @@ export const inputLabels = {
       validation: {
         required: true,
         pattern: {
-          value: /^[0-9]{8}$/,
+          value: /^\d{8}$/,
         },
       },
     },
     businessIdentifyNumberVAT: {
+      type: 'number',
+      hint: 'Please enter your 9 digits number',
       validation: {
         required: true,
         pattern: {
-          value: /^[0-9a-z]{11}$/i,
+          value: /^\d{9}$/i,
         },
       },
     },
