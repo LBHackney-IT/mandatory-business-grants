@@ -22,7 +22,6 @@ const Result = ({ formData, clearFormData }) => {
         'businessIdentifyNumber',
       ];
       for (let i = 0; i < businessIdentifyingNums.length; i++) {
-        console.log(i, formData.business[businessIdentifyingNums[i]]);
         if (
           Object.prototype.hasOwnProperty.call(
             formData.business,
@@ -32,7 +31,6 @@ const Result = ({ formData, clearFormData }) => {
           formData.business.businessIdentifyNumber =
             formData.business[businessIdentifyingNums[i]];
         }
-        console.log(formData.business);
       }
 
       setSubmitting(true);
