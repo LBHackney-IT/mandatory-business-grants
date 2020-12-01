@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
-import { LRSG_GRANT_AMOUNT } from 'lib/dbMapping';
+import { LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT } from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
 import ExpandableDetails from 'components/ExpandableDetails/ExpandableDetails';
@@ -110,7 +110,7 @@ const ApplicationView = ({ applicationId }) => {
                   storeAs="lrsgClosedBusinessesAmount"
                   name="lrsg-closed-businesses"
                   label="LRSG (closed businesses)"
-                  options={LRSG_GRANT_AMOUNT}
+                  options={LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT}
                   grantAmountAwarded={data.lrsgClosedBusinessesAmount}
                   applicationId={applicationId}
                   onChange={setLrsgClosedBusinessesAmount}
