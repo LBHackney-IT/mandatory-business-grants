@@ -9,6 +9,7 @@ describe('<ApplicationGrantAmountSelector>', () => {
       const setValueSpy = jest.fn();
       const onChangeSpy = jest.fn();
       const setErrorSpy = jest.fn();
+
       const applicationId = 1;
       const storeAs = 'lsrgGrant';
       const grantAmountAwarded = '25565.0';
@@ -23,6 +24,27 @@ describe('<ApplicationGrantAmountSelector>', () => {
       expect(grantApplicationPatcherSpy).toHaveBeenCalledWith(applicationId, {
         [storeAs]: grantAmountAwarded,
       });
+    });
+
+    it('Sets the value to the awarded grant amount', async () => {
+      const grantApplicationPatcherSpy = jest.fn();
+      const setValueSpy = jest.fn();
+      const onChangeSpy = jest.fn();
+      const setErrorSpy = jest.fn();
+
+      const applicationId = 1;
+      const storeAs = 'lsrgGrant';
+      const grantAmountAwarded = '25565.0';
+      await handleOnChange(
+        setErrorSpy,
+        setValueSpy,
+        onChangeSpy,
+        grantApplicationPatcherSpy,
+        applicationId,
+        storeAs
+      )(grantAmountAwarded);
+
+      expect(setValueSpy).toHaveBeenCalledWith(grantAmountAwarded);
     });
   });
 });
