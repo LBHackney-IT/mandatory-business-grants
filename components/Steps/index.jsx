@@ -230,7 +230,7 @@ export const inputLabels = {
       validation: {
         required: true,
         pattern: {
-          value: /^\w{7,8}$/,
+          value: /^[a-zA-Z0-9]{7,8}$/,
         },
       },
     },
