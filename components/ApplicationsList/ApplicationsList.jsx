@@ -6,7 +6,7 @@ import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import { BasicSelect, TextInput } from 'components/Form';
 import { fetchApplications, patchApplications } from 'utils/api/applications';
 
-import { APPLICATION_STATE } from 'lib/dbMapping';
+import { APPLICATION_STATE, BUSINESS_CATEGORIES } from 'lib/dbMapping';
 import { fetchGrantOfficers } from '../../utils/api/grantOfficers';
 
 const ApplicationsList = ({
@@ -15,6 +15,8 @@ const ApplicationsList = ({
   sort,
   status,
   grantOfficer,
+  businessCategory,
+  businessSubcategory,
   applicationId,
 }) => {
   const columns = useMemo(
@@ -45,6 +47,8 @@ const ApplicationsList = ({
     status,
     grantOfficer,
     applicationId,
+    businessCategory,
+    businessSubcategory,
   });
   const [error, setError] = useState();
   const [data, setData] = useState([]);
@@ -122,6 +126,7 @@ const ApplicationsList = ({
         value={filters.status}
         onChange={(status) => setValues({ status })}
       />
+
       {officers && (
         <BasicSelect
           options={officers}
@@ -130,6 +135,23 @@ const ApplicationsList = ({
           onChange={(grantOfficer) => setValues({ grantOfficer })}
         />
       )}
+
+      <BasicSelect
+        options={Object.keys(BUSINESS_CATEGORIES)}
+        label="Filter by Business Category:"
+        value={filters.businessCategory}
+        onChange={(businessCategory) => setValues({ businessCategory })}
+      />
+
+      {filters.businessCategory && (
+        <BasicSelect
+          options={BUSINESS_CATEGORIES[filters.businessCategory]}
+          label="Filter by Business Subcategory:"
+          value={filters.businessSubcategory}
+          onChange={(businessSubcategory) => setValues({ businessSubcategory })}
+        />
+      )}
+
       <TextInput
         label="Search by Application ID"
         value={filters.applicationId}
