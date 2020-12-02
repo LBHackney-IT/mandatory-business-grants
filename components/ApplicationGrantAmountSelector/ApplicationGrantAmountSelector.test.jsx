@@ -1,6 +1,4 @@
-import {
-  handleOnChange,
-} from './ApplicationGrantAmountSelector';
+import { handleOnChange } from './ApplicationGrantAmountSelector';
 
 describe('<ApplicationGrantAmountSelector>', () => {
   describe('handleOnChange()', () => {
