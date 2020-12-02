@@ -31,10 +31,16 @@ export default async (req, res) => {
         const sort = req.query && req.query.sort ? req.query.sort : undefined;
         const status =
           req.query && req.query.status ? req.query.status : undefined;
-        const businessType =
-          req.query && req.query.businessType
-            ? req.query.businessType
+
+        const businessCategory =
+          req.query && req.query.businessCategory
+            ? req.query.businessCategory
             : undefined;
+        const businessSubcategory =
+          req.query && req.query.businessSubcategory
+            ? req.query.businessSubcategory
+            : undefined;
+
         const grantOfficer =
           req.query && req.query.grantOfficer
             ? req.query.grantOfficer
@@ -48,7 +54,8 @@ export default async (req, res) => {
           pageSize,
           sort,
           status,
-          businessType,
+          businessCategory,
+          businessSubcategory,
           grantOfficer,
           clientGeneratedId,
         });
