@@ -19,7 +19,6 @@ export const handleOnChange = (
     setValue(grantAmountAwarded);
     onChange(grantAmountAwarded);
   } catch (e) {
-    console.log(e);
     setError(e.response.data);
   }
 };
