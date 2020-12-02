@@ -27,20 +27,22 @@ export const SummarySection = ({
     <SummaryList
       register={register}
       name={name}
-      list={Object.entries(formData[name]).map(([key, value]) => ({
-        key,
-        adminValidation: hasAdminValidation(name, key),
-        title: getInputProps(name, key).label,
-        value: Array.isArray(value)
-          ? value.filter(Boolean).map((v) => MultiValue(v.split('/').pop()))
-          : typeof value === 'object'
-          ? Object.values(value).filter(Boolean).map(MultiValue)
-          : typeof value === 'boolean'
-          ? value === true
-            ? 'Yes'
-            : 'No'
-          : value,
-      }))}
+      list={Object.entries(formData[name])
+        .filter(([, value]) => value)
+        .map(([key, value]) => ({
+          key,
+          adminValidation: hasAdminValidation(name, key),
+          title: getInputProps(name, key).label,
+          value: Array.isArray(value)
+            ? value.filter(Boolean).map((v) => MultiValue(v.split('/').pop()))
+            : typeof value === 'object'
+            ? Object.values(value).filter(Boolean).map(MultiValue)
+            : typeof value === 'boolean'
+            ? value === true
+              ? 'Yes'
+              : 'No'
+            : value,
+        }))}
     />
   );
   return (
