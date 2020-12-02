@@ -2,6 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
+import {
+  LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT,
+  LRSG_SECTOR_AMOUNT,
+  LRSG_OPEN_AMOUNT,
+} from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
 import ExpandableDetails from 'components/ExpandableDetails/ExpandableDetails';
@@ -13,7 +18,12 @@ const ApplicationView = ({ applicationId }) => {
   const [data, setData] = useState();
   const [error, setError] = useState(false);
   const [status, setStatus] = useState();
-  const [grantAmountAwarded, setGrantAmountAwarded] = useState();
+  const [
+    lrsgClosedBusinessesAmount,
+    setLrsgClosedBusinessesAmount,
+  ] = useState();
+  const [lrsgSectorAmount, setLrsgSectorAmount] = useState();
+  const [lrsgOpenAmount, setLrsgOpenAmount] = useState();
   const [validationRecap, setValidationRecap] = useState();
   const { register, watch, reset } = useForm({ defaultValues: {} });
   const watcher = watch({ nest: true });
@@ -102,10 +112,35 @@ const ApplicationView = ({ applicationId }) => {
                   applicationId={applicationId}
                   onChange={setStatus}
                 />
+
                 <ApplicationGrantAmountSelector
-                  grantAmountAwarded={data.grantAmountAwarded}
+                  storeAs="lrsgClosedBusinessesAmount"
+                  name="lrsg-closed-business"
+                  label="LRSG (closed businesses)"
+                  options={LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT}
+                  grantAmountAwarded={data.lrsgClosedBusinessesAmount}
                   applicationId={applicationId}
-                  onChange={setGrantAmountAwarded}
+                  onChange={setLrsgClosedBusinessesAmount}
+                />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="lrsgSectorAmount"
+                  name="lrsg-sector"
+                  label="LRSG (sector)"
+                  options={LRSG_SECTOR_AMOUNT}
+                  grantAmountAwarded={data.lrsgSectorAmount}
+                  applicationId={applicationId}
+                  onChange={setLrsgSectorAmount}
+                />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="lrsgOpenAmount"
+                  name="lrsg-open"
+                  label="LRSG (open)"
+                  options={LRSG_OPEN_AMOUNT}
+                  grantAmountAwarded={data.lrsgOpenAmount}
+                  applicationId={applicationId}
+                  onChange={setLrsgOpenAmount}
                 />
               </div>
             </div>
@@ -137,7 +172,9 @@ const ApplicationView = ({ applicationId }) => {
           <Comments
             applicationId={applicationId}
             status={status}
-            grantAmountAwarded={grantAmountAwarded}
+            lrsgClosedBusinessesAmount={lrsgClosedBusinessesAmount}
+            lrsgSectorAmount={lrsgSectorAmount}
+            lrsgOpenAmount={lrsgOpenAmount}
           />
         </>
       )}
