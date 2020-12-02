@@ -1,5 +1,5 @@
 import {
-  /*ApplicationGrantAmountSelector,*/ handleOnChange,
+  handleOnChange,
 } from './ApplicationGrantAmountSelector';
 
 describe('<ApplicationGrantAmountSelector>', () => {
