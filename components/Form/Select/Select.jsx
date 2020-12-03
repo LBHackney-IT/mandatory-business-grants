@@ -5,6 +5,7 @@ import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
 const Select = ({
   label,
+  tag,
   hint,
   name,
   options,
@@ -22,7 +23,7 @@ const Select = ({
     })}
   >
     <label className="govuk-label govuk-label--m" htmlFor={name}>
-      {label}
+      {label} {tag && <span class="govuk-tag govuk-tag--green">{tag}</span>}
     </label>
     {hint && (
       <span id={`${name}-hint`} className="govuk-hint">
