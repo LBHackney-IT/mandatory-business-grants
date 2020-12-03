@@ -1,0 +1,3 @@
+alter table application_assessment drop column lrsg_closed_businesses_payment_exported;
+alter table application_assessment drop column lrsg_sector_payment_exported;
+alter table application_assessment drop column lrsg_open_payment_exported;

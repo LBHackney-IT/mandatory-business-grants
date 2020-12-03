@@ -1,0 +1,3 @@
+alter table application_assessment add column lrsg_closed_businesses_payment_exported boolean default FALSE;
+alter table application_assessment add column lrsg_sector_payment_exported boolean default FALSE;
+alter table application_assessment add column lrsg_open_payment_exported boolean default FALSE;
