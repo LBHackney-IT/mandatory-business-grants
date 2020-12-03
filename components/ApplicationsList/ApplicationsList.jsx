@@ -109,15 +109,18 @@ const ApplicationsList = ({
     },
     []
   );
-  const handleCsvDownload = useCallback(async () => {
+  const handleCsvDownload = async ({ grant_type }) => {
     try {
       setError(null);
-      const csv = await patchApplications();
+      const csv = await patchApplications({
+        grant_type: grant_type,
+      });
       window.open(encodeURI(`data:text/csv;charset=utf-8,${csv}`));
     } catch (e) {
+      e.response.status = 400;
       setError(e.response.data);
     }
-  }, []);
+  };
   return !error ? (
     <>
       <BasicSelect
@@ -176,8 +179,29 @@ const ApplicationsList = ({
         </a>
       </p>
       <p>
-        <a href="#" onClick={handleCsvDownload}>
-          Export Panel Approved Applications CSV
+        <a
+          href="#"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_closed_businesses' })
+          }
+        >
+          Export LSRG (Closed) Panel Approved Payments
+        </a>
+      </p>
+      <p>
+        <a
+          href="#"
+          onClick={() => handleCsvDownload({ grant_type: 'lrsg_sector' })}
+        >
+          Export LSRG (Sector) Panel Approved Payments
+        </a>
+      </p>
+      <p>
+        <a
+          href="#"
+          onClick={() => handleCsvDownload({ grant_type: 'lrsg_open' })}
+        >
+          Export LSRG (Open) Panel Approved Payments
         </a>
       </p>
     </>

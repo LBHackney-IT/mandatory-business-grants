@@ -7,8 +7,8 @@ export const fetchApplications = async (params) => {
   return data;
 };
 
-export const patchApplications = async () => {
-  const { data } = await axios.patch('/api/applications');
+export const patchApplications = async (params) => {
+  const { data } = await axios.patch('/api/applications', params);
   return data;
 };
 
