@@ -15,7 +15,13 @@ export const getUserStringFromCookie = (cookie) => {
 
 export const redirectIfNotAuth = async ({ req, res, query }) => {
   try {
-    return { props: { ...getUserFromCookie(req.headers.cookie), ...query } };
+    return {
+      props: {
+        csvDownloadGroup: process.env.CSV_DOWNLOAD_GROUP,
+        ...getUserFromCookie(req.headers.cookie),
+        ...query,
+      },
+    };
   } catch (e) {
     console.error(e.message);
   }

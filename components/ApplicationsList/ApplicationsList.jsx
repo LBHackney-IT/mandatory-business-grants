@@ -16,6 +16,8 @@ const ApplicationsList = ({
   status,
   grantOfficer,
   applicationId,
+  groups,
+  csvDownloadGroup,
 }) => {
   const columns = useMemo(
     () => [
@@ -52,6 +54,8 @@ const ApplicationsList = ({
   const [pageCount, setPageCount] = useState(0);
   const [officers, setOfficers] = useState([]);
   const checkFilter = JSON.stringify(filters);
+  const canDownloadCsvs = groups.includes(csvDownloadGroup);
+
   useEffect(() => {
     const fetchOfficers = async () => {
       try {
@@ -157,30 +161,41 @@ const ApplicationsList = ({
         </a>
       </p>
       <p>
-        <a
-          href="#"
+        <p>
+          {!canDownloadCsvs &&
+            `These downloads are disabled as you are not part of the '${csvDownloadGroup}' user group`}
+        </p>
+        <button
+          className="govuk-button govuk-button--secondary govuk-!-margin-right-1"
+          data-module="govuk-button"
           onClick={() =>
             handleCsvDownload({ grant_type: 'lrsg_closed_businesses' })
           }
+          disabled={canDownloadCsvs ? '' : 'disabled'}
         >
           Export LSRG (Closed) Panel Approved Payments
-        </a>
-      </p>
-      <p>
-        <a
-          href="#"
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_sector' })}
+          disabled={canDownloadCsvs ? '' : 'disabled'}
         >
           Export LSRG (Sector) Panel Approved Payments
-        </a>
-      </p>
-      <p>
-        <a
-          href="#"
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_open' })}
+          disabled={canDownloadCsvs ? '' : 'disabled'}
         >
           Export LSRG (Open) Panel Approved Payments
-        </a>
+        </button>
+        <br />
       </p>
     </>
   ) : (
