@@ -119,6 +119,9 @@ const ApplicationView = ({ applicationId }) => {
                   label="LRSG (closed businesses)"
                   options={LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT}
                   grantAmountAwarded={data.lrsgClosedBusinessesAmount}
+                  grantPaymentExported={
+                    data.lrsgClosedBusinessesPaymentExported
+                  }
                   applicationId={applicationId}
                   onChange={setLrsgClosedBusinessesAmount}
                 />
@@ -129,6 +132,7 @@ const ApplicationView = ({ applicationId }) => {
                   label="LRSG (sector)"
                   options={LRSG_SECTOR_AMOUNT}
                   grantAmountAwarded={data.lrsgSectorAmount}
+                  grantPaymentExported={data.lrsgSectorPaymentExported}
                   applicationId={applicationId}
                   onChange={setLrsgSectorAmount}
                 />
@@ -139,6 +143,7 @@ const ApplicationView = ({ applicationId }) => {
                   label="LRSG (open)"
                   options={LRSG_OPEN_AMOUNT}
                   grantAmountAwarded={data.lrsgOpenAmount}
+                  grantPaymentExported={data.lrsgOpenPaymentExported}
                   applicationId={applicationId}
                   onChange={setLrsgOpenAmount}
                 />
