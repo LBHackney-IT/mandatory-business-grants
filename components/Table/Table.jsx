@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import { useTable, useSortBy, usePagination } from 'react-table';
+import { getQueryParametersAsObject } from '../ApplicationsList/ApplicationsList.jsx';
 
 const Table = ({
   columns,
@@ -80,15 +81,19 @@ const Table = ({
         <tbody className="govuk-table__body" {...getTableBodyProps()}>
           {page.map((row) => {
             prepareRow(row);
+            const queryParameters = getQueryParametersAsObject();
             return (
               <tr
                 className="govuk-table__row lbh-table__row--data"
                 {...row.getRowProps()}
                 onClick={() =>
-                  Router.push(
-                    '/admin/applications/[clientGeneratedId]',
-                    `/admin/applications/${row.original.clientGeneratedId}`
-                  )
+                  Router.push({
+                    pathname: '/admin/applications/[clientGeneratedId]',
+                    query: {
+                      clientGeneratedId: row.original.clientGeneratedId,
+                      ...queryParameters,
+                    },
+                  })
                 }
               >
                 {row.cells.map((cell) => {
