@@ -5,13 +5,20 @@ import ApplicationView from 'components/ApplicationView/ApplicationView';
 
 const ApplicationViewPage = () => {
   const router = useRouter();
-  const { clientGeneratedId } = router.query;
+  const { clientGeneratedId, ...queryParameters } = router.query;
   return (
     <>
       <a
         className="govuk-back-link"
         role="button"
-        onClick={() => router.back()}
+        onClick={() =>
+          router.push({
+            pathname: '/admin',
+            query: {
+              ...queryParameters,
+            },
+          })
+        }
       >
         Back
       </a>

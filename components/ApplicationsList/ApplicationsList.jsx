@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 import Table from 'components/Table/Table';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
@@ -87,7 +87,7 @@ const ApplicationsList = ({
         sort: sortBy && `${sortBy.desc ? '-' : '+'}${sortBy.id}`,
         ...otherFilters,
       };
-      Router.push(
+      await Router.push(
         '/admin',
         {
           pathname: '/admin',
@@ -156,6 +156,7 @@ const ApplicationsList = ({
       )}
 
       <TextInput
+        name="searchByApplicationId"
         label="Search by Application ID"
         value={filters.applicationId}
         onChange={(applicationIdEvent) => {
@@ -209,5 +210,12 @@ const ApplicationsList = ({
     <ErrorMessage text={error} />
   );
 };
+
+export function getQueryParametersAsObject() {
+  const nextRouter = useRouter();
+  const queryString = nextRouter.asPath.split(/\?/)[1];
+
+  return Object.fromEntries(new URLSearchParams(queryString));
+}
 
 export default ApplicationsList;
