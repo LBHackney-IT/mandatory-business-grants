@@ -59,6 +59,10 @@ const ApplicationsList = ({
   const [officers, setOfficers] = useState([]);
   const checkFilter = JSON.stringify(filters);
   const canDownloadCsvs = groups.includes(csvDownloadGroup);
+  const csvExportProps = {};
+  if (!canDownloadCsvs) {
+    csvExportProps.disabled = true;
+  }
 
   useEffect(() => {
     const fetchOfficers = async () => {
@@ -182,6 +186,7 @@ const ApplicationsList = ({
           Download Applications CSV
         </a>
       </p>
+      <h2>Export payment details</h2>
       <p>
         <p>
           {!canDownloadCsvs &&
@@ -193,7 +198,7 @@ const ApplicationsList = ({
           onClick={() =>
             handleCsvDownload({ grant_type: 'lrsg_closed_businesses' })
           }
-          disabled={canDownloadCsvs ? '' : 'disabled'}
+          {...csvExportProps}
         >
           Export LSRG (Closed) Panel Approved Payments
         </button>
@@ -203,7 +208,7 @@ const ApplicationsList = ({
           className="govuk-button govuk-button--secondary"
           data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_sector' })}
-          disabled={canDownloadCsvs ? '' : 'disabled'}
+          {...csvExportProps}
         >
           Export LSRG (Sector) Panel Approved Payments
         </button>
@@ -213,7 +218,7 @@ const ApplicationsList = ({
           className="govuk-button govuk-button--secondary"
           data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_open' })}
-          disabled={canDownloadCsvs ? '' : 'disabled'}
+          {...csvExportProps}
         >
           Export LSRG (Open) Panel Approved Payments
         </button>
