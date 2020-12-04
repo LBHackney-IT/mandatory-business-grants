@@ -18,6 +18,8 @@ const ApplicationsList = ({
   businessCategory,
   businessSubcategory,
   applicationId,
+  groups,
+  csvDownloadGroup,
 }) => {
   const columns = useMemo(
     () => [
@@ -56,6 +58,12 @@ const ApplicationsList = ({
   const [pageCount, setPageCount] = useState(0);
   const [officers, setOfficers] = useState([]);
   const checkFilter = JSON.stringify(filters);
+  const canDownloadCsvs = groups.includes(csvDownloadGroup);
+  const csvExportProps = {};
+  if (!canDownloadCsvs) {
+    csvExportProps.disabled = true;
+  }
+
   useEffect(() => {
     const fetchOfficers = async () => {
       try {
@@ -179,31 +187,43 @@ const ApplicationsList = ({
           Download Applications CSV
         </a>
       </p>
+      <h2>Export payment details</h2>
       <p>
-        <a
-          href="#"
+        <p>
+          {!canDownloadCsvs &&
+            `These downloads are disabled as you are not part of the '${csvDownloadGroup}' user group`}
+        </p>
+        <button
+          className="govuk-button govuk-button--secondary govuk-!-margin-right-1"
+          data-module="govuk-button"
           onClick={() =>
             handleCsvDownload({ grant_type: 'lrsg_closed_businesses' })
           }
+          {...csvExportProps}
         >
           Export LSRG (Closed) Panel Approved Payments
-        </a>
-      </p>
-      <p>
-        <a
-          href="#"
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_sector' })}
+          {...csvExportProps}
         >
           Export LSRG (Sector) Panel Approved Payments
-        </a>
-      </p>
-      <p>
-        <a
-          href="#"
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_open' })}
+          {...csvExportProps}
         >
           Export LSRG (Open) Panel Approved Payments
-        </a>
+        </button>
+        <br />
       </p>
     </>
   ) : (
