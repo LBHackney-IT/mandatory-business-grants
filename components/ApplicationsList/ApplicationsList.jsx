@@ -38,6 +38,11 @@ const ApplicationsList = ({
         Cell: ({ value }) => new Date(value).toLocaleString(),
       },
       {
+        Header: 'Exported for payment',
+        accessor: 'exported',
+        disableSortBy: true,
+      },
+      {
         Header: 'Status',
         accessor: 'status',
         disableSortBy: true,
