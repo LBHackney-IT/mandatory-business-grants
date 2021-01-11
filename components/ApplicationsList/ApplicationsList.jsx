@@ -206,7 +206,7 @@ const ApplicationsList = ({
           }
           {...csvExportProps}
         >
-          Export LSRG (Closed) Panel Approved Payments
+          Export LRSG (Closed) Panel Approved Payments
         </button>
         <br />
 
@@ -216,7 +216,7 @@ const ApplicationsList = ({
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_sector' })}
           {...csvExportProps}
         >
-          Export LSRG (Sector) Panel Approved Payments
+          Export LRSG (Sector) Panel Approved Payments
         </button>
         <br />
 
@@ -226,7 +226,7 @@ const ApplicationsList = ({
           onClick={() => handleCsvDownload({ grant_type: 'lrsg_open' })}
           {...csvExportProps}
         >
-          Export LSRG (Open) Panel Approved Payments
+          Export LRSG (Open) Panel Approved Payments
         </button>
         <br />
 
