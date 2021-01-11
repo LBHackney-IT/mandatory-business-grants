@@ -229,6 +229,52 @@ const ApplicationsList = ({
           Export LSRG (Open) Panel Approved Payments
         </button>
         <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() => handleCsvDownload({ grant_type: 'csp' })}
+          {...csvExportProps}
+        >
+          Export CSP Panel Approved Payments
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_closed_tier_2' })
+          }
+          {...csvExportProps}
+        >
+          Export LRSG Closed (Tier 2) Panel Approved Payments
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_closed_tier_3' })
+          }
+          {...csvExportProps}
+        >
+          Export LRSG Closed (Tier 3) Panel Approved Payments
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_closed_tier_4' })
+          }
+          {...csvExportProps}
+        >
+          Export LRSG Closed (Tier 4) Panel Approved Payments
+        </button>
+        <br />
       </p>
     </>
   ) : (
