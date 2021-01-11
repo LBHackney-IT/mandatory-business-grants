@@ -192,6 +192,11 @@ const ApplicationsList = ({
           Download Applications CSV
         </a>
       </p>
+      <p>
+        <a href="/api/csv/uncontactable" target="_blank">
+          Download Uncontactable Applications CSV
+        </a>
+      </p>
       <h2>Export payment details</h2>
       <p>
         <p>

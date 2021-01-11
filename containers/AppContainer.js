@@ -6,6 +6,7 @@ import listApplicationsCSV from '../lib/usecases/listApplicationsCSV';
 import { listGrantOfficers } from '../lib/usecases/listGrantOfficers';
 import patchApplications from '../lib/usecases/patchApplications';
 import { updateApplication } from '../lib/usecases/updateApplication';
+import uncontactableListApplicationsCSV from '../lib/usecases/uncontactableListApplicationsCSV';
 
 class AppContainer {
   getDbInstance = () => {
@@ -34,6 +35,10 @@ class AppContainer {
 
   getListApplicationsCSV = () => {
     return listApplicationsCSV(this);
+  };
+
+  getUncontactableListApplicationsCSV = () => {
+    return uncontactableListApplicationsCSV(this);
   };
 
   getPatchApplications = () => {
