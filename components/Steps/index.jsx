@@ -150,6 +150,107 @@ export const inputLabels = {
         'Please note, your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/ takeaway/ click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
     },
+    tradingOn011220: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Closed), under Tier 2 restrictions?
+          <ul>
+            <li>
+              Business has been mandated to close by government under Tier 2
+              restrictions; public house, bar or other business involving the
+              sale of alcohol for consumption that does not serve table meals
+            </li>
+            <li>
+              Business was trading on the day before Tier 2 local restrictions
+              came into effect (i.e. on 1st December 2020)
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 1st December 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 1st December 2020.',
+      validation: { required: true },
+    },
+    tradingOn151220: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Closed), under Tier 3 restrictions?
+          <ul>
+            <li>
+              Business has been mandated to close by government under Tier 3
+              restrictions; sectors required to close include hospitality,
+              accommodation, and indoor entertainment and tourism venues.
+            </li>
+            <li>
+              Business was trading on the day before Tier 3 local restrictions
+              into effect (i.e. on 15th December 2020)
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 15th December 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 15th December 2020.',
+      validation: { required: true },
+    },
+    tradingOn191220: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Closed) Addendum: Tier 4?
+          <ul>
+            <li>
+              Business has been mandated to close by government under Tier 4
+              restrictions, including non-essential retail, leisure, personal
+              care, sports facilities, and hospitality
+            </li>
+            <li>
+              Business was trading on the day before Tier 4 local restrictions
+              into effect (i.e. on 19th December 2020)
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 19th December 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.',
+      validation: { required: true },
+    },
+    tradingOn301120: {
+      initialHint: '',
+      label: (
+        <>
+          Does your business meet the following criteria for the Christmas
+          Support Payment for wet-led pubs?
+          <p className="govuk-body govuk-!-margin-top-3">
+            Please note the Christmas Support Payment grant is available for
+            ‘wet-led’ pubs only. The definition of a wet led pub is a pub which
+            receives more than 50% of its business income from the sales of
+            drinks, and under 50% of income from food
+          </p>
+          <ul>
+            <li>
+              When trading, business is open to general members of the public
+            </li>
+            <li>
+              When trading, business allows free entry other than when
+              occasional entertainment is provided
+            </li>
+            <li>
+              When trading, business allows drinking without requiring food to
+              be consumed
+            </li>
+            <li>
+              Business was trading on the day before the scheme was announced
+              (i.e. on 30th November 2020)
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 30th November 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 30th November 2020.',
+      validation: { required: true },
+    },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
