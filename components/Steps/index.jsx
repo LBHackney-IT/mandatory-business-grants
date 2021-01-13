@@ -161,6 +161,29 @@ export const inputLabels = {
         'Your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/takeaway/click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
     },
+    tradingOn011220Open: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Open), under Tier 2 restrictions in
+          December 2020?
+          <ul>
+            <li>
+              Business was able to remain open under Tier 2 restrictions but
+              whose trade was severely impacted by Tier 2 restrictions (e.g. the
+              prevention of households from mixing indoors)
+            </li>
+            <li>
+              Business was trading on the day before Tier 2 local restrictions
+              came into effect (i.e. on 1st December 2020)
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 1st December 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 1st December 2020.',
+      validation: { required: true },
+    },
     tradingOn011220: {
       label: (
         <>

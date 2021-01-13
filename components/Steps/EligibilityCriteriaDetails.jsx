@@ -128,6 +128,17 @@ const Step1 = (props) => {
           <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',
+              'tradingOn011220Open',
+              {
+                register,
+              },
+              errors
+            )}
+            onChange={() => setShowError(false)}
+          />
+          <Radios
+            {...getInputProps(
+              'eligibilityCriteriaDetails',
               'tradingOn011220',
               {
                 register,
