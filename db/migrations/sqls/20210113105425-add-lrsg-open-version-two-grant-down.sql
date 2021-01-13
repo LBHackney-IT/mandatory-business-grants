@@ -1,0 +1,5 @@
+ALTER TABLE eligibility_criteria_details DROP COLUMN trading_on_01_12_20_open;
+
+ALTER TABLE application_assessment DROP COLUMN lrsg_open_version_2_amount;
+
+ALTER TABLE application_assessment DROP COLUMN lrsg_open_version_2_payment_exported;
