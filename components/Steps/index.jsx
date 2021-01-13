@@ -103,12 +103,17 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          restrictions support grant (sector):
+          Restrictions Support Grant (Sector):
           <ul>
-            <li>Business was trading and open on the 22nd March 2020</li>
             <li>
-              Business was required to close on the 23rd March 2020, and has
-              been unable to open since
+              Business has been mandated to close by the government on 23rd
+              March 2020 and has been unable to open since. Eligible businesses
+              include: nightclubs, discos, dance halls, hostess bars and adult
+              entertainment venues
+            </li>
+            <li>
+              Business was trading on the day before local restrictions came
+              into effect (i.e. on 22nd March 2020)
             </li>
           </ul>
         </>
@@ -138,16 +143,22 @@ export const inputLabels = {
           Does your business meet the following criteria for the Local
           Restrictions Support Grant (for closed businesses):
           <ul>
-            <li>Business was trading and open on the 4th November 2020</li>
             <li>
-              Business was required to close on the 5th November 2020, due to
-              the national lockdown
+              Business has been mandated to close by the government under the
+              national lockdown between the 5th November 2020 and 1st December
+              2020. Eligible businesses include: non-essential retail, leisure,
+              personal care, sports facilities, and hospitality
+            </li>
+            <li>
+              Business was trading on the day before local restrictions came
+              into effect (i.e. on 4th November 2020)
             </li>
           </ul>
         </>
       ),
       hint:
-        'Please note, your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/ takeaway/ click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
+        'Please note if your business was closed on the 4th November 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.' +
+        'Your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/takeaway/click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
       validation: { required: true },
     },
     tradingOn011220: {
