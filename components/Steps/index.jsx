@@ -103,7 +103,7 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (Sector):
+          Restrictions Support Grant (Sector)?
           <ul>
             <li>
               Business has been mandated to close by the government on 23rd
@@ -124,13 +124,16 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (Open):
+          Restrictions Support Grant (Open), under Tier 2 restrictions in
+          October 2020?
           <ul>
-            <li>Business was trading and open on the 16th October 2020</li>
             <li>
               Business whose trade was severely impacted by Tier 2 restrictions
-              (e.g. preventing households from mixing indoors and a 10pm curfew
-              for pubs and restaurants)
+              (e.g. preventing households from mixing indoors)
+            </li>
+            <li>
+              Business was trading on the day before the first Tier 2 local
+              restrictions came into effect (i.e. on 16th October 2020)
             </li>
           </ul>
         </>
