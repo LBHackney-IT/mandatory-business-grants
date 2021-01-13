@@ -6,6 +6,7 @@ import {
   LRSG_CLOSED_BUSINESSES_GRANT_AMOUNT,
   LRSG_SECTOR_AMOUNT,
   LRSG_OPEN_AMOUNT,
+  LRSG_OPEN_VERSION_2_AMOUNT,
   LRSG_CLOSED_TIER_2_AMOUNT,
   LRSG_CLOSED_TIER_3_AMOUNT,
   LRSG_CLOSED_TIER_4_AMOUNT,
@@ -29,6 +30,7 @@ const ApplicationView = ({ applicationId }) => {
   ] = useState();
   const [lrsgSectorAmount, setLrsgSectorAmount] = useState();
   const [lrsgOpenAmount, setLrsgOpenAmount] = useState();
+  const [lrsgOpenVersion2Amount, setLrsgOpenVersion2Amount] = useState();
   const [cspAmount, setCspAmount] = useState();
   const [lrsgClosedTier2Amount, setLrsgClosedTier2Amount] = useState();
   const [lrsgClosedTier3Amount, setLrsgClosedTier3Amount] = useState();
@@ -163,6 +165,17 @@ const ApplicationView = ({ applicationId }) => {
                 />
 
                 <ApplicationGrantAmountSelector
+                  storeAs="lrsgOpenVersion2Amount"
+                  name="lrsg-open-version-2"
+                  label="LRSG (open) v2"
+                  options={LRSG_OPEN_VERSION_2_AMOUNT}
+                  grantAmountAwarded={data.lrsgOpenVersion2Amount}
+                  grantPaymentExported={data.lrsgOpenVersion2PaymentExported}
+                  applicationId={applicationId}
+                  onChange={setLrsgOpenVersion2Amount}
+                />
+
+                <ApplicationGrantAmountSelector
                   storeAs="cspAmount"
                   name="csp"
                   label="CSP"
@@ -238,6 +251,7 @@ const ApplicationView = ({ applicationId }) => {
             lrsgClosedBusinessesAmount={lrsgClosedBusinessesAmount}
             lrsgSectorAmount={lrsgSectorAmount}
             lrsgOpenAmount={lrsgOpenAmount}
+            lrsgOpenVersion2Amount={lrsgOpenVersion2Amount}
             cspAmount={cspAmount}
             lrsgClosedTier2Amount={lrsgClosedTier2Amount}
             lrsgClosedTier3Amount={lrsgClosedTier3Amount}
