@@ -238,6 +238,18 @@ const ApplicationsList = ({
         <button
           className="govuk-button govuk-button--secondary"
           data-module="govuk-button"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_open_version_2' })
+          }
+          {...csvExportProps}
+        >
+          Export LRSG (Open) Version 2 Panel Approved Payments
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
           onClick={() => handleCsvDownload({ grant_type: 'csp' })}
           {...csvExportProps}
         >
