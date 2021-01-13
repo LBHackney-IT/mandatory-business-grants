@@ -144,7 +144,7 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (for closed businesses):
+          Restrictions Support Grant (for closed businesses)?
           <ul>
             <li>
               Business has been mandated to close by the government under the
