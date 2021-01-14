@@ -92,6 +92,23 @@ const Step1 = (props) => {
               )}
             />
           )}
+          <hr className="govuk-section-break govuk-section-break--visible" />
+          <h2 className="govuk-heading-m govuk-!-margin-top-3">
+            Grant Eligibility Self-Declaration
+          </h2>
+          <span className="govuk-hint">
+            The below questions act as a self-declaration, determining your
+            business’ eligibility for the relevant grants. Please ensure that
+            you read the eligibility criteria carefully when completing this
+            section.
+          </span>
+          <span className="govuk-hint govuk-!-margin-bottom-5">
+            Please note, businesses that have continued to offer
+            delivery/takeaway/click and collect services throughout the
+            restriction periods are still entitled to the grants, provided this
+            was not your primary method of trading prior to the 5th November
+            2020.
+          </span>
           <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',

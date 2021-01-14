@@ -142,7 +142,7 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (for closed businesses)?
+          Restrictions Support Grant (Closed) Addendum?
           <ul>
             <li>
               Business has been mandated to close by the Government under the
@@ -158,8 +158,7 @@ export const inputLabels = {
         </>
       ),
       hint:
-        'Please note if your business was closed on the 4th November 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.' +
-        'Your business is still eligible to receive a Local Restrictions Support Grant (for closed businesses) if you are offering a delivery/takeaway/click and collect service, provided this was not your primary method of trading prior to the 5th November 2020.',
+        'Please note if your business was closed on the 4th November 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.',
       validation: { required: true },
     },
     tradingOn011220Open: {
