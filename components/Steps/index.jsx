@@ -67,15 +67,13 @@ export const inputLabels = {
       hint: (
         <>
           Please note your business must normally be open to the public -
-          businesses which supply these sectors will not be eligible. For
-          further guidance on which category best suits your business activity
-          please use the following{' '}
+          businesses which supply these sectors will not be eligible. See{' '}
           <a
             href="https://www.gov.uk/guidance/new-national-restrictions-from-5-november?priority-taxon=09944b84-02ba-4742-a696-9e562fc9b29d#businesses-and-venues"
             target="_blank"
             rel="noopener"
           >
-            link
+            guidance on which category best suits your business activity
           </a>
           .
         </>
@@ -219,15 +217,16 @@ export const inputLabels = {
             <li>
               Business was required to close by the Government under Tier 3
               restrictions; sectors required to close include hospitality,
-              accommodation, indoor entertainment and tourism venues. See this{' '}
+              accommodation, indoor entertainment and tourism venues. GOV.UK
+              provides{' '}
               <a
                 href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
                 target="_blank"
                 rel="noopener"
               >
-                link
-              </a>{' '}
-              for more details on businesses required to close at this time.
+                guidance on business closures in England
+              </a>
+              .
             </li>
             <li>
               Business was trading on the day before Tier 3 local restrictions
@@ -249,15 +248,15 @@ export const inputLabels = {
             <li>
               Business was required to close by the Government under Tier 4
               restrictions, including non-essential retail, leisure, personal
-              care, sports facilities, and hospitality. See this{' '}
+              care, sports facilities, and hospitality. GOV.UK provides{' '}
               <a
                 href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
                 target="_blank"
                 rel="noopener"
               >
-                link
-              </a>{' '}
-              for more details on businesses required to close at this time.
+                guidance on business closures in England
+              </a>
+              .
             </li>
             <li>
               Business was trading on the day before Tier 4 local restrictions
