@@ -16,73 +16,67 @@ export default function Home({ date, expirationDate }) {
       </p>
       <ul className="govuk-list govuk-list--bullet">
         <li>
-          grant 1:{' '}
           <a
             className="govuk-link"
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
           >
             Local Restrictions Support Grant (Closed) Addendum
-          </a>
+          </a>{' '}
+          (Grant 1)
         </li>
         <li>
-          grant 2:{' '}
           <a
             className="govuk-link"
             href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
           >
             Local Restrictions Support Grant (Sector)
-          </a>
+          </a>{' '}
+          (Grant 2)
         </li>
         <li>
-          grant 3:{' '}
           <a
             className="govuk-link"
             href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946374/local-restrictions-support-grant-OPEN-1-aug-5-nov-la-guidance.pdf"
           >
-            Local Restrictions Support Grant (Open) - for open businesses
-            affected by tier restrictions covering 17 October 2020 to 4 November
-            2020
+            Local Restrictions Support Grant (Open)
           </a>
+          , October 2020 (Grant 3)
         </li>
         <li>
-          grant 5:{' '}
           <a
             className="govuk-link"
             href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946373/local-restrictions-support-grant-OPEN-2-dec-onwards-la-guidance.pdf"
           >
-            Local Restrictions Support Grant (Open) - for open businesses
-            affected by tier restrictions covering 2 December 2020 to 19
-            December 2020
+            Local Restrictions Support Grant (Open)
           </a>
+          , December 2020 (Grant 4)
         </li>
         <li>
-          grant 6:{' '}
           <a
             className="govuk-link"
             href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946370/local-restrictions-support-grant-CLOSED-dec2-2020-onwards-la-guidance.pdf"
           >
-            Local Restrictions Support Grant (Closed) - for businesses required
-            to close in tier 2 or 3
-          </a>
+            Local Restrictions Support Grant (Closed)
+          </a>{' '}
+          (Grant 5)
         </li>
         <li>
-          grant 7:{' '}
           <a
             className="govuk-link"
             href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/948113/local-restrictions-support-grant-closed-addendum-tier-4-la-guidance.pdf"
           >
-            Local Restrictions Support Grant (Closed) Addendum - for businesses
-            required to close for tier 4
-          </a>
+            Local Restrictions Support Grant (Closed) Addendum: Tier 4
+          </a>{' '}
+          (Grant 6)
         </li>
         <li>
-          grant 8:{' '}
           <a
             className="govuk-link"
             href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946376/christmas-support-payment-la-guidance.pdf"
           >
             Christmas Support Payment for wet-led pubs
-          </a>
+          </a>{' '}
+          (Grant 7)
         </li>
       </ul>
       <p className="govuk-body">
