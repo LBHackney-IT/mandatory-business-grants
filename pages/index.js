@@ -36,7 +36,7 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946374/local-restrictions-support-grant-OPEN-1-aug-5-nov-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
           >
             Local Restrictions Support Grant (Open)
           </a>
@@ -45,7 +45,7 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946373/local-restrictions-support-grant-OPEN-2-dec-onwards-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
           >
             Local Restrictions Support Grant (Open)
           </a>
@@ -54,7 +54,7 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946370/local-restrictions-support-grant-CLOSED-dec2-2020-onwards-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
           >
             Local Restrictions Support Grant (Closed)
           </a>{' '}
@@ -63,7 +63,7 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/948113/local-restrictions-support-grant-closed-addendum-tier-4-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
           >
             Local Restrictions Support Grant (Closed) Addendum: Tier 4
           </a>{' '}
@@ -72,7 +72,7 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946376/christmas-support-payment-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
           >
             Christmas Support Payment for wet-led pubs
           </a>{' '}
