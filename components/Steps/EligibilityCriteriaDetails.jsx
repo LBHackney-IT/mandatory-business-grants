@@ -102,16 +102,12 @@ const Step1 = (props) => {
             you read the eligibility criteria carefully when completing this
             section.
           </span>
-          <span className="govuk-hint govuk-!-margin-bottom-5">
-            Please note, businesses that have continued to offer
-            delivery/takeaway/click and collect services throughout the
-            restriction periods are still entitled to the grants, provided this
-            was not your primary method of trading{' '}
-            <span className="govuk-!-font-weight-bold">
-              on the day before the relevant local restriction period came into
-              effect
-            </span>
-            .
+          <span className="govuk-hint govuk-!-margin-bottom-5 govuk-!-font-weight-bold">
+            Businesses that have continued to offer delivery/takeaway/click and
+            collect services throughout the restriction periods are still
+            entitled to the grants, provided this was not your primary method of
+            trading on the day before the relevant local restriction period came
+            into effect.
           </span>
           <Radios
             {...getInputProps(
