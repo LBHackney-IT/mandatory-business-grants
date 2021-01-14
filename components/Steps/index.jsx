@@ -565,10 +565,12 @@ export const inputLabels = {
       label: (
         <>
           <p>
-            LRSG (Closed), LRSG (Sector) and LRSG (Open) grants all count
-            towards the total de minimis state aid you are permitted to receive
-            over a 3 year period which is €200,000. If you have reached the de
-            minimis threshold, you may still be eligible for funding under the{' '}
+            LRSG (Closed) Addendum, LRSG (Sector), LRSG (Open), LRSG (Open)
+            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, and the
+            Christmas Support Payment for wet-led pubs, grants all count towards
+            the total de minimis State aid you are permitted to receive over a 3
+            year period which is €200,000. If you have reached the de minimis
+            threshold, you may still be eligible for funding under the{' '}
             <a
               href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
               target="_blank"
@@ -580,7 +582,7 @@ export const inputLabels = {
           </p>
           <p>
             I confirm that, including receipt of this grant, the business will
-            not exceed the relevant State Aid threshold limits.
+            not exceed the relevant State aid threshold.
           </p>
         </>
       ),
@@ -612,8 +614,7 @@ export const inputLabels = {
       label: (
         <>
           I permit the data provided in this form to be used to determine my
-          eligibility and process my application for current, and future rounds
-          of the{' '}
+          eligibility and process my application for the{' '}
           <a
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
             target="_blank"
@@ -628,15 +629,47 @@ export const inputLabels = {
             rel="noopener"
           >
             Local Restrictions Support Grant (Open)
-          </a>{' '}
-          and the{' '}
+          </a>
+          , the{' '}
           <a
-            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
+            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946375/local-restrictions-support-grant-SECTOR-la-guidance.pdf"
             target="_blank"
             rel="noopener"
           >
             Local Restrictions Support Grant (Sector)
-          </a>{' '}
+          </a>
+          , the{' '}
+          <a
+            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946373/local-restrictions-support-grant-OPEN-2-dec-onwards-la-guidance.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Open) Version 2
+          </a>
+          , the{' '}
+          <a
+            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946370/local-restrictions-support-grant-CLOSED-dec2-2020-onwards-la-guidance.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Closed)
+          </a>
+          , the{' '}
+          <a
+            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/948113/local-restrictions-support-grant-closed-addendum-tier-4-la-guidance.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Closed) Addendum: Tier 4
+          </a>
+          , and the{' '}
+          <a
+            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946376/christmas-support-payment-la-guidance.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Christmas Support Payment for wet-led pubs
+          </a>
           .
         </>
       ),
