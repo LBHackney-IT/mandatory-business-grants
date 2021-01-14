@@ -80,11 +80,11 @@ export default function Home({ date, expirationDate }) {
         </li>
       </ul>
       <p className="govuk-body">
-        For further information, please go to{' '}
+        Check{' '}
         <a className="govuk-link" href="https://hackney.gov.uk/business-grants">
-          https://hackney.gov.uk/business-grants
-        </a>
-        .
+          national and local restrictions business grants
+        </a>{' '}
+        for more information by Hackney Council.
       </p>
       {(!expirationDate ||
         !isExpired(new Date(expirationDate), new Date(date))) && (
