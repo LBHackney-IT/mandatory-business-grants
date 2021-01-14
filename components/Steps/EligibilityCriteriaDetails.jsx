@@ -14,8 +14,14 @@ const Step1 = (props) => {
   });
   const [showError, setShowError] = useState(false);
   const onSubmit = (data) => {
-    props.saveData(data);
-    Router.push(stepPath, props.nextStep);
+    const isNotEligible = Object.entries(data.eligibilityCriteriaDetails).find(
+      ([key, value]) => key === 'servedLegalNotices' && value === 'Yes'
+    );
+    setShowError(isNotEligible);
+    if (!isNotEligible) {
+      props.saveData(data);
+      Router.push(stepPath, props.nextStep);
+    }
   };
   const selectedCategory = watch('eligibilityCriteriaDetails.businessCategory');
   const selectedSubCategory = watch(
