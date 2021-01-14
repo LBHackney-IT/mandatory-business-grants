@@ -38,6 +38,8 @@ export const inputLabels = {
       label: 'Is your business liable for business rates?',
       validation: { required: true },
       adminValidation: true,
+      hint:
+        'Please note if you receive any form of business rates relief you are still classed as being liable for business rates.',
     },
   },
   eligibilityCriteriaDetails: {
@@ -107,11 +109,11 @@ export const inputLabels = {
               Business has been mandated to close by the government on 23rd
               March 2020 and has been unable to open since. Eligible businesses
               include: nightclubs, discos, dance halls, hostess bars and adult
-              entertainment venues
+              entertainment venues.
             </li>
             <li>
               Business was trading on the day before local restrictions came
-              into effect (i.e. on 22nd March 2020)
+              into effect (i.e. on 22nd March 2020).
             </li>
           </ul>
         </>
@@ -127,11 +129,11 @@ export const inputLabels = {
           <ul>
             <li>
               Business whose trade was severely impacted by Tier 2 restrictions
-              (e.g. preventing households from mixing indoors)
+              (e.g. preventing households from mixing indoors).
             </li>
             <li>
               Business was trading on the day before the first Tier 2 local
-              restrictions came into effect (i.e. on 16th October 2020)
+              restrictions came into effect (i.e. on 16th October 2020).
             </li>
           </ul>
         </>
@@ -148,17 +150,17 @@ export const inputLabels = {
               Business has been mandated to close by the Government under the
               national lockdown between the 5th November 2020 and 1st December
               2020. Eligible businesses include: non-essential retail, leisure,
-              personal care, sports facilities, and hospitality
+              personal care, sports facilities, and hospitality.
             </li>
             <li>
               Business was trading on the day before local restrictions came
-              into effect (i.e. on 4th November 2020)
+              into effect (i.e. on 4th November 2020).
             </li>
           </ul>
         </>
       ),
       hint:
-        'Please note if your business was closed on the 4th November 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.',
+        'Please note if your business was closed on the 4th November 2020 as a result of the Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 4th November 2020.',
       validation: { required: true },
     },
     tradingOn011220Open: {
@@ -280,7 +282,7 @@ export const inputLabels = {
             receives more than 50% of business income from the sales of drinks,
             and under 50% of income from food sales.
           </p>
-          <p className="govuk-body">
+          <p className="govuk-body govuk-!-font-weight-bold">
             Please do not tick yes if your business does not meet the criteria
             set out below.
           </p>

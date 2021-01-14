@@ -106,8 +106,12 @@ const Step1 = (props) => {
             Please note, businesses that have continued to offer
             delivery/takeaway/click and collect services throughout the
             restriction periods are still entitled to the grants, provided this
-            was not your primary method of trading prior to the 5th November
-            2020.
+            was not your primary method of trading{' '}
+            <span className="govuk-!-font-weight-bold">
+              on the day before the relevant local restriction period came into
+              effect
+            </span>
+            .
           </span>
           <Radios
             {...getInputProps(
