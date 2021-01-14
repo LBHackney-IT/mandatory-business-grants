@@ -191,7 +191,8 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (Closed), under Tier 2 restrictions?
+          Restrictions Support Grant (Closed), under Tier 2 restrictions in
+          December 2020?
           <ul>
             <li>
               Business was required to close by the Government under Tier 2
@@ -213,7 +214,8 @@ export const inputLabels = {
       label: (
         <>
           Does your business meet the following criteria for the Local
-          Restrictions Support Grant (Closed), under Tier 3 restrictions?
+          Restrictions Support Grant (Closed), under Tier 3 restrictions in
+          December 2020?
           <ul>
             <li>
               Business was required to close by the Government under Tier 3
@@ -544,19 +546,19 @@ export const inputLabels = {
     businessIWillInform: {
       label: (
         <>
-          I confirm that I will inform Hackney Council if;
+          I confirm that I will inform Hackney Council if:
           <ul>
             <li>
-              My business no longer occupies the premises stated in this
+              my business no longer occupies the premises stated in this
               application form
             </li>
             <li>
-              My business ceases trading permanently, or goes into
+              my business ceases trading permanently, or goes into
               administration, becomes insolvent, is in receipt of a striking off
               notice
             </li>
             <li>
-              My business no longer meets any other grant eligibility criteria
+              my business no longer meets any other grant eligibility criteria
             </li>
           </ul>
         </>
@@ -584,7 +586,7 @@ export const inputLabels = {
           </p>
           <p>
             I confirm that, including receipt of this grant, the business will
-            not exceed the relevant State aid threshold.
+            not exceed the relevant State aid threshold
           </p>
         </>
       ),
@@ -609,7 +611,7 @@ export const inputLabels = {
     },
     businessNotRatePayer: {
       label:
-        'I understand that if the recipient of the grant was not the ratepayer on the eligible day, or is paid in error it will be recoverable from the recipient.',
+        'I understand that if the recipient of the grant was not the ratepayer on the eligible day, or is paid in error it will be recoverable from the recipient',
       validation: { required: true },
     },
     businessPermitData: {
@@ -672,7 +674,6 @@ export const inputLabels = {
           >
             Christmas Support Payment for wet-led pubs
           </a>
-          .
         </>
       ),
       validation: { required: true },
