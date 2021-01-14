@@ -170,7 +170,7 @@ export const inputLabels = {
           <ul>
             <li>
               Business was able to remain open under local Tier 2 restrictions
-              from 2nd - 15th December 2020 but whose trade was severely
+              from 2 December to 15 December but whose trade was severely
               impacted by Tier 2 restrictions (e.g. the prevention of households
               from mixing indoors).
             </li>
