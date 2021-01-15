@@ -248,13 +248,13 @@ export const inputLabels = {
             </li>
             <li>
               Business was trading on the day before Tier 4 local restrictions
-              came into effect (i.e. on 19th December 2020).
+              came into effect (i.e. on 18th December 2020).
             </li>
           </ul>
         </>
       ),
       hint:
-        'Please note if your business was closed on the 19th December 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 19th December 2020.',
+        'Please note if your business was closed on the 18th December 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 18th December 2020.',
       validation: { required: true },
     },
     tradingOn301120: {
