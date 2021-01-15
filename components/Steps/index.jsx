@@ -555,11 +555,12 @@ export const inputLabels = {
         <>
           <p>
             LRSG (Closed) Addendum, LRSG (Sector), LRSG (Open), LRSG (Open)
-            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, and the
-            Christmas Support Payment for wet-led pubs, grants all count towards
-            the total de minimis State aid you are permitted to receive over a 3
-            year period which is €200,000. If you have reached the de minimis
-            threshold, you may still be eligible for funding under the{' '}
+            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, the
+            Christmas Support Payment for wet-led pubs, and the Closed Business
+            Lockdown Grant all count towards the total de minimis State aid you
+            are permitted to receive over a 3 year period which is €200,000. If
+            you have reached the de minimis threshold, you may still be eligible
+            for funding under the{' '}
             <a
               href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
               target="_blank"
@@ -621,7 +622,7 @@ export const inputLabels = {
           </a>
           , the{' '}
           <a
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946375/local-restrictions-support-grant-SECTOR-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
             target="_blank"
             rel="noopener"
           >
@@ -629,7 +630,7 @@ export const inputLabels = {
           </a>
           , the{' '}
           <a
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946373/local-restrictions-support-grant-OPEN-2-dec-onwards-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
             target="_blank"
             rel="noopener"
           >
@@ -637,7 +638,7 @@ export const inputLabels = {
           </a>
           , the{' '}
           <a
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946370/local-restrictions-support-grant-CLOSED-dec2-2020-onwards-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
             target="_blank"
             rel="noopener"
           >
@@ -645,19 +646,27 @@ export const inputLabels = {
           </a>
           , the{' '}
           <a
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/948113/local-restrictions-support-grant-closed-addendum-tier-4-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
             target="_blank"
             rel="noopener"
           >
             Local Restrictions Support Grant (Closed) Addendum: Tier 4
           </a>
-          , and the{' '}
+          , the{' '}
           <a
-            href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/946376/christmas-support-payment-la-guidance.pdf"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
             target="_blank"
             rel="noopener"
           >
             Christmas Support Payment for wet-led pubs
+          </a>
+          , and the{' '}
+          <a
+            href="https://www.gov.uk/government/news/46-billion-in-new-lockdown-grants-to-support-businesses-and-protect-jobs"
+            target="_blank"
+            rel="noopener"
+          >
+            Closed Business Lockdown Grant
           </a>
         </>
       ),
