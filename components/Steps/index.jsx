@@ -263,7 +263,7 @@ export const inputLabels = {
         <>
           Does your business meet the following criteria for the Christmas
           Support Payment for wet-led pubs?
-          <p className="govuk-body govuk-!-margin-top-3">
+          <p className="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-3">
             Please note the Christmas Support Payment grant is available for
             ‘wet-led’ pubs only. The definition of a wet-led pub is a pub which
             receives more than 50% of business income from the sales of drinks,
