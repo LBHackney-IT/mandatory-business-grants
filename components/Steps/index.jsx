@@ -235,6 +235,8 @@ export const inputLabels = {
         'Please note if your business was closed on the 15th December 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 15th December 2020.',
       validation: { required: true },
     },
+    // The label and key contain different dates, as the date changed in the copy after launch,
+    // but we decided against a DB migration to make the column match.
     tradingOn191220: {
       label: (
         <>
