@@ -128,8 +128,10 @@ export const inputLabels = {
           October 2020?
           <ul>
             <li>
-              Business whose trade was severely impacted by Tier 2 restrictions
-              (e.g. preventing households from mixing indoors).
+              Business was able to remain open under local Tier 2 restrictions
+              from 17 October 2020 to 4 November 2020 but whose trade was
+              severely impacted by Tier 2 restrictions (e.g. the prevention of
+              households from mixing indoors).
             </li>
             <li>
               Business was trading on the day before the first Tier 2 local
@@ -220,16 +222,7 @@ export const inputLabels = {
             <li>
               Business was required to close by the Government under Tier 3
               restrictions; sectors required to close include hospitality,
-              accommodation, indoor entertainment and tourism venues. GOV.UK
-              provides{' '}
-              <a
-                href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
-                target="_blank"
-                rel="noopener"
-              >
-                guidance on business closures in England
-              </a>
-              .
+              accommodation, indoor entertainment and tourism venues.
             </li>
             <li>
               Business was trading on the day before Tier 3 local restrictions
@@ -251,15 +244,7 @@ export const inputLabels = {
             <li>
               Business was required to close by the Government under Tier 4
               restrictions, including non-essential retail, leisure, personal
-              care, sports facilities, and hospitality. GOV.UK provides{' '}
-              <a
-                href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
-                target="_blank"
-                rel="noopener"
-              >
-                guidance on business closures in England
-              </a>
-              .
+              care, sports facilities, and hospitality.
             </li>
             <li>
               Business was trading on the day before Tier 4 local restrictions
