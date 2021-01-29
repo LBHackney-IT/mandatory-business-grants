@@ -69,15 +69,6 @@ export default function Home({ date, expirationDate }) {
           </a>{' '}
           (Grant 6)
         </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
-          >
-            Christmas Support Payment for wet-led pubs
-          </a>{' '}
-          (Grant 7)
-        </li>
       </ul>
       <p className="govuk-body">
         Check{' '}
