@@ -259,56 +259,6 @@ export const inputLabels = {
         'Please note if your business was closed on the 18th December 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 18th December 2020.',
       validation: { required: true },
     },
-    tradingOn301120: {
-      initialHint: '',
-      label: (
-        <>
-          Does your business meet the following criteria for the Christmas
-          Support Payment for wet-led pubs?
-          <p className="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-3">
-            Please note the Christmas Support Payment grant is available for
-            ‘wet-led’ pubs only. The definition of a wet-led pub is a pub which
-            receives more than 50% of business income from the sales of drinks,
-            and under 50% of income from food sales.
-          </p>
-          <p className="govuk-body govuk-!-font-weight-bold">
-            Please do not tick yes if your business does not meet the criteria
-            set out below.
-          </p>
-          <p>Wet-led pub criteria:</p>
-          <ul>
-            <li>
-              Business is a pub (the definition of a pub excludes restaurants,
-              cafes, nightclubs, hotels, snack bars, guesthouses, boarding
-              houses, sporting venues, music venues, festival sites, theatres,
-              museums, exhibition halls, cinemas, concert halls and casinos).
-            </li>
-            <li>
-              When trading, business is open to general members of the public.
-            </li>
-            <li>
-              When trading, business allows free entry other than when
-              occasional entertainment is provided.
-            </li>
-            <li>
-              When trading, business allows drinking without requiring food to
-              be consumed.
-            </li>
-            <li>
-              Business was trading on the day before the scheme was announced
-              (i.e. on 30th November 2020).
-            </li>
-            <li>
-              Business receives more than 50% of business income from the sales
-              of drinks, and under 50% of business income from food sales.
-            </li>
-          </ul>
-        </>
-      ),
-      hint:
-        'Please note if your business was closed on the 30th November 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 30th November 2020.',
-      validation: { required: true },
-    },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
