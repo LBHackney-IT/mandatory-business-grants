@@ -292,6 +292,26 @@ const ApplicationsList = ({
           Export LRSG Closed (Tier 4) Panel Approved Payments
         </button>
         <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() => handleCsvDownload({ grant_type: 'lrsg_closed_5_jan' })}
+          {...csvExportProps}
+        >
+          Export LRSG Closed (5 Jan) Panel Approved Payments
+        </button>
+        <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() => handleCsvDownload({ grant_type: 'cblg' })}
+          {...csvExportProps}
+        >
+          Export CBLG Panel Approved Payments
+        </button>
+        <br />
       </p>
     </>
   ) : (
