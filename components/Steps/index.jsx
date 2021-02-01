@@ -309,6 +309,38 @@ export const inputLabels = {
         'Please note if your business was closed on the 30th November 2020 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you will be considered to have been trading on the 30th November 2020.',
       validation: { required: true },
     },
+    tradingOn040121: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Local
+          Restrictions Support Grant (Closed) Addendum: 5 January onwards and
+          Closed Businesses Lockdown Payment?
+          <ul>
+            <li>
+              Business was required to close by the Government under the
+              national lockdown which started on 5th January 2021, including
+              non-essential retail, leisure, personal care, sports facilities,
+              and hospitality. See{' '}
+              <a
+                href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
+                target="_blank"
+                rel="noopener"
+              >
+                guidance on business closures in England
+              </a>
+              .
+            </li>
+            <li>
+              Business was trading on the day before local restrictions came
+              into effect (i.e on the 4th January 2021).
+            </li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 4th January 2021 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 4th January 2021.',
+      validation: { required: true },
+    },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
