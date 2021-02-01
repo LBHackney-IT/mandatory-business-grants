@@ -557,11 +557,12 @@ export const inputLabels = {
         <>
           <p>
             LRSG (Closed) Addendum, LRSG (Sector), LRSG (Open), LRSG (Open)
-            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, and the
-            Closed Business Lockdown Grant all count towards the total de
-            minimis State aid you are permitted to receive over a 3 year period
-            which is €200,000. If you have reached the de minimis threshold, you
-            may still be eligible for funding under the{' '}
+            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, the
+            Christmas Support Payment for wet-led pubs, and the Closed Business
+            Lockdown Grant all count towards the total de minimis State aid you
+            are permitted to receive over a 3 year period which is €200,000. If
+            you have reached the de minimis threshold, you may still be eligible
+            for funding under the{' '}
             <a
               href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
               target="_blank"
@@ -652,6 +653,14 @@ export const inputLabels = {
             rel="noopener"
           >
             Local Restrictions Support Grant (Closed) Addendum: Tier 4
+          </a>
+          , the{' '}
+          <a
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
+            target="_blank"
+            rel="noopener"
+          >
+            Christmas Support Payment for wet-led pubs
           </a>
           , and the{' '}
           <a
