@@ -590,11 +590,12 @@ export const inputLabels = {
           <p>
             LRSG (Closed) Addendum, LRSG (Sector), LRSG (Open), LRSG (Open)
             Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, the
-            Christmas Support Payment for wet-led pubs, and the Closed Business
-            Lockdown Grant all count towards the total de minimis State aid you
-            are permitted to receive over a 3 year period which is €200,000. If
-            you have reached the de minimis threshold, you may still be eligible
-            for funding under the{' '}
+            Christmas Support Payment for wet-led pubs, the Local Restrictions
+            Support Grant (Closed) Addendum: 5 January onwards and Closed
+            Business Lockdown Grant all count towards the total de minimis State
+            aid you are permitted to receive over a 3 year period which is
+            €200,000. If you have reached the de minimis threshold, you may
+            still be eligible for funding under the{' '}
             <a
               href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
               target="_blank"
@@ -694,9 +695,18 @@ export const inputLabels = {
           >
             Christmas Support Payment for wet-led pubs
           </a>
+          , the{' '}
+          <a
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
+            target="_blank"
+            rel="noopener"
+          >
+            Local Restrictions Support Grant (Closed) Addendum: 5 January
+            onwards
+          </a>
           , and the{' '}
           <a
-            href="https://www.gov.uk/government/news/46-billion-in-new-lockdown-grants-to-support-businesses-and-protect-jobs"
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment"
             target="_blank"
             rel="noopener"
           >
