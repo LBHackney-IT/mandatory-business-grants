@@ -16,9 +16,11 @@ const Comments = ({
   lrsgOpenAmount,
   lrsgOpenVersion2Amount,
   cspAmount,
+  cblgAmount,
   lrsgClosedTier2Amount,
   lrsgClosedTier3Amount,
   lrsgClosedTier4Amount,
+  lrsgClosed5JanAmount,
 }) => {
   const [data, setData] = useState();
   const [error, setError] = useState();
@@ -56,9 +58,11 @@ const Comments = ({
     lrsgOpenAmount,
     lrsgOpenVersion2Amount,
     cspAmount,
+    cblgAmount,
     lrsgClosedTier2Amount,
     lrsgClosedTier3Amount,
     lrsgClosedTier4Amount,
+    lrsgClosed5JanAmount,
   ]);
   if (!applicationId) {
     return null;
@@ -101,9 +105,11 @@ Comments.propTypes = {
   lrsgOpenAmount: PropTypes.string,
   lrsgOpenVersion2Amount: PropTypes.string,
   cspAmount: PropTypes.string,
+  cblgAmount: PropTypes.string,
   lrsgClosedTier2Amount: PropTypes.string,
   lrsgClosedTier3Amount: PropTypes.string,
   lrsgClosedTier4Amount: PropTypes.string,
+  lrsgClosed5JanAmount: PropTypes.string,
 };
 
 export default Comments;
