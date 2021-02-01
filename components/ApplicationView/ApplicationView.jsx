@@ -11,6 +11,8 @@ import {
   LRSG_CLOSED_TIER_3_AMOUNT,
   LRSG_CLOSED_TIER_4_AMOUNT,
   CSP_AMOUNT,
+  LRSG_CLOSED_5_JAN_AMOUNT,
+  CBLG_AMOUNT,
 } from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
@@ -35,6 +37,8 @@ const ApplicationView = ({ applicationId }) => {
   const [lrsgClosedTier2Amount, setLrsgClosedTier2Amount] = useState();
   const [lrsgClosedTier3Amount, setLrsgClosedTier3Amount] = useState();
   const [lrsgClosedTier4Amount, setLrsgClosedTier4Amount] = useState();
+  const [lrsgClosed5JanAmount, setLrsgClosed5JanAmount] = useState();
+  const [cblgAmount, setCblgAmount] = useState();
   const [validationRecap, setValidationRecap] = useState();
   const { register, watch, reset } = useForm({ defaultValues: {} });
   const watcher = watch({ nest: true });
@@ -218,6 +222,28 @@ const ApplicationView = ({ applicationId }) => {
                   applicationId={applicationId}
                   onChange={setLrsgClosedTier4Amount}
                 />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="lrsgClosed5JanAmount"
+                  name="lrsg-closed-5-jan"
+                  label="LRSG Closed (5 Jan)"
+                  options={LRSG_CLOSED_5_JAN_AMOUNT}
+                  grantAmountAwarded={data.lrsgClosed5JanAmount}
+                  grantPaymentExported={data.lrsgClosed5JanPaymentExported}
+                  applicationId={applicationId}
+                  onChange={setLrsgClosed5JanAmount}
+                />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="cblgAmount"
+                  name="cblg"
+                  label="CBLG"
+                  options={CBLG_AMOUNT}
+                  grantAmountAwarded={data.cblgAmount}
+                  grantPaymentExported={data.cblgPaymentExported}
+                  applicationId={applicationId}
+                  onChange={setCblgAmount}
+                />
               </div>
             </div>
           </div>
@@ -256,6 +282,8 @@ const ApplicationView = ({ applicationId }) => {
             lrsgClosedTier2Amount={lrsgClosedTier2Amount}
             lrsgClosedTier3Amount={lrsgClosedTier3Amount}
             lrsgClosedTier4Amount={lrsgClosedTier4Amount}
+            lrsgClosed5JanAmount={lrsgClosed5JanAmount}
+            cblgAmount={cblgAmount}
           />
         </>
       )}
