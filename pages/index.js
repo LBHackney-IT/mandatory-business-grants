@@ -78,6 +78,24 @@ export default function Home({ date, expirationDate }) {
           </a>{' '}
           (Grant 7)
         </li>
+        <li>
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
+          >
+            Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
+          </a>{' '}
+          (Grant 8)
+        </li>
+        <li>
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment"
+          >
+            Closed Business Lockdown Grant
+          </a>{' '}
+          (Grant 9)
+        </li>
       </ul>
       <p className="govuk-body">
         Check{' '}
