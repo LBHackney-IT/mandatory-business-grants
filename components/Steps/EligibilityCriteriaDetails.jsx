@@ -115,105 +115,18 @@ const Step1 = (props) => {
             trading on the day before the relevant local restriction period came
             into effect.
           </span>
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn220320',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn161020',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn041120',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn011220Open',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn011220',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn151220',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn191220',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn301120',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
-          <Radios
-            {...getInputProps(
-              'eligibilityCriteriaDetails',
-              'tradingOn040121',
-              {
-                register,
-              },
-              errors
-            )}
-            onChange={() => setShowError(false)}
-          />
+          {/*<Radios*/}
+          {/*  {...getInputProps(*/}
+          {/*    'eligibilityCriteriaDetails',*/}
+          {/*    'grantInternalName',*/}
+          {/*    {*/}
+          {/*      register,*/}
+          {/*    },*/}
+          {/*    errors*/}
+          {/*  )}*/}
+          {/*  onChange={() => setShowError(false)}*/}
+          {/*/>*/}
+          {/*<Radios*/}
           <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',

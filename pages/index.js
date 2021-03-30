@@ -15,87 +15,15 @@ export default function Home({ date, expirationDate }) {
         By completing this application form, you will be considered for:
       </p>
       <ul className="govuk-list govuk-list--bullet">
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
-          >
-            Local Restrictions Support Grant (Closed) Addendum
-          </a>{' '}
-          (Grant 1)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
-          >
-            Local Restrictions Support Grant (Sector)
-          </a>{' '}
-          (Grant 2)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
-          >
-            Local Restrictions Support Grant (Open)
-          </a>
-          , October 2020 (Grant 3)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
-          >
-            Local Restrictions Support Grant (Open)
-          </a>
-          , December 2020 (Grant 4)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
-          >
-            Local Restrictions Support Grant (Closed)
-          </a>{' '}
-          (Grant 5)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
-          >
-            Local Restrictions Support Grant (Closed) Addendum: Tier 4
-          </a>{' '}
-          (Grant 6)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
-          >
-            Christmas Support Payment for wet-led pubs
-          </a>{' '}
-          (Grant 7)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
-          >
-            Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
-          </a>{' '}
-          (Grant 8)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment"
-          >
-            Closed Business Lockdown Grant
-          </a>{' '}
-          (Grant 9)
-        </li>
+        {/*<li>*/}
+        {/*  <a*/}
+        {/*    className="govuk-link"*/}
+        {/*    href=""*/}
+        {/*  >*/}
+        {/*    Template Grant List Item*/}
+        {/*  </a>{' '}*/}
+        {/*  (Grant X)*/}
+        {/*</li>*/}
       </ul>
       <p className="govuk-body">
         Check{' '}
