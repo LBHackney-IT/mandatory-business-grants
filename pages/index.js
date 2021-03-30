@@ -72,6 +72,15 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
+          >
+            Christmas Support Payment for wet-led pubs
+          </a>{' '}
+          (Grant 7)
+        </li>
+        <li>
+          <a
+            className="govuk-link"
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
           >
             Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
