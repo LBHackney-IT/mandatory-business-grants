@@ -260,6 +260,15 @@ CloudFormation), but in the meantime, below are the steps to recreate it manuall
   sudo amazon-linux-extras install -y postgresql11
   ```
 
+## Preventing submissions after a given date
+
+There's an environment variable `EXPIRATION_DATE` which is configured in the
+[CircleCI project](https://app.circleci.com/settings/project/github/LBHackney-IT/mandatory-business-grants/environment-variables).
+That must be provided an ISO-8601 date.
+
+After this date, the button to start the forms will disappear, anyone attempting to navigate manually through the forms
+will be redirected, and new submissions will be rejected by the API.
+
 ## Hiding Grants from Business Owners
 
 After some time it may be appropriate to remove grants from the business owners form, however it's important that it
