@@ -42,10 +42,6 @@ describe('AppContainer', () => {
     expect(container.getListGrantOfficers()).toBeDefined();
   });
 
-  it('returns updateApplication', () => {
-    expect(container.getUpdateApplication()).toBeDefined();
-  });
-
   it('returns listApplicationsCSV', () => {
     expect(container.getListApplicationsCSV()).toBeDefined();
   });
