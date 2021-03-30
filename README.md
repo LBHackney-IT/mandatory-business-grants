@@ -69,8 +69,12 @@ complete description and fix.
 
 ## Getting Started
 
-The application needs Node 12, if you have [NVM](https://github.com/nvm-sh/nvm) installed, run `$ nvm use`
-in your terminal.
+### Requirements
+
+You must have the following installed
+
+- Node.js 12 if you have [NVM](https://github.com/nvm-sh/nvm) installed, run `$ nvm use` in your terminal.
+- PostgreSQL 11 installed and running
 
 ### Install
 
@@ -90,7 +94,7 @@ Run the development server:
 
     $ yarn dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://dev.covidbusinessgrants.hackney.gov.uk:3000](http://dev.covidbusinessgrants.hackney.gov.uk:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
@@ -111,6 +115,8 @@ Below is a short guide to get started with configuring the database for your loc
 
     ```sh
     $ echo DATABASE_URL=postgresql://localhost/dbg >> .env
+    # For Linux
+    $ echo DATABASE_URL=postgresql://username:password@localhost/dbg >> .env
     ```
 
 3.  Run all migrations
@@ -126,6 +132,12 @@ following:
 
 ```sh
 $ cat db/seeds.sql | psql dbg
+```
+
+You'll also want to submit an application via the API to bootstrap the grant officer list.
+
+```bash
+curl --data @utils/fixtures/toAPI.json --header "Content-Type: application/json" --request POST http://dev.covidbusinessgrants.hackney.gov.uk:3000/api/applications
 ```
 
 #### Migrations
