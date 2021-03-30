@@ -259,3 +259,12 @@ CloudFormation), but in the meantime, below are the steps to recreate it manuall
   ```bash
   sudo amazon-linux-extras install -y postgresql11
   ```
+
+## Hiding Grants from Business Owners
+
+After some time it may be appropriate to remove grants from the business owners form, however it's important that it
+remains visible for the backoffice staff. The best way to remove a grant from view currently is to:
+
+1. Remove it from the landing page `/pages/index.js`
+1. Remove it from the business owner form `components/Steps/EligibilityCriteriaDetails.jsx`
+1. Update the validators to reject any input for those field names `lib/usecases/validators.js`
