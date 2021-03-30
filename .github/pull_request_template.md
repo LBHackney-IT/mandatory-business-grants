@@ -1,8 +1,10 @@
-**What**  
-{summarise your PR and what it is for, add a screenshot for UI changes}
+**What**
 
-**Why**  
-{why are we making this change?}
+<!--summarise your PR and what it is for, add a screenshot for UI changes-->
+
+**Why**
+
+<!--why are we making this change?-->
 
 **Anything else?**
 
