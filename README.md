@@ -269,6 +269,40 @@ That must be provided an ISO-8601 date.
 After this date, the button to start the forms will disappear, anyone attempting to navigate manually through the forms
 will be redirected, and new submissions will be rejected by the API.
 
+## Adding Grants for Business Owners
+
+As this project goes on, and COVID-19 continues to impact businesses, there may be additional grants that need to be
+added.
+
+In order to do this you'll broadly need to:
+
+1. Add a migration to add the grant to the `eligibility_criteria_details` table
+1. Add migration to add grant amount, and exported boolean to `application_assessment` table
+1. Release
+1. Run migration
+
+Then
+
+1. Add it to the landing page
+1. Add a step definition for the grant to `components/Steps/index.jsx`
+1. Add the step definition to the form `components/Steps/EligibilityCriteriaDetails.jsx`
+1. Add a validation to `lib/usecases/validators.js`
+1. Add it to the db -> application details mapper `lib/usecases/applicationDetails.js`
+   - In the mapper from DB result -> domain model
+   - In the get application query
+1. Add it to the db mapper for `eligibility_criteria_details` in `lib/usecases/uploadApplication.js`
+1. Add it to the CSV export `lib/usecases/listApplicationsCSV.js`
+
+Then to allow Hackney staff to award amounts
+
+1. Define the options for the amounts `lib/dbMapping.js`
+1. Add an `ApplicationGrantAmountSelector` for the grant in `components/ApplicationView/ApplicationView.jsx`
+1. Add amount and exported to the db -> application details mapper `lib/usecases/applicationDetails.js`
+   - In the mapper from DB result -> domain model
+   - In the get application query
+1. Add ability to set the amount in `updateApplication`
+1. Add csv download button to `components/ApplicationsList/ApplicationsList.jsx`
+
 ## Hiding Grants from Business Owners
 
 After some time it may be appropriate to remove grants from the business owners form, however it's important that it
