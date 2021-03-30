@@ -1,7 +1,6 @@
 import * as HttpStatus from 'http-status-codes';
 import applicationDetails from '../../../../lib/usecases/applicationDetails';
 import {
-  updateApplication,
   ONE_PROPERTY_PERMITTED,
   INVALID_STATUS,
 } from '../../../../lib/usecases/updateApplication';
@@ -11,6 +10,7 @@ import {
   NO_ALLOWED_PROPERTIES_IN_REQUEST,
 } from '../../../../lib/constants';
 import { getUserStringFromCookie } from '../../../../utils/auth';
+import AppContainer from '../../../../containers/AppContainer';
 
 export default async (req, res) => {
   const clientGeneratedId = req.query.clientGeneratedId;
@@ -38,11 +38,15 @@ export default async (req, res) => {
     case 'PATCH':
       try {
         res.setHeader('Content-Type', 'application/json');
+        const container = AppContainer.getInstance();
+        const updateApplication = container.getUpdateApplication();
+
         const updateApplicationResponse = await updateApplication({
           clientGeneratedId,
           data: req.body,
           user: getUserStringFromCookie(req.headers.cookie),
         });
+
         if (updateApplicationResponse.error === APPLICATION_NOT_FOUND) {
           res.statusCode = HttpStatus.NOT_FOUND;
         } else if (
