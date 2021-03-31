@@ -15,15 +15,15 @@ export default function Home({ date, expirationDate }) {
         By completing this application form, you will be considered for:
       </p>
       <ul className="govuk-list govuk-list--bullet">
-        {/*<li>*/}
-        {/*  <a*/}
-        {/*    className="govuk-link"*/}
-        {/*    href=""*/}
-        {/*  >*/}
-        {/*    Template Grant List Item*/}
-        {/*  </a>{' '}*/}
-        {/*  (Grant X)*/}
-        {/*</li>*/}
+        <li>
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
+          >
+            Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
+          </a>{' '}
+          (Grant 8, payment cycle 2)
+        </li>
       </ul>
       <p className="govuk-body">
         Check{' '}
