@@ -324,6 +324,16 @@ const ApplicationsList = ({
           Export LRSG Closed (5 Jan) Payment Cycle 2 Panel Approved Payments
         </button>
         <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() => handleCsvDownload({ grant_type: 'restart_grant' })}
+          {...csvExportProps}
+        >
+          Export Restart Grant Panel Approved Payments
+        </button>
+        <br />
       </p>
     </>
   ) : (

@@ -14,6 +14,7 @@ import {
   LRSG_CLOSED_5_JAN_AMOUNT,
   CBLG_AMOUNT,
   LRSG_CLOSED_5_JAN_CYCLE_2_AMOUNT,
+  RESTART_GRANT_AMOUNT,
 } from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
@@ -39,6 +40,7 @@ const ApplicationView = ({ applicationId }) => {
   const [lrsgClosedTier3Amount, setLrsgClosedTier3Amount] = useState();
   const [lrsgClosedTier4Amount, setLrsgClosedTier4Amount] = useState();
   const [lrsgClosed5JanAmount, setLrsgClosed5JanAmount] = useState();
+  const [restartGrantAmount, setRestartGrantAmount] = useState();
   const [
     lrsgClosed5JanCycle2Amount,
     setLrsgClosed5JanCycle2Amount,
@@ -262,6 +264,17 @@ const ApplicationView = ({ applicationId }) => {
                   applicationId={applicationId}
                   onChange={setLrsgClosed5JanCycle2Amount}
                 />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="restartGrantAmount"
+                  name="restart-grant"
+                  label="Restart Grant"
+                  options={RESTART_GRANT_AMOUNT}
+                  grantAmountAwarded={data.restartGrantAmount}
+                  grantPaymentExported={data.restartGrantPaymentExported}
+                  applicationId={applicationId}
+                  onChange={setRestartGrantAmount}
+                />
               </div>
             </div>
           </div>
@@ -302,6 +315,7 @@ const ApplicationView = ({ applicationId }) => {
             lrsgClosedTier4Amount={lrsgClosedTier4Amount}
             lrsgClosed5JanAmount={lrsgClosed5JanAmount}
             lrsgClosed5JanCycle2Amount={lrsgClosed5JanCycle2Amount}
+            restartGrantAmount={restartGrantAmount}
             cblgAmount={cblgAmount}
           />
         </>

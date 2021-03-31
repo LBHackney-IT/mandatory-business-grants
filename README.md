@@ -301,6 +301,7 @@ Then to allow Hackney staff to award amounts
    - In the get application query
 1. Add ability to set the amount in `updateApplication`
 1. Add an `ApplicationGrantAmountSelector` for the grant in `components/ApplicationView/ApplicationView.jsx`
+1. Update Comments component to refresh when amount changes in `components/Comments/Comments.jsx`
 1. Add csv download button to `components/ApplicationsList/ApplicationsList.jsx`
 1. Add the grant prefix to `lib/usecases/patchApplications.js`
 

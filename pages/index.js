@@ -21,16 +21,26 @@ export default function Home({ date, expirationDate }) {
             href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
           >
             Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
-          </a>{' '}
-          (Grant 8, payment cycle 2)
+          </a>
+          , for the period 16 February to 31 March 2021 (Grant 8, payment cycle
+          2)
+        </li>
+        <li>
+          <a
+            className="govuk-link"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-a-coronavirus-restart-grant"
+          >
+            Restart Grant
+          </a>
+          , for the period from 1 April 2021 onwards (Grant 10)
         </li>
       </ul>
       <p className="govuk-body">
-        Check{' '}
+        All other grants outlined on the{' '}
         <a className="govuk-link" href="https://hackney.gov.uk/business-grants">
-          national and local restrictions business grants
+          business grants
         </a>{' '}
-        for more information by Hackney Council.
+        webpage have now closed.
       </p>
       {(!expirationDate ||
         !isExpired(new Date(expirationDate), new Date(date))) && (
