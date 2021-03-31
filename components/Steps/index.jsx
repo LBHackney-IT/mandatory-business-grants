@@ -372,6 +372,28 @@ export const inputLabels = {
         'Please note if your business was closed on the 4 January 2021 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 4 January 2021.',
       validation: { required: true },
     },
+    tradingOn010421: {
+      label: (
+        <>
+          Does your business meet the following criteria for the Restart Grant?
+          <ul>
+            <li>
+              Business is non-essential that is predominantly reliant on
+              delivering in-person services for the general public.
+            </li>
+            <li>
+              Business falls into one of the following sectors non-essential
+              retail, hospitality, accommodation, leisure, personal care, and
+              gym businesses,
+            </li>
+            <li>Business was trading on 1 April.</li>
+          </ul>
+        </>
+      ),
+      hint:
+        'Please note if your business was closed on the 1 April 2021 as a result of Government COVID-19 restrictions but would otherwise have been open and trading then you are considered to have been trading on the 1 April 2021.\n',
+      validation: { required: true },
+    },
     servedLegalNotices: {
       label:
         'Is your business in administration, insolvent or in receipt of a striking off notice?',
