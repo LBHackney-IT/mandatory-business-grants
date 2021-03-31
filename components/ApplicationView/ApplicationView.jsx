@@ -13,6 +13,7 @@ import {
   CSP_AMOUNT,
   LRSG_CLOSED_5_JAN_AMOUNT,
   CBLG_AMOUNT,
+  LRSG_CLOSED_5_JAN_CYCLE_2_AMOUNT,
 } from 'lib/dbMapping';
 import { fetchApplication, patchApplication } from 'utils/api/applications';
 import Summary from 'components/Summary/Summary';
@@ -38,6 +39,10 @@ const ApplicationView = ({ applicationId }) => {
   const [lrsgClosedTier3Amount, setLrsgClosedTier3Amount] = useState();
   const [lrsgClosedTier4Amount, setLrsgClosedTier4Amount] = useState();
   const [lrsgClosed5JanAmount, setLrsgClosed5JanAmount] = useState();
+  const [
+    lrsgClosed5JanCycle2Amount,
+    setLrsgClosed5JanCycle2Amount,
+  ] = useState();
   const [cblgAmount, setCblgAmount] = useState();
   const [validationRecap, setValidationRecap] = useState();
   const { register, watch, reset } = useForm({ defaultValues: {} });
@@ -244,6 +249,19 @@ const ApplicationView = ({ applicationId }) => {
                   applicationId={applicationId}
                   onChange={setCblgAmount}
                 />
+
+                <ApplicationGrantAmountSelector
+                  storeAs="lrsgClosed5JanCycle2Amount"
+                  name="lrsg-closed-5-jan-cycle-2"
+                  label="LRSG Closed (5 Jan) Payment Cycle 2"
+                  options={LRSG_CLOSED_5_JAN_CYCLE_2_AMOUNT}
+                  grantAmountAwarded={data.lrsgClosed5JanCycle2Amount}
+                  grantPaymentExported={
+                    data.lrsgClosed5JanCycle2PaymentExported
+                  }
+                  applicationId={applicationId}
+                  onChange={setLrsgClosed5JanCycle2Amount}
+                />
               </div>
             </div>
           </div>
@@ -283,6 +301,7 @@ const ApplicationView = ({ applicationId }) => {
             lrsgClosedTier3Amount={lrsgClosedTier3Amount}
             lrsgClosedTier4Amount={lrsgClosedTier4Amount}
             lrsgClosed5JanAmount={lrsgClosed5JanAmount}
+            lrsgClosed5JanCycle2Amount={lrsgClosed5JanCycle2Amount}
             cblgAmount={cblgAmount}
           />
         </>
