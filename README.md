@@ -296,12 +296,13 @@ Then
 Then to allow Hackney staff to award amounts
 
 1. Define the options for the amounts `lib/dbMapping.js`
-1. Add an `ApplicationGrantAmountSelector` for the grant in `components/ApplicationView/ApplicationView.jsx`
 1. Add amount and exported to the db -> application details mapper `lib/usecases/applicationDetails.js`
    - In the mapper from DB result -> domain model
    - In the get application query
 1. Add ability to set the amount in `updateApplication`
+1. Add an `ApplicationGrantAmountSelector` for the grant in `components/ApplicationView/ApplicationView.jsx`
 1. Add csv download button to `components/ApplicationsList/ApplicationsList.jsx`
+1. Add the grant prefix to `lib/usecases/patchApplications.js`
 
 ## Hiding Grants from Business Owners
 
