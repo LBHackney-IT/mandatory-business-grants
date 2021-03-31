@@ -312,6 +312,18 @@ const ApplicationsList = ({
           Export CBLG Panel Approved Payments
         </button>
         <br />
+
+        <button
+          className="govuk-button govuk-button--secondary"
+          data-module="govuk-button"
+          onClick={() =>
+            handleCsvDownload({ grant_type: 'lrsg_closed_5_jan_cycle_2' })
+          }
+          {...csvExportProps}
+        >
+          Export LRSG Closed (5 Jan) Payment Cycle 2 Panel Approved Payments
+        </button>
+        <br />
       </p>
     </>
   ) : (
