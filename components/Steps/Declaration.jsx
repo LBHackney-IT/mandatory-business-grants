@@ -144,8 +144,22 @@ const Declaration = (props) => {
         financial support. In doing so we will confirm information about you and
         your account from Council departments and credit reference agencies to
         confirm account validity and your identity. If you provide false or
-        inaccurate information, we will record this. If you would like full
-        details on how we use your information, please refer to our{' '}
+        inaccurate information, we will record this.
+      </p>
+      <p>
+        This information will be stored in accordance with all relevant data
+        protection requirements such as the UK General Data Protection
+        Regulation (UK GDPR) and the Data Protection Act 2018 and shared with
+        Government upon request. The information will be used by the Government
+        for monitoring and evaluation purposes, as well as for prevention and
+        detection of fraud and/or other criminal activities and for suspension
+        and/or recovery of the grant where necessary. The Government may share
+        information for the purpose of counter fraud activity and debt recovery
+        with other government departments, agencies and/or local authorities.
+      </p>
+      <p>
+        If you would like full details on how we use your information, please
+        refer to our{' '}
         <a href="https://hackney.gov.uk/privacy" target="_blank" rel="noopener">
           privacy policy
         </a>
