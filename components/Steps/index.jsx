@@ -386,7 +386,7 @@ export const inputLabels = {
               retail, hospitality, accommodation, leisure, personal care, and
               gym businesses,
             </li>
-            <li>Business was trading on 1 April.</li>
+            <li>Business was trading on 1 April 2021.</li>
           </ul>
         </>
       ),
