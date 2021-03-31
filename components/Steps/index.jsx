@@ -641,26 +641,18 @@ export const inputLabels = {
       label: (
         <>
           <p>
-            LRSG (Closed) Addendum, LRSG (Sector), LRSG (Open), LRSG (Open)
-            Version 2, LRSG (Closed), LRSG (Closed) Addendum: Tier 4, the
-            Christmas Support Payment for wet-led pubs, the Local Restrictions
-            Support Grant (Closed) Addendum: 5 January onwards and Closed
-            Business Lockdown Grant all count towards the total de minimis State
-            aid you are permitted to receive over a 3 year period which is
-            €200,000. If you have reached the de minimis threshold, you may
-            still be eligible for funding under the{' '}
-            <a
-              href="https://ec.europa.eu/competition/state_aid/what_is_new/covid_19.html"
-              target="_blank"
-              rel="noopener"
-            >
-              COVID-19 Temporary Framework
-            </a>
-            . The limit for this framework is €800,000.
+            LRSG (Closed) Addendum: 5 Jan Onwards and Restart Grant count
+            towards the subsidy thresholds set out in the updated COVID-19
+            business grants subsidy allowances. For more information on the new
+            subsidy allowances please visit Hackney Council’s{' '}
+            <a href="https://hackney.gov.uk/business-grants" target="_blank">
+              Business Grant
+            </a>{' '}
+            webpage
           </p>
           <p>
             I confirm that, including receipt of this grant, the business will
-            not exceed the relevant State aid threshold
+            not exceed the relevant subsidy thresholds.
           </p>
         </>
       ),
@@ -698,72 +690,16 @@ export const inputLabels = {
             target="_blank"
             rel="noopener"
           >
-            Local Restrictions Support Grant (Closed) Addendum
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
-            target="_blank"
-            rel="noopener"
-          >
-            Local Restrictions Support Grant (Open)
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-your-nightclub-dance-hall-or-adult-entertainment-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions"
-            target="_blank"
-            rel="noopener"
-          >
-            Local Restrictions Support Grant (Sector)
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-open-businesses"
-            target="_blank"
-            rel="noopener"
-          >
-            Local Restrictions Support Grant (Open) Version 2
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
-            target="_blank"
-            rel="noopener"
-          >
-            Local Restrictions Support Grant (Closed)
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-coronavirus-local-restrictions-support-grant-for-closed-businesses"
-            target="_blank"
-            rel="noopener"
-          >
-            Local Restrictions Support Grant (Closed) Addendum: Tier 4
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-the-christmas-support-payment-for-wet-led-pubs"
-            target="_blank"
-            rel="noopener"
-          >
-            Christmas Support Payment for wet-led pubs
-          </a>
-          , the{' '}
-          <a
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
-            target="_blank"
-            rel="noopener"
-          >
             Local Restrictions Support Grant (Closed) Addendum: 5 January
             onwards
           </a>
           , and the{' '}
           <a
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-the-coronavirus-closed-businesses-lockdown-payment"
+            href="https://www.gov.uk/guidance/check-if-youre-eligible-for-a-coronavirus-restart-grant"
             target="_blank"
             rel="noopener"
           >
-            Closed Business Lockdown Grant
+            Restart Grant
           </a>
         </>
       ),
