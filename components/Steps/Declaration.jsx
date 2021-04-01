@@ -146,7 +146,7 @@ const Declaration = (props) => {
         confirm account validity and your identity. If you provide false or
         inaccurate information, we will record this.
       </p>
-      <p>
+      <p className="govuk-body">
         This information will be stored in accordance with all relevant data
         protection requirements such as the UK General Data Protection
         Regulation (UK GDPR) and the Data Protection Act 2018 and shared with
@@ -157,7 +157,7 @@ const Declaration = (props) => {
         information for the purpose of counter fraud activity and debt recovery
         with other government departments, agencies and/or local authorities.
       </p>
-      <p>
+      <p className="govuk-body">
         If you would like full details on how we use your information, please
         refer to our{' '}
         <a href="https://hackney.gov.uk/privacy" target="_blank" rel="noopener">
