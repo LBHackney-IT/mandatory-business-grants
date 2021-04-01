@@ -408,13 +408,13 @@ export const inputLabels = {
           Does your business meet the following criteria for the Restart Grant?
           <ul>
             <li>
-              Business is non-essential that is predominantly reliant on
-              delivering in-person services for the general public.
+              Non-Essential business that is predominantly reliant on delivering
+              in-person services for the general public.
             </li>
             <li>
-              Business falls into one of the following sectors non-essential
-              retail, hospitality, accommodation, leisure, personal care, and
-              gym businesses,
+              Business falls into one of the following sectors; non-essential
+              retail, hospitality, accommodation, leisure, personal care, sport
+              and gyms
             </li>
             <li>Business was trading on 1 April 2021.</li>
           </ul>
@@ -691,16 +691,23 @@ export const inputLabels = {
     businessNotUndertaking: {
       label: (
         <>
-          I confirm that my business is not an{' '}
-          <a
-            href="https://www.gov.uk/guidance/innovation-apply-for-a-funding-award#undertakings-in-difficulty--eu-definition"
-            target="_blank"
-            rel="noopener"
-          >
-            undertaking in difficulty
-          </a>{' '}
-          (within the meaning of Article 2 (18) of the General Block Exemption
-          Regulation) on 31 December 2019
+          <p>
+            I confirm that my business is not an undertaking in difficulty
+            (within the meaning of Article 2 (18) of the General Block Exemption
+            Regulation) on 31 December 2019.
+          </p>
+          <p>
+            For a full definition of undertaking in difficulty please visit
+            Hackney Council’s
+            <a
+              href="https://hackney.gov.uk/business-grants"
+              target="_blank"
+              rel="noopener"
+            >
+              Business Grant
+            </a>{' '}
+            webpage.
+          </p>
         </>
       ),
       validation: { required: true },
@@ -731,6 +738,7 @@ export const inputLabels = {
           >
             Restart Grant
           </a>
+          , and any other relevant business grant schemes
         </>
       ),
       validation: { required: true },
@@ -760,7 +768,7 @@ export const inputLabels = {
     bankStatement: {
       label: 'Bank Statement:',
       hint:
-        'Please provide your January 2021 business bank statement - this must correspond with the bank account details provided in this application form. If you do not have your November bank statement, please submit your most recent bank statement.',
+        'Please provide your January 2021 business bank statement - this must correspond with the bank account details provided in this application form. If you do not have your January bank statement, please submit your most recent bank statement.',
       validation: {
         validate: (value) => value.length > 0 || 'Document required',
       },
