@@ -698,7 +698,7 @@ export const inputLabels = {
           </p>
           <p>
             For a full definition of undertaking in difficulty please visit
-            Hackney Council’s
+            Hackney Council’s{' '}
             <a
               href="https://hackney.gov.uk/business-grants"
               target="_blank"
