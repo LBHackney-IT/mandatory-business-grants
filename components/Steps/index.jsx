@@ -68,16 +68,46 @@ export const inputLabels = {
       options: Object.keys(options.BUSINESS_CATEGORIES),
       hint: (
         <>
-          Please note your business must normally be open to the public -
-          businesses which supply these sectors will not be eligible. See{' '}
-          <a
-            href="https://www.gov.uk/guidance/new-national-restrictions-from-5-november?priority-taxon=09944b84-02ba-4742-a696-9e562fc9b29d#businesses-and-venues"
-            target="_blank"
-            rel="noopener"
-          >
-            guidance on which category best suits your business activity
-          </a>
-          .
+          <strong>Business Category Definitions</strong>
+          <ul>
+            <li>
+              Non-essential retail: a business that is open to the public and is
+              used mainly or wholly for the purposes of retail sale or hire of
+              goods or services, where the primary purpose of products or
+              services provided are not necessary to the health and well-being
+              of the public
+            </li>
+            <li>
+              Hospitality: a business whose main function is to provide a venue
+              for the consumption and sale of food and drink
+            </li>
+            <li>
+              Leisure: a business that provides opportunities, experiences and
+              facilities, in particular for culture, recreation, entertainment,
+              celebratory events, days and nights out, betting and gaming
+            </li>
+            <li>
+              Accommodation: a business whose main lodging provision is used for
+              holiday, travel and other purposes
+            </li>
+            <li>
+              Gym & Sport: a commercial establishment where physical exercise or
+              training is conducted on an individual basis or group basis, using
+              exercise equipment or open floor space with or without
+              instruction, or where individual and group sporting, athletic and
+              physical activities are participated in competitively or
+              recreationally
+            </li>
+            <li>
+              Personal care: a business which provides a service, treatment or
+              activity for the purposes of personal beauty, hair, grooming, body
+              care and aesthetics, and wellbeing
+            </li>
+          </ul>
+          <p>
+            Please note your business must normally be open to the public -
+            businesses which supply these sectors will not be eligible.
+          </p>
         </>
       ),
       validation: {
