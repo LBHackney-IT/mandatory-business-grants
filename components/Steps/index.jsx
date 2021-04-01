@@ -380,8 +380,8 @@ export const inputLabels = {
             <li>
               Business was required to close by the Government under the
               national lockdown which started on 5th January 2021, including
-              non-essential retail, leisure, personal care, sports facilities,
-              and hospitality. See{' '}
+              non-essential retail, hospitality, accommodation, leisure,
+              personal care, and gym businesses. . See{' '}
               <a
                 href="https://www.gov.uk/government/publications/further-businesses-and-premises-to-close/closing-certain-businesses-and-venues-in-england"
                 target="_blank"
