@@ -106,7 +106,16 @@ export const inputLabels = {
           </ul>
           <p>
             Please note your business must normally be open to the public -
-            businesses which supply these sectors will not be eligible.
+            businesses which supply these sectors will not be eligible. More
+            information on eligible businesses can be found in{' '}
+            <a
+              href="https://docs.google.com/document/d/1ADfPUkG_lB9CuwT0CqojerJ9CzDM9HtN4lrHJAEYjEQ/edit"
+              target="_blank"
+              rel="noopener"
+            >
+              this document
+            </a>
+            .
           </p>
         </>
       ),
