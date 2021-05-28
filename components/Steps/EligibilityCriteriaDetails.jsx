@@ -115,7 +115,7 @@ const Step1 = (props) => {
             trading on the day before the relevant local restriction period came
             into effect.
           </span>
-          <Radios
+          {/*  <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',
               'tradingOn040121Cycle2',
@@ -125,7 +125,7 @@ const Step1 = (props) => {
               errors
             )}
             onChange={() => setShowError(false)}
-          />
+          /> */}
           <Radios
             {...getInputProps(
               'eligibilityCriteriaDetails',
