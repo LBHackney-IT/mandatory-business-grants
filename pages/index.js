@@ -18,16 +18,6 @@ export default function Home({ date, expirationDate }) {
         <li>
           <a
             className="govuk-link"
-            href="https://www.gov.uk/guidance/check-if-your-business-is-eligible-for-a-coronavirus-grant-due-to-national-restrictions-for-closed-businesses"
-          >
-            Local Restrictions Support Grant (Closed) Addendum: 5 January 2021
-          </a>
-          , for the period 16 February to 31 March 2021 (Grant 8, payment cycle
-          2)
-        </li>
-        <li>
-          <a
-            className="govuk-link"
             href="https://www.gov.uk/guidance/check-if-youre-eligible-for-a-coronavirus-restart-grant"
           >
             Restart Grant
