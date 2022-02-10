@@ -68,7 +68,7 @@ jobs:
     steps:
       - checkout
       - aws_assume_role/assume_role:
-          account: $AWS_ACCOUNT_STAGING
+          account: $AWS_ACCOUNT_REGEN_APPS_STAGING
           profile_name: default
           role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
@@ -81,7 +81,7 @@ jobs:
     steps:
       - checkout
       - aws_assume_role/assume_role:
-          account: $AWS_ACCOUNT_PRODUCTION
+          account: $AWS_ACCOUNT_REGEN_APPS_PRODUCTION
           profile_name: default
           role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
@@ -95,7 +95,7 @@ workflows:
     jobs:
       - install-dependencies-and-test
       - assume-role-staging:
-          context: api-assume-role-staging-context
+          context: api-cloud-engineering-deployment-context
           requires:
             - install-dependencies-and-test
           filters:
@@ -114,7 +114,7 @@ workflows:
           requires:
             - build-deploy-staging
       - assume-role-production:
-          context: api-assume-role-production-context
+          context: api-cloud-engineering-deployment-context
           requires:
             - install-dependencies-and-test
             - permit-deploy-production
