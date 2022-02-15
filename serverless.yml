@@ -116,6 +116,12 @@ resources:
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
 
+    covidBusinessGrantsRDSSubnetGroup:
+      Type: AWS::RDS::DBSubnetGroup
+      Properties:
+        DBSubnetGroupDescription: "RDS Subnet Group"
+        SubnetIds: ${self:custom.subnets.${self:provider.stage}}
+       
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
       Properties:
@@ -135,6 +141,8 @@ resources:
         - Fn::GetAtt:
           - covidBusinessGrantsDbSecurityGroup
           - GroupId
+        DBSubnetGroupName: 
+          Ref: covidBusinessGrantsRDSSubnetGroup  
         Tags:
           -
             Key: "Name"
@@ -181,7 +189,7 @@ resources:
                 OriginProtocolPolicy: https-only
 
 custom:
-  bucket: ${self:service}-supporting-documents-${self:provider.stage}
+  bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
   domain-name:
     Fn::Join:
       - '.'
@@ -190,20 +198,18 @@ custom:
         - eu-west-2
         - amazonaws.com
   aliases:
-    staging: staging-covidbusinessgrants.hackney.gov.uk
+    staging: staging2-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
-    staging: arn:aws:acm:us-east-1:715003523189:certificate/a8f8da64-6013-43aa-a544-5b86acc211f7
-    production: arn:aws:acm:us-east-1:153306643385:certificate/ff06896f-40e2-4bad-b47b-2cb853f5b8d3
+    staging: arn:aws:acm:us-east-1:647298111750:certificate/5721d7ea-a05d-4426-ad23-e3b24efd3e3c
+    production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
   subnets:
     staging:
-      - subnet-07e8364b
-      - subnet-723cb408
-      - subnet-48094621
+      - subnet-0412a1581adc7d0ea
+      - subnet-03dbe9ab00a62d0b1
     production:
-      - subnet-034b2a03cd4955923
-      - subnet-03431a6c898502c99
-      - subnet-0f02c86bab1d62956
+      - subnet-0ec49209d6ca30407
+      - subnet-0ce5cd750a074267b
   allowed-groups:
     staging: 'Covid Business Grants (Mandatory) - Staging'
     production: 'Covid Business Grants (Mandatory)'
