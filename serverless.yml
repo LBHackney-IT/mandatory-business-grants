@@ -205,10 +205,8 @@ custom:
     staging: arn:aws:acm:us-east-1:647298111750:certificate/5721d7ea-a05d-4426-ad23-e3b24efd3e3c
     production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
   vpcs:
-    staging:
-      - vpc-0047c1ec06d524b64
-    production:
-      - vpc-0c9c2cbf1865adb9e  
+    staging: vpc-0047c1ec06d524b64
+    production: vpc-0c9c2cbf1865adb9e  
   subnets:
     staging:
       - subnet-034d259953e54531a
