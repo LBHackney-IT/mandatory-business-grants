@@ -115,6 +115,7 @@ resources:
           FromPort: '5432'
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
+        EC2VpcId: ${self:custom.vpcs.${self:provider.stage}} 
 
     covidBusinessGrantsRDSSubnetGroup:
       Type: AWS::RDS::DBSubnetGroup
@@ -203,13 +204,18 @@ custom:
   certificate-arn:
     staging: arn:aws:acm:us-east-1:647298111750:certificate/5721d7ea-a05d-4426-ad23-e3b24efd3e3c
     production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
+  vpcs:
+    staging:
+      - vpc-0047c1ec06d524b64
+    production:
+      - vpc-0c9c2cbf1865adb9e  
   subnets:
     staging:
-      - subnet-0412a1581adc7d0ea
-      - subnet-03dbe9ab00a62d0b1
+      - subnet-034d259953e54531a
+      - subnet-0e0152a2fc2b42498
     production:
-      - subnet-0ec49209d6ca30407
-      - subnet-0ce5cd750a074267b
+      - subnet-067865bb76395b74e
+      - subnet-056356c011224f114
   allowed-groups:
     staging: 'Covid Business Grants (Mandatory) - Staging'
     production: 'Covid Business Grants (Mandatory)'
