@@ -198,7 +198,7 @@ custom:
         - eu-west-2
         - amazonaws.com
   aliases:
-    staging: staging-covidbusinessgrants.hackney.gov.uk
+    staging: staging2-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
     staging: arn:aws:acm:us-east-1:647298111750:certificate/5721d7ea-a05d-4426-ad23-e3b24efd3e3c
