@@ -115,17 +115,18 @@ resources:
           FromPort: '5432'
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
-        VpcId: ${self:custom.vpcs.${self:provider.stage}} 
+        VpcId: ${self:custom.vpcs.${self:provider.stage}}
 
     covidBusinessGrantsRDSSubnetGroup:
       Type: AWS::RDS::DBSubnetGroup
       Properties:
         DBSubnetGroupDescription: "RDS Subnet Group"
         SubnetIds: ${self:custom.subnets.${self:provider.stage}}
-       
+
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
       Properties:
+        DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
         AllocatedStorage: 5
         DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
         DBInstanceClass: "db.t2.small"
@@ -142,8 +143,8 @@ resources:
         - Fn::GetAtt:
           - covidBusinessGrantsDbSecurityGroup
           - GroupId
-        DBSubnetGroupName: 
-          Ref: covidBusinessGrantsRDSSubnetGroup  
+        DBSubnetGroupName:
+          Ref: covidBusinessGrantsRDSSubnetGroup
         Tags:
           -
             Key: "Name"
@@ -191,6 +192,9 @@ resources:
 
 custom:
   bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
+  rds-snapshot:
+    staging: arn:aws:rds:eu-west-2:647298111750:snapshot:restored-grants-db
+    production: xxx
   domain-name:
     Fn::Join:
       - '.'
@@ -206,7 +210,7 @@ custom:
     production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
   vpcs:
     staging: vpc-0047c1ec06d524b64
-    production: vpc-0c9c2cbf1865adb9e  
+    production: vpc-0c9c2cbf1865adb9e
   subnets:
     staging:
       - subnet-034d259953e54531a
