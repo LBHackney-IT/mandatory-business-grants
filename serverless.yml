@@ -133,7 +133,7 @@ resources:
         #DBName: ${self:provider.dbname}
         DeletionProtection: true
         Engine: "postgres"
-        EngineVersion: "11.7"
+        EngineVersion: "11.12"
         MasterUsername: ${env:MASTER_USERNAME}
         MasterUserPassword: ${env:MASTER_USER_PASSWORD}
         MultiAZ: true
@@ -203,7 +203,7 @@ custom:
         - eu-west-2
         - amazonaws.com
   aliases:
-    staging: staging2-covidbusinessgrants.hackney.gov.uk
+    staging: staging-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
     staging: arn:aws:acm:us-east-1:647298111750:certificate/b7286aa3-00c5-4587-9d74-0cb06ffcb91e
