@@ -94,48 +94,46 @@ workflows:
   continuous-delivery:
     jobs:
       - install-dependencies-and-test
+      - permit-deploy-staging:
+          type: approval
+          requires:
+            - install-dependencies-and-test
+          filters:
+            branches:
+              only:
+                - master
       - assume-role-staging:
           context: api-assume-role-staging-context
-      # - permit-deploy-staging:
-      #     type: approval
-      #     requires:
-      #       - install-dependencies-and-test
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      # - assume-role-staging:
-      #     context: api-assume-role-staging-context
-      #     requires:
-      #       - permit-deploy-staging
-      #     filters:
-      #       branches:
-      #         only: master
-      # - build-deploy-staging:
-      #     requires:
-      #       - install-dependencies-and-test
-      #       - assume-role-staging
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      # - permit-deploy-production:
-      #     type: approval
-      #     requires:
-      #       - build-deploy-staging
-      # - are-you-sure:
-      #     type: approval
-      #     requires:
-      #       - permit-deploy-production
-      # - assume-role-production:
-      #     context: api-cloud-engineering-deployment-context
-      #     requires:
-      #       - install-dependencies-and-test
-      #       - are-you-sure
-      #     filters:
-      #       branches:
-      #         only: master
-      # - build-deploy-production:
-      #     requires:
-      #       - are-you-sure
-      #       - assume-role-production
+          requires:
+            - permit-deploy-staging
+          filters:
+            branches:
+              only: master
+      - build-deploy-staging:
+          requires:
+            - install-dependencies-and-test
+            - assume-role-staging
+          filters:
+            branches:
+              only:
+                - master
+      - permit-deploy-production:
+          type: approval
+          requires:
+            - build-deploy-staging
+      - are-you-sure:
+          type: approval
+          requires:
+            - permit-deploy-production
+      - assume-role-production:
+          context: api-cloud-engineering-deployment-context
+          requires:
+            - install-dependencies-and-test
+            - are-you-sure
+          filters:
+            branches:
+              only: master
+      - build-deploy-production:
+          requires:
+            - are-you-sure
+            - assume-role-production
