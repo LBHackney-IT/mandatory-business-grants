@@ -192,10 +192,7 @@ resources:
                 OriginProtocolPolicy: https-only
 
 custom:
-  bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
-  rds-snapshot:
-    staging: arn:aws:rds:eu-west-2:647298111750:snapshot:restored-grants-db
-    production: arn:aws:rds:eu-west-2:812721144296:snapshot:cbg-snapshot-final
+  bucket: ${self:service}-supporting-documents-${self:provider.stage}
   domain-name:
     Fn::Join:
       - '.'
@@ -207,18 +204,17 @@ custom:
     staging: staging-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
-    staging: arn:aws:acm:us-east-1:647298111750:certificate/a9c099b9-50bb-411b-84e3-982ffa1c76bf
-    production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
-  vpcs:
-    staging: vpc-0047c1ec06d524b64
-    production: vpc-0c9c2cbf1865adb9e
+    staging: arn:aws:acm:us-east-1:715003523189:certificate/8f7fa30c-a4e5-4775-b827-ade824a33c9a
+    production: arn:aws:acm:us-east-1:153306643385:certificate/71728a39-cd3e-4570-a440-e87f84ef9a0d
   subnets:
     staging:
-      - subnet-034d259953e54531a
-      - subnet-0e0152a2fc2b42498
+      - subnet-07e8364b
+      - subnet-723cb408
+      - subnet-48094621
     production:
-      - subnet-067865bb76395b74e
-      - subnet-056356c011224f114
+      - subnet-034b2a03cd4955923
+      - subnet-03431a6c898502c99
+      - subnet-0f02c86bab1d62956
   allowed-groups:
     staging: 'Covid Business Grants (Mandatory) - Staging'
     production: 'Covid Business Grants (Mandatory)'
