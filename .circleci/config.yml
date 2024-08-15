@@ -94,10 +94,14 @@ workflows:
   continuous-delivery:
     jobs:
       - install-dependencies-and-test
+      - permit-deploy-staging:
+          type: approval
+          requires:
+            - install-dependencies-and-test
       - assume-role-staging:
           context: api-cloud-engineering-deployment-context
           requires:
-            - install-dependencies-and-test
+            - permit-deploy-staging
           filters:
             branches:
               only: master
