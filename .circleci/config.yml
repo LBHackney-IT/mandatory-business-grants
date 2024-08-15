@@ -121,15 +121,19 @@ workflows:
           type: approval
           requires:
             - build-deploy-staging
+      - are-you-sure:
+          type: approval
+          requires:
+            - permit-deploy-production
       - assume-role-production:
           context: api-cloud-engineering-deployment-context
           requires:
             - install-dependencies-and-test
-            - permit-deploy-production
+            - are-you-sure
           filters:
             branches:
               only: master
       - build-deploy-production:
           requires:
-            - permit-deploy-production
+            - are-you-sure
             - assume-role-production
