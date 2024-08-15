@@ -70,7 +70,7 @@ jobs:
       - aws_assume_role/assume_role:
           account: $AWS_ACCOUNT_STAGING
           profile_name: default
-          role: "LBH_Automation_Deployment_Role"
+          role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
           root: *workspace_root
           paths:
@@ -83,7 +83,7 @@ jobs:
       - aws_assume_role/assume_role:
           account: $AWS_ACCOUNT_REGEN_APPS_PRODUCTION
           profile_name: default
-          role: "LBH_Automation_Deployment_Role"
+          role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
           root: *workspace_root
           paths:
