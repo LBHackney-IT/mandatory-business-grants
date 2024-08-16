@@ -126,7 +126,6 @@ resources:
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
       Properties:
-        DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
         AllocatedStorage: 5
         DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
         DBInstanceClass: "db.t2.small"
