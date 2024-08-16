@@ -116,7 +116,6 @@ resources:
           FromPort: '5432'
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
-        VpcId: ${self:custom.vpcs.${self:provider.stage}}
 
     covidBusinessGrantsRDSSubnetGroup:
       Type: AWS::RDS::DBSubnetGroup
@@ -127,11 +126,10 @@ resources:
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
       Properties:
-        DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
         AllocatedStorage: 5
-        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}-updated"
         DBInstanceClass: "db.t2.small"
-        #DBName: ${self:provider.dbname}
+        DBName: ${self:provider.dbname}
         DeletionProtection: false
         Engine: "postgres"
         EngineVersion: "11.12"
