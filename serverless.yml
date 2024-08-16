@@ -148,7 +148,7 @@ resources:
           -
             Key: "Name"
             Value: "covidBusinessGrantsDbUpdated"
-      DeletionPolicy: "Snapshot"
+      DeletionPolicy: Delete
 
     CloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
