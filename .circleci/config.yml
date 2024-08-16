@@ -7,7 +7,7 @@ orbs:
 executors:
   node-executor:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: circleci/node:14.17.1-browsers
   docker-python:
     docker:
       - image: circleci/python:3.7
