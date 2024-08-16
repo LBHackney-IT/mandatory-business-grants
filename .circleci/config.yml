@@ -44,13 +44,19 @@ jobs:
           root: *workspace_root
           paths: .
 
-  build-deploy-staging:
+  build-deploy-delete-staging:
     executor: node-executor
     steps:
       - *attach_workspace
       - run:
-          name: deploy
-          command: yarn build && yarn --production=true && sudo npm i -g serverless@^3 && sls remove --stage staging
+          name: build
+          command: yarn build
+      - run:
+          name: install sls
+          command: sudo npm i -g serverless@^3
+      - run:
+          name: delete
+          command: sls remove --stage staging
           no_output_timeout: 45m
 
   build-deploy-production:
@@ -109,7 +115,7 @@ workflows:
           filters:
             branches:
               only: master
-      - build-deploy-staging:
+      - build-deploy-delete-staging:
           requires:
             - install-dependencies-and-test
             - assume-role-staging
@@ -120,7 +126,7 @@ workflows:
       - permit-deploy-production:
           type: approval
           requires:
-            - build-deploy-staging
+            - build-deploy-delete-staging
       - are-you-sure:
           type: approval
           requires:
