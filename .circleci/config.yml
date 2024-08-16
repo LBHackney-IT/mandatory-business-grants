@@ -45,7 +45,7 @@ jobs:
           paths: .
 
   build-deploy-staging:
-    executor: aws-cli/default
+    executor: node-executor
     steps:
       - *attach_workspace
       - run:
@@ -54,7 +54,7 @@ jobs:
           no_output_timeout: 45m
 
   build-deploy-production:
-    executor: aws-cli/default
+    executor: node-executor
 
     steps:
       - *attach_workspace
