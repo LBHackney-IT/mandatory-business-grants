@@ -52,9 +52,6 @@ jobs:
           name: build
           command: yarn build
       - run:
-          name: wtf
-          command: yarn --production=true
-      - run:
           name: install sls
           command: sudo npm i -g serverless@^3
       - run:
