@@ -44,7 +44,7 @@ jobs:
           root: *workspace_root
           paths: .
 
-  build-deploy-staging:
+  build-deploy-delete-staging:
     executor: node-executor
     steps:
       - *attach_workspace
@@ -118,7 +118,7 @@ workflows:
           filters:
             branches:
               only: master
-      - build-deploy-staging:
+      - build-deploy-delete-staging:
           requires:
             - install-dependencies-and-test
             - assume-role-staging
@@ -129,7 +129,7 @@ workflows:
       - permit-deploy-production:
           type: approval
           requires:
-            - build-deploy-staging
+            - build-deploy-delete-staging
       - are-you-sure:
           type: approval
           requires:
