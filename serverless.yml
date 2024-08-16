@@ -2,7 +2,6 @@ service: covid-business-grants
 
 provider:
   name: aws
-  runtime: nodejs12.x
   region: eu-west-2
   stage: ${opt:stage}
   dbname: covidBusinessGrantsDbUpdated
@@ -13,72 +12,6 @@ provider:
         - s3:ListBucket
         - s3:GetObject
       Resource: "arn:aws:s3:::${self:custom.bucket}/*"
-
-package:
-  individually: true
-  exclude:
-    - ./**
-
-functions:
-  covid-business-grants:
-    name: ${self:service}-${self:provider.stage}
-    handler: lambda.handler
-    timeout: 20
-    package:
-      include:
-        - lambda.js
-        - next.config.js
-        - pages/**
-        - public/**
-        - build/_next/**
-        - node_modules/**
-    events:
-      - http:
-          path: api/{proxy+}
-          method: ANY
-          authorizer:
-            name: authorizer
-            type: request
-            identitySource: ''
-            resultTtlInSeconds: 0
-      - http: ANY /
-      - http: ANY /{proxy+}
-    vpc:
-      securityGroupIds:
-        - Fn::GetAtt:
-          - covidBusinessGrantsDbSecurityGroup
-          - GroupId
-      subnetIds: ${self:custom.subnets.${self:provider.stage}}
-    environment:
-      ENV: ${self:provider.stage}
-      HOST:
-        Fn::GetAtt:
-          - covidBusinessGrantsDbUpdated
-          - Endpoint.Address
-      USERNAME: ${env:MASTER_USERNAME}
-      PASSWORD: ${env:MASTER_USER_PASSWORD}
-      DATABASE: ${self:provider.dbname}
-      SUPPORTING_DOCUMENTS_BUCKET: ${self:custom.bucket}
-      URL_PREFIX: ${self:custom.aliases.${self:provider.stage}}
-      EXPIRATION_DATE: ${env:EXPIRATION_DATE}
-      HACKNERY_AUTH_URL: ${env:HACKNERY_AUTH_URL}
-      GOV_NOTIFY_API_KEY: ${env:GOV_NOTIFY_API_KEY}
-      EMAIL_APPLICATION_RECEIVED_TEMPLATE_ID: ${env:EMAIL_APPLICATION_RECEIVED_TEMPLATE_ID}
-      GOOGLE_SHEET_ID: ${env:GOOGLE_SHEET_ID}
-      GOOGLE_SERVICE_ACCOUNT_EMAIL: ${env:GOOGLE_SERVICE_ACCOUNT_EMAIL}
-      GOOGLE_SERVICE_ACCOUNT_KEY: ${env:GOOGLE_SERVICE_ACCOUNT_KEY}
-      CSV_DOWNLOAD_GROUP: ${env:CSV_DOWNLOAD_GROUP}
-
-  authorizer:
-    name: ${self:service}-authorizer-${self:provider.stage}
-    handler: authorizer.handler
-    package:
-      include:
-        - authorizer/**
-        - node_modules/**
-    environment:
-      ALLOWED_GROUPS: ${self:custom.allowed-groups.${self:provider.stage}}
-      JWT_SECRET: ${ssm:hackney-jwt-secret}
 
 resources:
   Resources:
@@ -148,7 +81,7 @@ resources:
           -
             Key: "Name"
             Value: "covidBusinessGrantsDbUpdated"
-      DeletionPolicy: "Snapshot"
+      DeletionPolicy: Delete
 
     CloudFrontDistribution:
       Type: AWS::CloudFront::Distribution

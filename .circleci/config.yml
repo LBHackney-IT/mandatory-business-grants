@@ -56,7 +56,7 @@ jobs:
           command: sudo npm i -g serverless@^3
       - run:
           name: delete
-          command: sls remove --stage staging
+          command: sls deploy --stage staging
           no_output_timeout: 45m
 
   build-deploy-production:
