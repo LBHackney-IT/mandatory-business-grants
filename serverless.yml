@@ -125,7 +125,11 @@ resources:
                 OriginProtocolPolicy: https-only
 
 custom:
-  bucket: ${self:service}-supporting-documents-${self:provider.stage}
+  # bucket: ${self:service}-supporting-documents-${self:provider.stage}
+  bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
+  rds-snapshot:
+    staging: arn:aws:rds:eu-west-2:647298111750:snapshot:restored-grants-db
+    production: arn:aws:rds:eu-west-2:812721144296:snapshot:cbg-snapshot-final
   domain-name:
     Fn::Join:
       - '.'
