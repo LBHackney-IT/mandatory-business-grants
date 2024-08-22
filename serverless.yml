@@ -17,7 +17,7 @@ resources:
   Resources:
     covidBusinessGrantsSupportingDocumentsBucket:
         Type: AWS::S3::Bucket
-        DeletionPolicy: Retain
+        # DeletionPolicy: Retain
         Properties:
           BucketName: ${self:custom.bucket}
           PublicAccessBlockConfiguration:
