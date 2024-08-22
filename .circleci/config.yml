@@ -48,15 +48,31 @@ jobs:
     executor: node-executor
     steps:
       - *attach_workspace
-      - run:
-          name: build
-          command: yarn build
+      - aws-cli/install
+      - checkout
       - run:
           name: install sls
           command: sudo npm i -g serverless@^3
       - run:
+          name: clear bucket
+          command: |
+            bucket_name="covid-business-grants-regen-supporting-documents-staging"
+            aws s3 rm "s3://$bucket_name" --recursive
+
+            aws s3api list-object-versions --bucket $bucket_name --query 'Versions[].[Key,VersionId]' --output text | \
+            while IFS=$'\t' read -r key version_id; do
+              echo -e "K: #$key#, V: #$version_id#"
+              # aws s3api delete-object --bucket $bucket_name --key "$key" --version-id "$version_id"
+            done
+
+            aws s3api list-object-versions --bucket $bucket_name --query 'DeleteMarkers[].[Key,VersionId]' --output text | \
+            while IFS=$'\t' read -r key version_id; do
+              echo -e "K: #$key#, V: #$version_id#"
+              # aws s3api delete-object --bucket $bucket_name --key "$key" --version-id "$version_id"
+            done
+      - run:
           name: delete
-          command: sls deploy --stage staging
+          command: sls remove --stage staging
           no_output_timeout: 45m
 
   build-deploy-production:
@@ -99,30 +115,30 @@ workflows:
   version: 2
   continuous-delivery:
     jobs:
-      - install-dependencies-and-test
+      # - install-dependencies-and-test
       - permit-deploy-staging:
           type: approval
-          requires:
-            - install-dependencies-and-test
-          filters:
-            branches:
-              only:
-                - master
+          # requires:
+          #   - install-dependencies-and-test
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - assume-role-staging:
-          context: api-assume-role-staging-context
+          context: api-assume-role-regen-apps-staging-context
           requires:
             - permit-deploy-staging
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
       - build-deploy-delete-staging:
           requires:
-            - install-dependencies-and-test
+            # - install-dependencies-and-test
             - assume-role-staging
-          filters:
-            branches:
-              only:
-                - master
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - permit-deploy-production:
           type: approval
           requires:
@@ -134,7 +150,7 @@ workflows:
       - assume-role-production:
           context: api-cloud-engineering-deployment-context
           requires:
-            - install-dependencies-and-test
+            # - install-dependencies-and-test
             - are-you-sure
           filters:
             branches:
