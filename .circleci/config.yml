@@ -109,7 +109,7 @@ workflows:
           #     only:
           #       - master
       - assume-role-staging:
-          context: api-assume-role-staging-context
+          context: api-assume-role-regen-apps-staging-context
           requires:
             - permit-deploy-staging
           # filters:
