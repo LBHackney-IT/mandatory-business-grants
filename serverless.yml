@@ -148,13 +148,11 @@ custom:
     production: vpc-0c9c2cbf1865adb9e
   subnets:
     staging:
-      - subnet-07e8364b
-      - subnet-723cb408
-      - subnet-48094621
+      - subnet-034d259953e54531a
+      - subnet-0e0152a2fc2b42498
     production:
-      - subnet-034b2a03cd4955923
-      - subnet-03431a6c898502c99
-      - subnet-0f02c86bab1d62956
+      - subnet-067865bb76395b74e
+      - subnet-056356c011224f114
   allowed-groups:
     staging: 'Covid Business Grants (Mandatory) - Staging'
     production: 'Covid Business Grants (Mandatory)'
