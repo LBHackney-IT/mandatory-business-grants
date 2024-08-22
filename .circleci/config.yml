@@ -48,6 +48,7 @@ jobs:
     executor: node-executor
     steps:
       - *attach_workspace
+      - aws-cli/install
       - checkout
       - run:
           name: install sls
