@@ -49,6 +49,7 @@ resources:
           FromPort: '5432'
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
+        VpcId: ${self:custom.vpcs.${self:provider.stage}}
 
     covidBusinessGrantsRDSSubnetGroup:
       Type: AWS::RDS::DBSubnetGroup
@@ -58,11 +59,12 @@ resources:
 
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
+      DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
       Properties:
         AllocatedStorage: 5
-        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}-updated"
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
         DBInstanceClass: "db.t2.small"
-        DBName: ${self:provider.dbname}
+        # DBName: ${self:provider.dbname}
         DeletionProtection: false
         Engine: "postgres"
         EngineVersion: "11.12"
@@ -123,7 +125,11 @@ resources:
                 OriginProtocolPolicy: https-only
 
 custom:
-  bucket: ${self:service}-supporting-documents-${self:provider.stage}
+  # bucket: ${self:service}-supporting-documents-${self:provider.stage}
+  bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
+  rds-snapshot:
+    staging: arn:aws:rds:eu-west-2:647298111750:snapshot:restored-grants-db
+    production: arn:aws:rds:eu-west-2:812721144296:snapshot:cbg-snapshot-final
   domain-name:
     Fn::Join:
       - '.'
@@ -135,17 +141,18 @@ custom:
     staging: staging-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
-    staging: arn:aws:acm:us-east-1:715003523189:certificate/8f7fa30c-a4e5-4775-b827-ade824a33c9a
-    production: arn:aws:acm:us-east-1:153306643385:certificate/71728a39-cd3e-4570-a440-e87f84ef9a0d
+    staging: arn:aws:acm:us-east-1:647298111750:certificate/a9c099b9-50bb-411b-84e3-982ffa1c76bf
+    production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
+  vpcs:
+    staging: vpc-0047c1ec06d524b64
+    production: vpc-0c9c2cbf1865adb9e
   subnets:
     staging:
-      - subnet-07e8364b
-      - subnet-723cb408
-      - subnet-48094621
+      - subnet-034d259953e54531a
+      - subnet-0e0152a2fc2b42498
     production:
-      - subnet-034b2a03cd4955923
-      - subnet-03431a6c898502c99
-      - subnet-0f02c86bab1d62956
+      - subnet-067865bb76395b74e
+      - subnet-056356c011224f114
   allowed-groups:
     staging: 'Covid Business Grants (Mandatory) - Staging'
     production: 'Covid Business Grants (Mandatory)'
