@@ -141,8 +141,8 @@ custom:
     staging: staging-covidbusinessgrants.hackney.gov.uk
     production: covidbusinessgrants.hackney.gov.uk
   certificate-arn:
-    staging: arn:aws:acm:us-east-1:715003523189:certificate/8f7fa30c-a4e5-4775-b827-ade824a33c9a
-    production: arn:aws:acm:us-east-1:153306643385:certificate/71728a39-cd3e-4570-a440-e87f84ef9a0d
+    staging: arn:aws:acm:us-east-1:647298111750:certificate/a9c099b9-50bb-411b-84e3-982ffa1c76bf
+    production: arn:aws:acm:us-east-1:812721144296:certificate/f0ad1b83-2a2d-4073-9a1e-fc614fa2eb94
   vpcs:
     staging: vpc-0047c1ec06d524b64
     production: vpc-0c9c2cbf1865adb9e
