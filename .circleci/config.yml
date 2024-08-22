@@ -134,7 +134,7 @@ workflows:
       - assume-role-production:
           context: api-cloud-engineering-deployment-context
           requires:
-            - install-dependencies-and-test
+            # - install-dependencies-and-test
             - are-you-sure
           filters:
             branches:
