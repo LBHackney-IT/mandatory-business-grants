@@ -30,7 +30,7 @@ jobs:
           command: sudo npm i -g serverless@^3
       - run:
           name: deploy
-          command:
+          command: |
             # sls remove --verbose --stage production
             
             bucket_name="covid-business-grants-pr-serverlessdeploymentbuck-193fpskx8va0u"
