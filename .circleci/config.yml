@@ -43,7 +43,7 @@ jobs:
     steps:
       - checkout
       - aws_assume_role/assume_role:
-          account: $AWS_ACCOUNT_REGEN_APPS_PRODUCTION
+          account: $AWS_ACCOUNT_PRODUCTION
           profile_name: default
           role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
