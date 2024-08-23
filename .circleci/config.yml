@@ -30,12 +30,7 @@ jobs:
           command: sudo npm i -g serverless@^3
       - run:
           name: deploy
-          command: |
-            # sls remove --verbose --stage production
-            
-            bucket_name="covid-business-grants-pr-serverlessdeploymentbuck-193fpskx8va0u"
-            aws s3 rm "s3://$bucket_name" --recursive
-            aws s3api delete-bucket --bucket $bucket_name
+          command: sls deploy --verbose --stage production
           no_output_timeout: 45m
 
   assume-role-production:
@@ -43,7 +38,7 @@ jobs:
     steps:
       - checkout
       - aws_assume_role/assume_role:
-          account: $AWS_ACCOUNT_REGEN_APPS_PRODUCTION
+          account: $AWS_ACCOUNT_PRODUCTION
           profile_name: default
           role: "LBH_Circle_CI_Deployment_Role"
       - persist_to_workspace:
@@ -60,23 +55,16 @@ workflows:
           filters:
             branches:
               only: master
-      - are-you-sure:
-          type: approval
+
+      - assume-role-production:
+          context: api-assume-role-production-context
           requires:
             - permit-deploy-production
           filters:
             branches:
               only: master
-      - assume-role-production:
-          context: api-assume-role-regen-apps-production-context
-          requires:
-            - are-you-sure
-          filters:
-            branches:
-              only: master
       - build-deploy-production:
           requires:
-            - are-you-sure
             - assume-role-production
           filters:
             branches:

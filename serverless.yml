@@ -49,7 +49,6 @@ resources:
           FromPort: '5432'
           ToPort: '5432'
           CidrIp: 0.0.0.0/0
-        VpcId: ${self:custom.vpcs.${self:provider.stage}}
 
     covidBusinessGrantsRDSSubnetGroup:
       Type: AWS::RDS::DBSubnetGroup
@@ -57,47 +56,43 @@ resources:
         DBSubnetGroupDescription: "RDS Subnet Group"
         SubnetIds: ${self:custom.subnets.${self:provider.stage}}
 
-    # covidBusinessGrantsDbUpdated:
-    #   Type: AWS::RDS::DBInstance
-    #   DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
-    #   Properties:
-    #     AllocatedStorage: 5
-    #     DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
-    #     DBInstanceClass: "db.t2.small"
-    #     # DBName: ${self:provider.dbname}
-    #     DeletionProtection: false
-    #     Engine: "postgres"
-    #     EngineVersion: "11.12"
-    #     MasterUsername: ${env:MASTER_USERNAME}
-    #     MasterUserPassword: ${env:MASTER_USER_PASSWORD}
-    #     MultiAZ: true
-    #     PubliclyAccessible: false
-    #     StorageEncrypted: true
-    #     VPCSecurityGroups:
-    #     - Fn::GetAtt:
-    #       - covidBusinessGrantsDbSecurityGroup
-    #       - GroupId
-    #     DBSubnetGroupName:
-    #       Ref: covidBusinessGrantsRDSSubnetGroup
-    #     Tags:
-    #       -
-    #         Key: "Name"
-    #         Value: "covidBusinessGrantsDbUpdated"
-    #   DeletionPolicy: Delete
+    covidBusinessGrantsDbUpdated:
+      Type: AWS::RDS::DBInstance
+      Properties:
+        AllocatedStorage: 5
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}-updated"
+        CACertificateIdentifier: 'rds-ca-rsa2048-g1'
+        DBInstanceClass: "db.t3.small"
+        DBName: ${self:provider.dbname}
+        DeletionProtection: false
+        Engine: "postgres"
+        EngineVersion: "11.22"
+        MasterUsername: ${env:MASTER_USERNAME}
+        MasterUserPassword: ${env:MASTER_USER_PASSWORD}
+        MultiAZ: true
+        PubliclyAccessible: false
+        StorageEncrypted: true
+        VPCSecurityGroups:
+        - Fn::GetAtt:
+          - covidBusinessGrantsDbSecurityGroup
+          - GroupId
+        DBSubnetGroupName:
+          Ref: covidBusinessGrantsRDSSubnetGroup
+        Tags:
+          - Key: "Name"
+            Value: "covidBusinessGrantsDbUpdated"
+          - Key: "BackupPolicy"
+            Value: "Prod"
+          - Key: "STAGE"
+            Value: ${self:provider.stage}
+      DeletionPolicy: Delete
 
 custom:
-  # bucket: ${self:service}-supporting-documents-${self:provider.stage}
-  bucket: ${self:service}-regen-supporting-documents-${self:provider.stage}
-  rds-snapshot:
-    staging: arn:aws:rds:eu-west-2:647298111750:snapshot:restored-grants-db
-    production: arn:aws:rds:eu-west-2:812721144296:snapshot:cbg-snapshot-final
+  bucket: ${self:service}-supporting-documents-${self:provider.stage}
   vpcs:
-    staging: vpc-0047c1ec06d524b64
     production: vpc-0c9c2cbf1865adb9e
   subnets:
-    staging:
-      - subnet-034d259953e54531a
-      - subnet-0e0152a2fc2b42498
     production:
-      - subnet-067865bb76395b74e
-      - subnet-056356c011224f114
+      - subnet-034b2a03cd4955923
+      - subnet-03431a6c898502c99
+      - subnet-0f02c86bab1d62956
