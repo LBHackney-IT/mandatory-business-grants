@@ -55,23 +55,16 @@ workflows:
           filters:
             branches:
               only: master
-      - are-you-sure:
-          type: approval
+
+      - assume-role-production:
+          context: api-assume-role-production-context
           requires:
             - permit-deploy-production
           filters:
             branches:
               only: master
-      - assume-role-production:
-          context: api-assume-role-production-context
-          requires:
-            - are-you-sure
-          filters:
-            branches:
-              only: master
       - build-deploy-production:
           requires:
-            - are-you-sure
             - assume-role-production
           filters:
             branches:
