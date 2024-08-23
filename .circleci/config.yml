@@ -71,8 +71,6 @@ workflows:
           #       - master
       - permit-deploy-production:
           type: approval
-          requires:
-            - build-deploy-delete-staging
       - are-you-sure:
           type: approval
           requires:
@@ -80,7 +78,6 @@ workflows:
       - assume-role-production:
           context: api-cloud-engineering-deployment-context
           requires:
-            # - install-dependencies-and-test
             - are-you-sure
           filters:
             branches:
