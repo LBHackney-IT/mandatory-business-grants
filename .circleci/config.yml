@@ -19,84 +19,14 @@ references:
       at: *workspace_root
 
 jobs:
-  install-dependencies-and-test:
-    executor: node-executor
-    steps:
-      - *attach_workspace
-      - checkout
-      - run:
-          name: Install dependencies
-          command: yarn
-
-      - run:
-          name: Build the application
-          command: yarn build
-
-      - run:
-          name: Run unit tests
-          command: yarn run unit-test
-
-      - run:
-          name: Run linting
-          command: yarn lint
-
-      - persist_to_workspace:
-          root: *workspace_root
-          paths: .
-
-  build-deploy-delete-staging:
-    executor: node-executor
-    steps:
-      - *attach_workspace
-      - aws-cli/install
-      - checkout
-      - run:
-          name: install sls
-          command: sudo npm i -g serverless@^3
-      - run:
-          name: clear bucket
-          command: |
-            bucket_name="covid-business-grants-regen-supporting-documents-staging"
-            aws s3 rm "s3://$bucket_name" --recursive
-
-            aws s3api list-object-versions --bucket $bucket_name --query 'Versions[].[Key,VersionId]' --output text | \
-            while IFS=$'\t' read -r key version_id; do
-              echo -e "K: #$key#, V: #$version_id#"
-              # aws s3api delete-object --bucket $bucket_name --key "$key" --version-id "$version_id"
-            done
-
-            aws s3api list-object-versions --bucket $bucket_name --query 'DeleteMarkers[].[Key,VersionId]' --output text | \
-            while IFS=$'\t' read -r key version_id; do
-              echo -e "K: #$key#, V: #$version_id#"
-              # aws s3api delete-object --bucket $bucket_name --key "$key" --version-id "$version_id"
-            done
-      - run:
-          name: delete
-          command: sls remove --stage staging
-          no_output_timeout: 45m
-
   build-deploy-production:
     executor: node-executor
-
     steps:
       - *attach_workspace
       - run:
           name: deploy
           command: yarn build && yarn --production=true && sudo npm i -g serverless@^3 && sls deploy --stage production
           no_output_timeout: 45m
-
-  assume-role-staging:
-    executor: docker-python
-    steps:
-      - checkout
-      - aws_assume_role/assume_role:
-          account: $AWS_ACCOUNT_REGEN_APPS_STAGING
-          profile_name: default
-          role: "LBH_Circle_CI_Deployment_Role"
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - .aws
 
   assume-role-production:
     executor: docker-python
