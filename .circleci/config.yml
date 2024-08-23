@@ -30,12 +30,7 @@ jobs:
           command: sudo npm i -g serverless@^3
       - run:
           name: deploy
-          command: |
-            # sls remove --verbose --stage production
-            
-            bucket_name="covid-business-grants-pr-serverlessdeploymentbuck-193fpskx8va0u"
-            aws s3 rm "s3://$bucket_name" --recursive
-            aws s3api delete-bucket --bucket $bucket_name
+          command: sls deploy --verbose --stage production
           no_output_timeout: 45m
 
   assume-role-production:
