@@ -20,16 +20,22 @@ references:
 
 jobs:
   build-deploy-production:
-    executor: node-executor
+    executor: aws-cli/default
     steps:
       - *attach_workspace
+      - aws-cli/install
       - checkout
       - run:
           name: install
           command: sudo npm i -g serverless@^3
       - run:
           name: deploy
-          command: sls remove --verbose --stage production
+          command: |
+            # sls remove --verbose --stage production
+            
+            bucket_name="covid-business-grants-pr-serverlessdeploymentbuck-193fpskx8va0u"
+            aws s3 rm "s3://$bucket_name" --recursive
+            aws s3api delete-bucket --bucket $bucket_name
           no_output_timeout: 45m
 
   assume-role-production:
