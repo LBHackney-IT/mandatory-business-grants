@@ -59,15 +59,15 @@ resources:
 
     covidBusinessGrantsDbUpdated:
       Type: AWS::RDS::DBInstance
-      DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
       Properties:
         AllocatedStorage: 5
-        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
-        DBInstanceClass: "db.t2.small"
-        # DBName: ${self:provider.dbname}
+        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}-updated"
+        CACertificateIdentifier: 'rds-ca-rsa2048-g1'
+        DBInstanceClass: "db.t3.small"
+        DBName: ${self:provider.dbname}
         DeletionProtection: false
         Engine: "postgres"
-        EngineVersion: "11.12"
+        EngineVersion: "11.22"
         MasterUsername: ${env:MASTER_USERNAME}
         MasterUserPassword: ${env:MASTER_USER_PASSWORD}
         MultiAZ: true
@@ -80,9 +80,12 @@ resources:
         DBSubnetGroupName:
           Ref: covidBusinessGrantsRDSSubnetGroup
         Tags:
-          -
-            Key: "Name"
+          - Key: "Name"
             Value: "covidBusinessGrantsDbUpdated"
+          - Key: "BackupPolicy"
+            Value: "Prod"
+          - Key: "STAGE"
+            Value: ${self:provider.stage}
       DeletionPolicy: Delete
 
 custom:
