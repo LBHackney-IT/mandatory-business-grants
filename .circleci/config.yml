@@ -58,7 +58,7 @@ workflows:
             branches:
               only: master
       - assume-role-production:
-          context: api-cloud-engineering-deployment-context
+          context: api-assume-role-regen-apps-production-context
           requires:
             - are-you-sure
           filters:
