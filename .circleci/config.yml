@@ -23,9 +23,13 @@ jobs:
     executor: node-executor
     steps:
       - *attach_workspace
+      - checkout
+      - run:
+          name: install
+          command: sudo npm i -g serverless@^3
       - run:
           name: deploy
-          command: yarn build && yarn --production=true && sudo npm i -g serverless@^3 && sls deploy --stage production
+          command: sls deploy --stage production
           no_output_timeout: 45m
 
   assume-role-production:
@@ -58,7 +62,7 @@ workflows:
             branches:
               only: master
       - assume-role-production:
-          context: api-cloud-engineering-deployment-context
+          context: api-assume-role-regen-apps-production-context
           requires:
             - are-you-sure
           filters:
