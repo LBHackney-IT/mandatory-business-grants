@@ -63,7 +63,7 @@ workflows:
             branches:
               only: master
       - assume-role-production:
-          context: api-assume-role-regen-apps-production-context
+          context: api-assume-role-production-context
           requires:
             - are-you-sure
           filters:
