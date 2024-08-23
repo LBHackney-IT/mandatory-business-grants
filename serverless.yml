@@ -57,33 +57,33 @@ resources:
         DBSubnetGroupDescription: "RDS Subnet Group"
         SubnetIds: ${self:custom.subnets.${self:provider.stage}}
 
-    covidBusinessGrantsDbUpdated:
-      Type: AWS::RDS::DBInstance
-      DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
-      Properties:
-        AllocatedStorage: 5
-        DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
-        DBInstanceClass: "db.t2.small"
-        # DBName: ${self:provider.dbname}
-        DeletionProtection: false
-        Engine: "postgres"
-        EngineVersion: "11.12"
-        MasterUsername: ${env:MASTER_USERNAME}
-        MasterUserPassword: ${env:MASTER_USER_PASSWORD}
-        MultiAZ: true
-        PubliclyAccessible: false
-        StorageEncrypted: true
-        VPCSecurityGroups:
-        - Fn::GetAtt:
-          - covidBusinessGrantsDbSecurityGroup
-          - GroupId
-        DBSubnetGroupName:
-          Ref: covidBusinessGrantsRDSSubnetGroup
-        Tags:
-          -
-            Key: "Name"
-            Value: "covidBusinessGrantsDbUpdated"
-      DeletionPolicy: Delete
+    # covidBusinessGrantsDbUpdated:
+    #   Type: AWS::RDS::DBInstance
+    #   DBSnapshotIdentifier: ${self:custom.rds-snapshot.${self:provider.stage}}
+    #   Properties:
+    #     AllocatedStorage: 5
+    #     DBInstanceIdentifier: "covid-business-grants-db-${self:provider.stage}"
+    #     DBInstanceClass: "db.t2.small"
+    #     # DBName: ${self:provider.dbname}
+    #     DeletionProtection: false
+    #     Engine: "postgres"
+    #     EngineVersion: "11.12"
+    #     MasterUsername: ${env:MASTER_USERNAME}
+    #     MasterUserPassword: ${env:MASTER_USER_PASSWORD}
+    #     MultiAZ: true
+    #     PubliclyAccessible: false
+    #     StorageEncrypted: true
+    #     VPCSecurityGroups:
+    #     - Fn::GetAtt:
+    #       - covidBusinessGrantsDbSecurityGroup
+    #       - GroupId
+    #     DBSubnetGroupName:
+    #       Ref: covidBusinessGrantsRDSSubnetGroup
+    #     Tags:
+    #       -
+    #         Key: "Name"
+    #         Value: "covidBusinessGrantsDbUpdated"
+    #   DeletionPolicy: Delete
 
 custom:
   # bucket: ${self:service}-supporting-documents-${self:provider.stage}
