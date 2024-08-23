@@ -47,10 +47,16 @@ workflows:
     jobs:
       - permit-deploy-production:
           type: approval
+          filters:
+            branches:
+              only: master
       - are-you-sure:
           type: approval
           requires:
             - permit-deploy-production
+          filters:
+            branches:
+              only: master
       - assume-role-production:
           context: api-cloud-engineering-deployment-context
           requires:
@@ -62,3 +68,6 @@ workflows:
           requires:
             - are-you-sure
             - assume-role-production
+          filters:
+            branches:
+              only: master
