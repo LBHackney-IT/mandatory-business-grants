@@ -1,5 +1,7 @@
 # COVID-19 Business Grants
 
+This application and its cloud resources _(except the S3 bucket)_ have been decommissioned.
+
 **NOTE: This application is based on the work in
 [Discretionary Business Grants](https://github.com/LBHackney-IT/discretionary-business-grants) - which
 provides all the groundwork for this application. The clone of the work is to enable this application, and
